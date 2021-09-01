@@ -1,38 +1,41 @@
 
 <!--Nav bar-->
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="nav-link" routerLink="/landing" routerLinkActive="active"><strong>{{title}}</strong></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"><strong>Dashboard</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/screening" routerLinkActive="active"><strong>Screening</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login" routerLinkActive="active"><strong>Login</strong></a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="nav-link" routerLink="/landing" routerLinkActive="active"><strong>{{title}}</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard" routerLinkActive="active"><strong>Dashboard</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/screening" routerLinkActive="active"><strong>Screening</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active"><strong>Login</strong></a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!--Nav bar end-->
 
-
-<router-outlet></router-outlet>
-
-
-<div class="footer">
-    
+<main>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
   
-  <footer class="border-top footer text-light bg-dark">
+</main>
+
+
+
+
+<footer class="border-top footer text-light bg-dark">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -45,7 +48,7 @@
 
           <!-- Content -->
           <h5 class="text-uppercase">Covid Compliance</h5>
-          <p>Tshwane University Of Technology Covid-9 Compliance System.</p>
+          <p>Tshwane University Of Technology Covid-19 Compliance System.</p>
 
         </div>
         <!-- Grid column -->
@@ -88,10 +91,9 @@
       © 2021 Covid Compliance. <strong>All Rights Reserved.</strong>
     </div>
     <!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
-</div>  
+</footer>
+<!-- Footer --> 
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

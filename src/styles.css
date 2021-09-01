@@ -3,3 +3,6 @@
 /* Application-wide Styles */
 
 
+html,body{
+    height: 100%
+}

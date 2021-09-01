@@ -13,6 +13,10 @@ nav a:hover {
     border-bottom-right-radius: 2px;
   }
 
-  .footer{
-    padding-top: 60px;
+
+  footer{
+    position: relative;
+    clear: both;
+    /*bottom: 0;*/
+    padding-top:20px;
   }
