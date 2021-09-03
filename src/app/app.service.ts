@@ -66,6 +66,10 @@ export class AppService {
       })
     });
   }
+
+  loggedIn(){
+    return !!localStorage.getItem('token');
+  }
   
   screening(screening : any) : Observable<any> {
     return this.httpClient.post<any>(this.user_screening, screening, {

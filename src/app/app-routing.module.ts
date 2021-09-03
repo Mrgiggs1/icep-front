@@ -10,17 +10,18 @@ import { UserComponent } from './user/user.component';
 import { ScreenReportComponent } from './screen-report/screen-report.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LandingComponent } from './landing/landing.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'registration', component: RegistrationComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'registration', component: RegistrationComponent, canActivate: [AuthGuard]},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'screening', component: ScreeningComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'user-profile' ,component: UserProfileComponent},
-  {path: 'user' ,component: UserComponent},
-  {path: 'screen-report' ,component: ScreenReportComponent},
-  {path: 'statistics' ,component: StatisticsComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuard]},
+  {path: 'user-profile' ,component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user' ,component: UserComponent, canActivate: [AuthGuard]},
+  {path: 'screen-report' ,component: ScreenReportComponent, canActivate: [AuthGuard]},
+  {path: 'statistics' ,component: StatisticsComponent, canActivate: [AuthGuard]},
   {path: 'landing' ,component: LandingComponent},
   {path: '', redirectTo: '/landing', pathMatch: 'full'}
 ];
