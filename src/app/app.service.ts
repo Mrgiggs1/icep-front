@@ -20,7 +20,8 @@ export class AppService {
   statConstUrl =    "http://localhost:3000/statistics/campus/constractor";
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
-  
+  hotspot =         "http://localhost:3000/statistics/hotspot/campu";
+
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
   }
@@ -55,6 +56,11 @@ export class AppService {
   getDailySymp() : Observable<any> {
     return this.httpClient.get(this.statSympUrl);
   }
+
+  getHotspot() : Observable<any> {
+    return this.httpClient.get(this.hotspot);
+  }
+  
   // login() : Observable<any> {
   //   return this.httpClient.get(this.userStaff);
   // }

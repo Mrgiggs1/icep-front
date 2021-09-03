@@ -120,7 +120,7 @@
         </tr>
         <tr>
           <td>Soshanguve South</td>
-          <td>300</td>
+          <td *ngFor = "let hotspot_data of total_hotspot">{{hotspot_data.total_hotspot}}</td>
         </tr>
       </table>
     </div>

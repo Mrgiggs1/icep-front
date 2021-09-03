@@ -16,6 +16,10 @@ import { ScreenReportComponent } from './screen-report/screen-report.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LandingComponent } from './landing/landing.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StaffProfileComponent } from './staff-profile/staff-profile.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UserComponent,
     ScreenReportComponent,
     StatisticsComponent,
-    LandingComponent
+    LandingComponent,
+    StaffDashboardComponent,
+    StudentDashboardComponent,
+    StaffProfileComponent,
+    StudentProfileComponent,
+    
   ],
   imports: [
     BrowserModule,

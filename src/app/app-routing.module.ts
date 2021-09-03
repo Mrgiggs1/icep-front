@@ -10,6 +10,10 @@ import { UserComponent } from './user/user.component';
 import { ScreenReportComponent } from './screen-report/screen-report.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { LandingComponent } from './landing/landing.component';
+import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.component';
+import { StaffProfileComponent } from './staff-profile/staff-profile.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -22,6 +26,10 @@ const routes: Routes = [
   {path: 'user' ,component: UserComponent, canActivate: [AuthGuard]},
   {path: 'screen-report' ,component: ScreenReportComponent, canActivate: [AuthGuard]},
   {path: 'statistics' ,component: StatisticsComponent, canActivate: [AuthGuard]},
+  {path: 'staff-dashboard', component: StaffDashboardComponent},
+  {path: 'student-dashboard', component: StudentDashboardComponent},
+  {path: 'staff-profile', component: StaffProfileComponent},
+  {path: 'student-profile', component: StudentProfileComponent},
   {path: 'landing' ,component: LandingComponent},
   {path: '', redirectTo: '/landing', pathMatch: 'full'}
 ];

@@ -13,6 +13,8 @@ export class StatisticsComponent implements OnInit {
   dailyConst: any;
   dailyVis: any;
   dailySymp: any;
+  total_hotspot: any;
+
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
@@ -57,6 +59,14 @@ export class StatisticsComponent implements OnInit {
       }, error => {
         console.log(error , 'GET error!!!')
     });
+
+    this.appService.getHotspot().subscribe( 
+      response => {
+        this.total_hotspot = response;
+      }, error => {
+        console.log(error , 'GET error!!!')
+    });
+
 
   }
 
