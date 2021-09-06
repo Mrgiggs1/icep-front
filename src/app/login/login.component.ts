@@ -29,17 +29,23 @@ export class LoginComponent implements OnInit {
 
     this.appService.login(newLogin).subscribe( 
       (data: any) => {
-        console.log(data.user[0].role)
+        console.log(data.user)
         localStorage.setItem('token', data.token)
-        if (data.user[0].role == "Student"){
-          this._router.navigate(['/user-profile'])
-        } else if (data.user[0].role == "Staff"){
+        if (data.user[0].role == "student"){
+          this._router.navigate(['/student-profile'])
+          alert("Student Succesafully LoggedIn");
+        } else if (data.user[0].role == "staff"){
           this._router.navigate(['/staff-profile'])
-        } else {
-          this._router.navigate(['/admin'])
+          alert("Staff Succesafully LoggedIn");
+        } else if(data.user[0].role == "admin"){
+          this._router.navigate(['/user-profile'])
+          alert("Admin Succesafully LoggedIn");
+        }else if(data.user[0].role == ""){
+          alert("Wrong Username or Password");
         }
       }, (error: any) => {
         console.log(error, 'POST LOGIN error!!!')
+        
     });
   }
 }

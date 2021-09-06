@@ -12,7 +12,8 @@ export class AppService {
 
   constructor(public httpClient: HttpClient) { }
 
-  user_screening =  "http://localhost:3000/screening";
+  user_screening =  "http://localhost:3000/screening/stud_staff";
+  user_screeningVis =  "http://localhost:3000/screening/visitor";
   userStud =        "http://localhost:3000/user/student";
   userStaff =       "http://localhost:3000/user/staff";
   userLogin =       "http://localhost:3000/login";
@@ -23,6 +24,7 @@ export class AppService {
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
   hotspotUrl =      "http://localhost:3000/statistics/hotspot/";
+  userProfile =     "http://localhost:3000/user/user-profile";
 
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
@@ -77,6 +79,14 @@ export class AppService {
   
   screening(screening : any) : Observable<any> {
     return this.httpClient.post<any>(this.user_screening, screening, {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      })
+    }); 
+  }
+
+  screeningVis(screening : any) : Observable<any> {
+    return this.httpClient.post<any>(this.user_screeningVis, screening, {
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       })
