@@ -118,9 +118,8 @@
           <th>Campus</th>
           <th>Number Of Cases</th>
         </tr>
-        <tr>
-          <td>Soshanguve South</td>
-          <td *ngFor = "let hotspot_data of total_hotspot">{{hotspot_data.total_hotspot}}</td>
+        <tr *ngFor="let total of total_hotspot; let i = index" [attr.data-index]="i">
+          <td>{{i}}</td>
         </tr>
       </table>
     </div>

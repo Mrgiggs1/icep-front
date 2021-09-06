@@ -13,7 +13,12 @@ export class StatisticsComponent implements OnInit {
   dailyConst: any;
   dailyVis: any;
   dailySymp: any;
-  total_hotspot: any;
+  total_hotspot: any[] = [];
+
+  // total_soshn: any; total_soshs: any; total_rank: any; total_arc: any; total_art: any; 
+  // total_emal: any; total_main: any; total_pol: any;
+
+  campus: String[] = ["soshn", "soshs", "rank", "arc", "art", "emal", "main", "pol"];
 
   constructor(public appService: AppService) { }
 
@@ -60,14 +65,14 @@ export class StatisticsComponent implements OnInit {
         console.log(error , 'GET error!!!')
     });
 
-    this.appService.getHotspot().subscribe( 
-      response => {
-        this.total_hotspot = response;
-      }, error => {
-        console.log(error , 'GET error!!!')
-    });
-
-
+    for (var _i = 0; _i < 8; _i++) {
+      this.appService.getHotspot(this.campus[_i]).subscribe( 
+        response => {
+          this.total_hotspot[_i] = response[0]
+        },error => {
+          console.log(error , 'GET error!!!')
+      });
+    }
+    console.log(this.total_hotspot[0])
   }
-
 }

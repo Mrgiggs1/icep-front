@@ -29,9 +29,15 @@ export class LoginComponent implements OnInit {
 
     this.appService.login(newLogin).subscribe( 
       (data: any) => {
-        console.log(data)
+        console.log(data.user[0].role)
         localStorage.setItem('token', data.token)
-        this._router.navigate(['/user-profile'])
+        if (data.user[0].role == "Student"){
+          this._router.navigate(['/user-profile'])
+        } else if (data.user[0].role == "Staff"){
+          this._router.navigate(['/staff-profile'])
+        } else {
+          this._router.navigate(['/admin'])
+        }
       }, (error: any) => {
         console.log(error, 'POST LOGIN error!!!')
     });

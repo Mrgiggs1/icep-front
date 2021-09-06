@@ -1,11 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Params } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AppService {
 
   constructor(public httpClient: HttpClient) { }
@@ -20,7 +22,7 @@ export class AppService {
   statConstUrl =    "http://localhost:3000/statistics/campus/constractor";
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
-  hotspot =         "http://localhost:3000/statistics/hotspot/campu";
+  hotspotUrl =      "http://localhost:3000/statistics/hotspot/";
 
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
@@ -57,13 +59,9 @@ export class AppService {
     return this.httpClient.get(this.statSympUrl);
   }
 
-  getHotspot() : Observable<any> {
-    return this.httpClient.get(this.hotspot);
+  getHotspot(campus: any) : Observable<any> {
+    return this.httpClient.get(this.hotspotUrl + campus);
   }
-  
-  // login() : Observable<any> {
-  //   return this.httpClient.get(this.userStaff);
-  // }
 
   login(newLogin : any) : Observable<any> {
     return this.httpClient.post<any>(this.userLogin, newLogin, {
