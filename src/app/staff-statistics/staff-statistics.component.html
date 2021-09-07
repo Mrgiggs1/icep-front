@@ -1,0 +1,125 @@
+<div class="container" data-aos="fade-right">
+
+    <div class="card text-center">
+        <div class="card-header">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand"  routerLink="/staff-profile" routerLinkActive="active">Profile</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/staff-reports" routerLinkActive="active">Staff Report</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="/staff-statistics" routerLinkActive="active">Statistics</a>
+                </li>
+              
+              </ul>
+              
+            </div>
+          </nav>
+        </div>
+        
+      <!--/.Navbar-->
+    </div>
+    <h1 class="display-6">Statistics</h1>
+    <div class="card">
+        <div class="card-header">
+            Daily Report
+        </div>
+        <div class="card-body" *ngFor = "let data of dailyData">
+          <div  >
+             <p class="card-text" >Daily Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.totnum}}</p>
+          </div>  
+         
+
+            
+            <table style="border: 1px" style="text-align: center" width=100%>
+        
+                <tr>
+                   <th>Staff</th>
+                   <th>Students</th>  
+                   <th>Contractors</th>
+                   <th>Visitors</th>
+                   <th>Total Screened</th>
+                   <th>Covid-19 Symptoms</th>
+                 </tr>
+
+                 <tr>
+                   <td *ngFor = "let staff of dailyStaff">{{staff.staffNum}}</td>
+                   <td *ngFor = "let stud of dailyStud">{{stud.studNum}}</td>
+                   <td *ngFor = "let const of dailyConst">{{const.constNum}}</td>
+                   <td *ngFor = "let vis of dailyVis">{{vis.visNum}}</td>
+                   <td>{{data.totnum}}</td>
+                   <td *ngFor = "let symp of dailySymp">{{symp.sympNum}}</td>
+                 </tr>
+            </table>
+
+
+        </div>
+    </div>
+    <br><br>
+    <div class="card">
+        <div class="card-header">
+            Weekly Report
+        </div>
+        <div class="card-body">
+            <p class="card-text">Weekly Campus Statistics</p>
+            <table style="border: 1px" style="text-align: center" width=100%>
+        
+                <tr>
+                   <th>Staff</th>
+                   <th>Students</th>  
+                   <th>Contractors</th>
+                   <th>Visitors</th>
+                   <th>Screened</th>
+                   <th>Covid-19 Symptoms</th>
+                 </tr>
+            </table>
+
+        </div>
+    </div>
+    <br><br>
+    <div class="card">
+        <div class="card-header">
+            Monthly Report
+        </div>
+        <div class="card-body">
+            <p class="card-text">Monthly Campus Statistics</p>
+            <table style="border: 1px" style="text-align: center" width=100%>
+        
+                <tr>
+                   <th>Staff</th>
+                   <th>Students</th>  
+                   <th>Contractors</th>
+                   <th>Visitors</th>
+                   <th>Screened</th>
+                   <th>Covid-19 Symptoms</th>
+                 </tr>
+            </table>
+
+            
+        </div>
+    </div>
+
+    <br><br>
+    <div class="card border-danger">
+      <div class="card-header" style="text-align: center;">
+        <strong>HOTSPOT</strong>
+      </div>
+      <table style="border: 1px" style="text-align: center" width=100%>
+        <tr>
+          <th>Campus</th>
+          <th>Number Of Cases</th>
+        </tr>
+        <tr *ngFor="let total of total_hotspot; let i = index" [attr.data-index]="i">
+          <td>{{i}}</td>
+        </tr>
+      </table>
+    </div>
+
+
+</div>

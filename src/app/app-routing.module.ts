@@ -16,6 +16,9 @@ import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentReportsComponent } from './student-reports/student-reports.component';
 import { StaffReportsComponent } from './staff-reports/staff-reports.component';
+import { StudentStatistictComponent } from './student-statistict/student-statistict.component';
+import { StaffStatisticsComponent } from './staff-statistics/staff-statistics.component';
+
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -35,6 +38,9 @@ const routes: Routes = [
   {path: 'landing' ,component: LandingComponent},
   {path: 'student-reports', component: StudentReportsComponent},
   {path: 'staff-reports', component: StaffReportsComponent},
+  {path: 'staff-reports', component: StaffReportsComponent},
+  {path: 'student-statistict', component: StudentStatistictComponent},
+  {path: 'staff-statistics', component: StaffStatisticsComponent},
   {path: '', redirectTo: '/landing', pathMatch: 'full'}
 ];
 

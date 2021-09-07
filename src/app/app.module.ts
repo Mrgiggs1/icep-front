@@ -22,6 +22,9 @@ import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentReportsComponent } from './student-reports/student-reports.component';
 import { StaffReportsComponent } from './staff-reports/staff-reports.component';
+import { StudentStatistictComponent } from './student-statistict/student-statistict.component';
+import { StaffStatisticsComponent } from './staff-statistics/staff-statistics.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { StaffReportsComponent } from './staff-reports/staff-reports.component';
     StudentProfileComponent,
     StudentReportsComponent,
     StaffReportsComponent,
+    StudentStatistictComponent,
+    StaffStatisticsComponent,
+    
     
   ],
   imports: [
