@@ -14,6 +14,8 @@ import { StudentDashboardComponent } from './student-dashboard/student-dashboard
 import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.component';
 import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { StudentReportsComponent } from './student-reports/student-reports.component';
+import { StaffReportsComponent } from './staff-reports/staff-reports.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
   {path: 'staff-profile', component: StaffProfileComponent},
   {path: 'student-profile', component: StudentProfileComponent},
   {path: 'landing' ,component: LandingComponent},
+  {path: 'student-reports', component: StudentReportsComponent},
+  {path: 'staff-reports', component: StaffReportsComponent},
   {path: '', redirectTo: '/landing', pathMatch: 'full'}
 ];
 

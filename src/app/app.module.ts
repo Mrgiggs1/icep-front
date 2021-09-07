@@ -20,6 +20,8 @@ import { StaffDashboardComponent } from './staff-dashboard/staff-dashboard.compo
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { StaffProfileComponent } from './staff-profile/staff-profile.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { StudentReportsComponent } from './student-reports/student-reports.component';
+import { StaffReportsComponent } from './staff-reports/staff-reports.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { StudentProfileComponent } from './student-profile/student-profile.compo
     StudentDashboardComponent,
     StaffProfileComponent,
     StudentProfileComponent,
+    StudentReportsComponent,
+    StaffReportsComponent,
     
   ],
   imports: [
