@@ -26,13 +26,14 @@
       <!--/.Navbar-->
     </div>
     <h1 class="display-6">Statistics</h1>
+
     <div class="card">
         <div class="card-header">
             Daily Report
         </div>
         <div class="card-body" *ngFor = "let data of dailyData">
           <div  >
-             <p class="card-text" >Daily Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.totnum}}</p>
+             <p class="card-text" >Daily Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.totnum}}</p>
           </div>  
          
 
@@ -66,8 +67,8 @@
         <div class="card-header">
             Weekly Report
         </div>
-        <div class="card-body">
-            <p class="card-text">Weekly Campus Statistics</p>
+        <div class="card-body" *ngFor = "let totWeek of weekData">
+            <p class="card-text">Weekly Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{totWeek.totnum}}</p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
                 <tr>
@@ -78,6 +79,15 @@
                    <th>Screened</th>
                    <th>Covid-19 Symptoms</th>
                  </tr>
+
+                 <tr>
+                  <td *ngFor = "let weekStaff of weeklyStaff">{{weekStaff.staffNum}}</td>
+                  <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>
+                  <td *ngFor = "let weekConst of weeklyConst">{{weekConst.constNum}}</td>
+                  <td *ngFor = "let weekVis of weeklyVis">{{weekVis.visNum}}</td>
+                  <td>{{totWeek.totnum}}</td>
+                  <td *ngFor = "let weekSymp of weekSymp">{{weekSymp.sympNum}}</td>
+                </tr>
             </table>
 
         </div>
@@ -87,8 +97,8 @@
         <div class="card-header">
             Monthly Report
         </div>
-        <div class="card-body">
-            <p class="card-text">Monthly Campus Statistics</p>
+        <div class="card-body" *ngFor = "let totMon of monthData">
+            <p class="card-text">Monthly Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{totMon.totnum}}</p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
                 <tr>
@@ -99,6 +109,15 @@
                    <th>Screened</th>
                    <th>Covid-19 Symptoms</th>
                  </tr>
+
+                 <tr>
+                  <td *ngFor = "let monStaff of monthStaff">{{monStaff.staffNum}}</td>
+                  <td *ngFor = "let monStud of monthStud">{{monStud.studNum}}</td>
+                  <td *ngFor = "let monConst of monthConst">{{monConst.constNum}}</td>
+                  <td *ngFor = "let monVis of monthVis">{{monVis.visNum}}</td>
+                  <td>{{totMon.totnum}}</td>
+                  <td *ngFor = "let monSymp of monthSymp">{{monSymp.sympNum}}</td>
+                </tr>
             </table>
 
             
@@ -114,9 +133,6 @@
         <tr>
           <th>Campus</th>
           <th>Number Of Cases</th>
-        </tr>
-        <tr *ngFor="let total of total_hotspot; let i = index" [attr.data-index]="i">
-          <td>{{i}}</td>
         </tr>
       </table>
     </div>
