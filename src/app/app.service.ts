@@ -46,6 +46,23 @@ export class AppService {
 
   userProfile =     "http://localhost:3000/user/user-profile";
 
+  adminProfile =        "http://localhost:3000/user/admin-profile";
+  staffProfile =        "http://localhost:3000/user/staff-profile";
+  studentProfile =      "http://localhost:3000/user/student-profile";
+
+  getAdminProfile() : Observable<any> {
+    return this.httpClient.get(this.adminProfile); 
+  }
+  
+  getStaffProfile() : Observable<any> {
+    return this.httpClient.get(this.staffProfile); 
+  }
+
+  getStudentProfile() : Observable<any> {
+    return this.httpClient.get(this.studentProfile); 
+  }
+  
+
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
   }

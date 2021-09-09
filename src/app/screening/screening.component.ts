@@ -24,12 +24,7 @@ export class ScreeningComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getClient().subscribe( 
-      response => {
-        this.screening_data = response;
-      }, error => {
-        console.log(error , 'GET error!!!')
-    });
+    
   }
   
   onSubmit(screeningForm: NgForm) {
