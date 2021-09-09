@@ -25,7 +25,7 @@
         
       <!--/.Navbar-->
     </div>
-    <h1 class="display-6">Statistics</h1>
+    <h1 class="display-6"style="text-align: center;">Sosha South Statistics</h1>
 
     <div class="card">
         <div class="card-header">
@@ -33,7 +33,7 @@
         </div>
         <div class="card-body" *ngFor = "let data of dailyData">
           <div  >
-             <p class="card-text" >Daily Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.totnum}}</p>
+             <p class="card-text" >Daily Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{data.totnum}}</strong></p>
           </div>  
          
 
@@ -52,7 +52,7 @@
                  <tr>
                    <td *ngFor = "let staff of dailyStaff">{{staff.staffNum}}</td>
                    <td *ngFor = "let stud of dailyStud">{{stud.studNum}}</td>
-                   <td *ngFor = "let const of dailyConst">{{const.constNum}}</td>
+                   <td *ngFor = "let const of dailyConst">NA</td>
                    <td *ngFor = "let vis of dailyVis">{{vis.visNum}}</td>
                    <td>{{data.totnum}}</td>
                    <td *ngFor = "let symp of dailySymp">{{symp.sympNum}}</td>
@@ -68,7 +68,7 @@
             Weekly Report
         </div>
         <div class="card-body" *ngFor = "let totWeek of weekData">
-            <p class="card-text">Weekly Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{totWeek.totnum}}</p>
+            <p class="card-text">Weekly Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totWeek.totWeek}}</strong></p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
                 <tr>
@@ -76,17 +76,19 @@
                    <th>Students</th>  
                    <th>Contractors</th>
                    <th>Visitors</th>
-                   <th>Screened</th>
+                   <th>Total Screened</th>
                    <th>Covid-19 Symptoms</th>
                  </tr>
-
                  <tr>
                   <td *ngFor = "let weekStaff of weeklyStaff">{{weekStaff.staffNum}}</td>
-                  <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>
-                  <td *ngFor = "let weekConst of weeklyConst">{{weekConst.constNum}}</td>
+                  <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>          
+                  
+                  <td *ngFor = "let weekConst of weeklyConst">NA</td>
                   <td *ngFor = "let weekVis of weeklyVis">{{weekVis.visNum}}</td>
-                  <td>{{totWeek.totnum}}</td>
-                  <td *ngFor = "let weekSymp of weekSymp">{{weekSymp.sympNum}}</td>
+                  <td>{{totWeek.totWeek}}</td>
+                  
+                  <td *ngFor = "let weekSym of weekSymp">{{weekSym.sympNum}}</td>
+
                 </tr>
             </table>
 
@@ -98,7 +100,7 @@
             Monthly Report
         </div>
         <div class="card-body" *ngFor = "let totMon of monthData">
-            <p class="card-text">Monthly Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{totMon.totnum}}</p>
+            <p class="card-text">Monthly Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totMon.totnum}}</strong></p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
                 <tr>
@@ -106,14 +108,14 @@
                    <th>Students</th>  
                    <th>Contractors</th>
                    <th>Visitors</th>
-                   <th>Screened</th>
+                   <th>Total Screened</th>
                    <th>Covid-19 Symptoms</th>
                  </tr>
 
                  <tr>
                   <td *ngFor = "let monStaff of monthStaff">{{monStaff.staffNum}}</td>
                   <td *ngFor = "let monStud of monthStud">{{monStud.studNum}}</td>
-                  <td *ngFor = "let monConst of monthConst">{{monConst.constNum}}</td>
+                  <td *ngFor = "let monConst of monthConst">NA</td>
                   <td *ngFor = "let monVis of monthVis">{{monVis.visNum}}</td>
                   <td>{{totMon.totnum}}</td>
                   <td *ngFor = "let monSymp of monthSymp">{{monSymp.sympNum}}</td>
