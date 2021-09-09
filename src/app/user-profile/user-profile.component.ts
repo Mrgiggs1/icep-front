@@ -8,16 +8,17 @@ import { AppService } from '../app.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  arrayData: any;
+  adminDetails: any;
 
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getStaff().subscribe( 
+    this.appService.getAdminProfile().subscribe( 
       response => {
-        this.arrayData = response;
+        this.adminDetails = response;
+        console.log(this.adminDetails);
       }, error => {
-        console.log(error , 'GET error!!!')
+        console.log(error , 'GET admin profile error!!!')
     });
   }
 

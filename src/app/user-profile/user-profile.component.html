@@ -37,7 +37,7 @@
             <div>
                 <h2>Admin</h2>
             </div><br>
-            <div *ngFor = "let data of arrayData">
+            <div *ngFor = "let data of adminDetails">
                   <div class="form-group">
                     <label for="regUsername">First Name</label>
                     <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="regFname" placeholder={{data.fname}}>
