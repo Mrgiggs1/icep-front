@@ -44,7 +44,8 @@ export class ScreeningComponent implements OnInit {
 
     this.appService.screening(newScreening).subscribe( 
       (data: any) => {
-        console.log(data)
+        console.log(data);
+        alert("Staff/Student Screening Data is Successfully Inserted");
       }, (error: any) => {
         console.log(error, 'POST error!!!')
     });
@@ -71,7 +72,8 @@ export class ScreeningComponent implements OnInit {
     
     this.appService.screeningVis(newScreening).subscribe( 
       (data: any) => {
-        console.log(data)
+        console.log(data);
+        alert("Visitor Screening Data is Successfully Inserted");
       }, (error: any) => {
         console.log(error, 'POST error!!!')
     });
