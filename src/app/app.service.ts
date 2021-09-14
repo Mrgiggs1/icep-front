@@ -12,11 +12,11 @@ export class AppService {
 
   constructor(public httpClient: HttpClient) { }
 
-  user_screening =  "http://localhost:3000/screening/stud_staff";
+  user_screening =     "http://localhost:3000/screening/stud_staff";
   user_screeningVis =  "http://localhost:3000/screening/visitor";
-  userStud =        "http://localhost:3000/user/student";
-  userStaff =       "http://localhost:3000/user/staff";
-  userLogin =       "http://localhost:3000/login";
+  userStud =           "http://localhost:3000/user/student";
+  userStaff =          "http://localhost:3000/user/staff";
+  userLogin =          "http://localhost:3000/login";
 
   statUrl =         "http://localhost:3000/statistics/campus";
   statStudUrl =     "http://localhost:3000/statistics/campus/student";
@@ -36,7 +36,7 @@ export class AppService {
   //end stats
 
   //monthly stats root
-  monDataUrl =    "http://localhost:3000/statistics/campus/monthly";
+  monDataUrl =     "http://localhost:3000/statistics/campus/monthly";
   monStudUrl =     "http://localhost:3000/statistics/campus/student/monthStud";
   monStaffUrl =    "http://localhost:3000/statistics/campus/staff/monthStaff";
   monConstUrl =    "http://localhost:3000/statistics/campus/constractor/monthCons";
@@ -46,23 +46,34 @@ export class AppService {
 
   userProfile =     "http://localhost:3000/user/user-profile";
 
-  adminProfile =        "http://localhost:3000/user/admin-profile";
-  staffProfile =        "http://localhost:3000/user/staff-profile";
-  studentProfile =      "http://localhost:3000/user/student-profile";
+  adminProfileUrl =        "http://localhost:3000/user/admin-profile";
+  staffProfileUrl =        "http://localhost:3000/user/staff-profile";
+  studentProfileUrl =      "http://localhost:3000/user/student-profile";
 
-  getAdminProfile() : Observable<any> {
-    return this.httpClient.get(this.adminProfile); 
+  adminProfile(token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.adminProfileUrl, token, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
   }
   
-  getStaffProfile() : Observable<any> {
-    return this.httpClient.get(this.staffProfile); 
+  staffProfile(token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.staffProfileUrl, token, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
   }
 
-  getStudentProfile() : Observable<any> {
-    return this.httpClient.get(this.studentProfile); 
+  studentProfile(token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.studentProfileUrl, token, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
   }
   
-
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
   }

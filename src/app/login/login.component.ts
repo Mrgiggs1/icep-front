@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit {
         if (userData.message){
           alert(userData.message);
         }
-        console.log(userData.user[0].role)
-        console.log(userData.user[0])
         if (userData.user[0].role == "staff"){
           if (userData.user[0].staff_role == "admin"){
             this._router.navigate(['/user-profile'])
