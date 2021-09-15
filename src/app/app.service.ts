@@ -164,6 +164,10 @@ export class AppService {
   loggedIn(){
     return !!localStorage.getItem('token');
   }
+
+  logOut(){
+    localStorage.clear();
+  }
   
   screening(screening : any) : Observable<any> {
     return this.httpClient.post<any>(this.user_screening, screening, {
