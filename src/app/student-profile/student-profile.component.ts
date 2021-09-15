@@ -8,18 +8,19 @@ import { AppService } from '../app.service';
 })
 export class StudentProfileComponent implements OnInit {
 
+  token : any;
+
   constructor(public appService: AppService) { }
 
   studDetails: any;
   ngOnInit(): void {
+    this.token = localStorage.getItem("token")
 
-    this.appService.getStud().subscribe( 
+    this.appService.adminProfile(this.token).subscribe( 
       response => {
         this.studDetails = response;
-        console.log(this.studDetails);
       }, error => {
-        console.log(error , 'GET student profile error!!!')
+        console.log(error , 'Student profile error!!!')
     });
   }
-
 }
