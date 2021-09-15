@@ -24,57 +24,40 @@ export class StudentStatistictComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getDaily().subscribe( 
-      (      response: any) => {
-        this.dailyData = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
+    // this.appService.getDaily().subscribe( 
+    //   (      response: any) => {
+    //     this.dailyData = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
 
-    this.appService.getDailyStud().subscribe( 
-      (      response: any) => {
-        this.dailyStud = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
+    // this.appService.getDailyStud().subscribe( 
+    //   (      response: any) => {
+    //     this.dailyStud = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
 
-    this.appService.getDailyStaff().subscribe( 
-      (      response: any) => {
-        this.dailyStaff = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
+    // this.appService.getDailyStaff().subscribe( 
+    //   (      response: any) => {
+    //     this.dailyStaff = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
 
-    this.appService.getDailyConst().subscribe( 
-      (      response: any) => {
-        this.dailyConst = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
+    // this.appService.getDailyVis().subscribe( 
+    //   (      response: any) => {
+    //     this.dailyVis = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
 
-    this.appService.getDailyVis().subscribe( 
-      (      response: any) => {
-        this.dailyVis = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getDailySymp().subscribe( 
-      (      response: any) => {
-        this.dailySymp = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    for (var _i = 0; _i < 8; _i++) {
-      this.appService.getHotspot(this.campus[_i]).subscribe( 
-        (        response: any[]) => {
-          this.total_hotspot[_i] = response[0]
-        },(error: any) => {
-          console.log(error , 'GET error!!!')
-      });
-    }
-    console.log(this.total_hotspot[0])
+    // this.appService.getDailySymp().subscribe( 
+    //   (      response: any) => {
+    //     this.dailySymp = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
   }
 
 }

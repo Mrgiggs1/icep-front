@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class StaffStatisticsComponent implements OnInit {
   dailyConst: any;
   dailyVis: any;
   dailySymp: any;
-  total_hotspot: any[] = [];
+  //total_hotspot: any[] = [];
 
   weekData: any;
   weeklyStaff: any;
@@ -35,130 +36,143 @@ export class StaffStatisticsComponent implements OnInit {
 
   constructor(public appService: AppService) { }
 
+  
+
   ngOnInit(): void {
-    this.appService.getDaily().subscribe( 
+    
+
+    // this.appService.getDailyConst().subscribe( 
+    //   (      response: any) => {
+    //     this.dailyConst = response;
+    //   }, (error: any) => {
+    //     console.log(error , 'GET error!!!')
+    // });
+    //Weekly statistics data
+  }
+
+  campusSubmit(screeningFormVis: NgForm) {
+    let newScreening = {
+      campusID: screeningFormVis.value.campus
+    }
+    
+    // this.appService.getDaily(newScreening).subscribe( 
+    //   (data: any) => {
+    //     console.log(data);
+    //   }, (error: any) => {
+    //     console.log(error, 'POST error!!!')
+    // });
+
+    //Daily Data
+    this.appService.getDaily(newScreening).subscribe( 
       (      response: any) => {
         this.dailyData = response;
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
 
-    this.appService.getDailyStud().subscribe( 
+    this.appService.getDailyStud(newScreening).subscribe( 
       (      response: any) => {
         this.dailyStud = response;
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
 
-    this.appService.getDailyStaff().subscribe( 
+    this.appService.getDailyStaff(newScreening).subscribe( 
       (      response: any) => {
         this.dailyStaff = response;
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
 
-    this.appService.getDailyConst().subscribe( 
-      (      response: any) => {
-        this.dailyConst = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getDailyVis().subscribe( 
+    this.appService.getDailyVis(newScreening).subscribe( 
       (      response: any) => {
         this.dailyVis = response;
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
 
-    this.appService.getDailySymp().subscribe( 
+    this.appService.getDailySymp(newScreening).subscribe( 
       (      response: any) => {
         this.dailySymp = response;
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
-    
+
     //Weekly statistics data
-    this.appService.getWeekData().subscribe(   
-    (      response: any) => {
-        this.weekData = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getWeekStud().subscribe( 
+    this.appService.getWeekData(newScreening).subscribe(   
       (      response: any) => {
-        this.weeklyStud = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
+          this.weekData = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+  
+      this.appService.getWeekStud(newScreening).subscribe( 
+        (      response: any) => {
+          this.weeklyStud = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+  
+      this.appService.getWeekStaff(newScreening).subscribe( 
+        (      response: any) => {
+          this.weeklyStaff = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+  
+      this.appService.getWeekConst(newScreening).subscribe( 
+        (      response: any) => {
+          this.weeklyConst = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+  
+      this.appService.getWeekVis(newScreening).subscribe( 
+        (      response: any) => {
+          this.weeklyVis = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+  
+      this.appService.getWeekSymp(newScreening).subscribe( 
+        (      response: any) => {
+          this.weekSymp = response;
+        }, (error: any) => {
+          console.log(error , 'GET error!!!')
+      });
+      //end of weekly
 
-    this.appService.getWeekStaff().subscribe( 
-      (      response: any) => {
-        this.weeklyStaff = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getWeekConst().subscribe( 
-      (      response: any) => {
-        this.weeklyConst = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getWeekVis().subscribe( 
-      (      response: any) => {
-        this.weeklyVis = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-
-    this.appService.getWeekSymp().subscribe( 
-      (      response: any) => {
-        this.weekSymp = response;
-      }, (error: any) => {
-        console.log(error , 'GET error!!!')
-    });
-    //end of weekly
-
-    //beginning of montlhy
-    this.appService.getMonthData().subscribe(   
+      //beginning of montlhy
+    this.appService.getMonthData(newScreening).subscribe(   
       (      response: any) => {
           this.monthData = response;
         }, (error: any) => {
           console.log(error , 'GET error!!!')
       });
   
-      this.appService.getMonthStud().subscribe( 
+      this.appService.getMonthStud(newScreening).subscribe( 
         (      response: any) => {
           this.monthStud = response;
         }, (error: any) => {
           console.log(error , 'GET error!!!')
       });
   
-      this.appService.getMonthStaff().subscribe( 
+      this.appService.getMonthStaff(newScreening).subscribe( 
         (      response: any) => {
           this.monthStaff = response;
         }, (error: any) => {
           console.log(error , 'GET error!!!')
       });
+
   
-      this.appService.getMonthConst().subscribe( 
-        (      response: any) => {
-          this.monthConst = response;
-        }, (error: any) => {
-          console.log(error , 'GET error!!!')
-      });
-  
-      this.appService.getMonthVis().subscribe( 
+      this.appService.getMonthVis(newScreening).subscribe( 
         (      response: any) => {
           this.monthVis = response;
         }, (error: any) => {
           console.log(error , 'GET error!!!')
       });
   
-      this.appService.getMonthSymp().subscribe( 
+      this.appService.getMonthSymp(newScreening).subscribe( 
         (      response: any) => {
           this.monthSymp = response;
         }, (error: any) => {
@@ -167,15 +181,6 @@ export class StaffStatisticsComponent implements OnInit {
 
       //end of monthly
 
-    for (var _i = 0; _i < 8; _i++) {
-      this.appService.getHotspot(this.campus[_i]).subscribe( 
-        (        response: any[]) => {
-          this.total_hotspot[_i] = response[0]
-        },(error: any) => {
-          console.log(error , 'GET error!!!')
-      });
-    }
-    console.log(this.total_hotspot[0])
   }
 
 }

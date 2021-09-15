@@ -116,83 +116,72 @@ export class AppService {
     return this.httpClient.get(this.userStaff);
   }
 
-  getDaily() : Observable<any> {
-    return this.httpClient.get(this.statUrl);
+  getDaily(newScreening : any) : Observable<any> {
+    return this.httpClient.post(this.statUrl, newScreening);
   }
-  getDailyStud() : Observable<any> {
-    return this.httpClient.get(this.statStudUrl);
-  }
-
-  getDailyStaff() : Observable<any> {
-    return this.httpClient.get(this.statStaffUrl);
-  }
-  
-  getDailyConst() : Observable<any> {
-    return this.httpClient.get(this.statConstUrl);
+  getDailyStud(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.statStudUrl, newScreening);
   }
 
-  getDailyVis() : Observable<any> {
-    return this.httpClient.get(this.statVisUrl);
+  getDailyStaff(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.statStaffUrl, newScreening);
   }
 
-  getDailySymp() : Observable<any> {
-    return this.httpClient.get(this.statSympUrl);
+  getDailyVis(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.statVisUrl, newScreening);
+  }
+
+  getDailySymp(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.statSympUrl, newScreening);
   }
   
   //weekly get method
-  getWeekData() : Observable<any> {
-    return this.httpClient.get(this.weelyDataUrl);
+  getWeekData(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weelyDataUrl, newScreening);
   }
-  getWeekStud() : Observable<any> {
-    return this.httpClient.get(this.weekStudUrl);
+  getWeekStud(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weekStudUrl, newScreening);
   }
 
-  getWeekStaff() : Observable<any> {
-    return this.httpClient.get(this.weekStaffUrl);
+  getWeekStaff(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weekStaffUrl, newScreening);
   }
   
-  getWeekConst() : Observable<any> {
-    return this.httpClient.get(this.weekConstUrl);
+  getWeekConst(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weekConstUrl, newScreening);
   }
 
-  getWeekVis() : Observable<any> {
-    return this.httpClient.get(this.weekVisUrl);
+  getWeekVis(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weekVisUrl, newScreening);
   }
 
-  getWeekSymp() : Observable<any> {
-    return this.httpClient.get(this.weekSympUrl);
+  getWeekSymp(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.weekSympUrl, newScreening);
   }
   //end of weekly
 
   //beginning of Monthly
-  getMonthData() : Observable<any> {
-    return this.httpClient.get(this.monDataUrl);
+  getMonthData(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.monDataUrl, newScreening);
   }
-  getMonthStud() : Observable<any> {
-    return this.httpClient.get(this.monStudUrl);
+  getMonthStud(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.monStudUrl, newScreening);
   }
 
-  getMonthStaff() : Observable<any> {
-    return this.httpClient.get(this.monStaffUrl);
+  getMonthStaff(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.monStaffUrl, newScreening);
   }
   
-  getMonthConst() : Observable<any> {
-    return this.httpClient.get(this.monConstUrl);
+
+  getMonthVis(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.monVisUrl, newScreening);
   }
 
-  getMonthVis() : Observable<any> {
-    return this.httpClient.get(this.monVisUrl);
-  }
-
-  getMonthSymp() : Observable<any> {
-    return this.httpClient.get(this.monSympUrl);
+  getMonthSymp(newScreening: any) : Observable<any> {
+    return this.httpClient.post(this.monSympUrl, newScreening);
   }
 
   //end of monthly
-
-  getHotspot(campus: any) : Observable<any> {
-    return this.httpClient.get(this.hotspotUrl + campus);
-  }
 
   login(newLogin : any) : Observable<any> {
     return this.httpClient.post<any>(this.userLogin, newLogin, {
@@ -204,6 +193,10 @@ export class AppService {
 
   loggedIn(){
     return !!localStorage.getItem('token');
+  }
+
+  logOut(){
+    localStorage.clear();
   }
   
   screening(screening : any) : Observable<any> {
@@ -221,4 +214,5 @@ export class AppService {
       })
     }); 
   }
+
 }

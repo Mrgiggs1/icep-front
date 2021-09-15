@@ -25,8 +25,30 @@
         
       <!--/.Navbar-->
     </div>
-    <h1 class="display-6"style="text-align: center;">Sosha South Statistics</h1>
 
+    <br>
+    <div class="form-group">
+      <form #screeningForm="ngForm" (ngSubmit)="campusSubmit(screeningForm)">
+          <label for="campus">Campus &nbsp;</label>
+            <select required ngModel name="campus" id="campus">
+                <option  value="soshs" >soshanguve South Campus</option>
+                <option value="soshn">soshanguve North Campus</option>
+                <option value="rank">Ga-Rankuwa Campus</option>
+                <option  value="arc">Arcadia Campus</option>
+                <option value="art">Arts Campus</option>
+                <option value="emal">Emalehleni Campus</option>
+                <option value="main">Pretoria Campus</option>
+                <option value="pol">Polokwane Campus</option>
+
+              </select><label> - </label>
+                <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
+       </form>
+      </div>
+      <br>
+      <div  *ngFor = "let totMon of monthData" >
+        <h1 class="display-6"style="text-align: center; text-transform: uppercase;"><strong class="text-primary">{{totMon.campus}}</strong> <strong class="text-danger"> Statistics</strong></h1>
+      </div>
+    <br>
     <div class="card">
         <div class="card-header">
             Daily Report
@@ -41,18 +63,16 @@
             <table style="border: 1px" style="text-align: center" width=100%>
         
                 <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
+                   <th>Number of Staff</th>
+                   <th>Number of Students</th>  
+                   <th>Number of Visitors</th>
                    <th>Total Screened</th>
-                   <th>Covid-19 Symptoms</th>
+                   <th class="card border-danger">Covid-19 Symptoms</th>
                  </tr>
 
                  <tr>
                    <td *ngFor = "let staff of dailyStaff">{{staff.staffNum}}</td>
                    <td *ngFor = "let stud of dailyStud">{{stud.studNum}}</td>
-                   <td *ngFor = "let const of dailyConst">NA</td>
                    <td *ngFor = "let vis of dailyVis">{{vis.visNum}}</td>
                    <td>{{data.totnum}}</td>
                    <td *ngFor = "let symp of dailySymp">{{symp.sympNum}}</td>
@@ -71,19 +91,16 @@
             <p class="card-text">Weekly Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totWeek.totWeek}}</strong></p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
-                <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
-                   <th>Total Screened</th>
-                   <th>Covid-19 Symptoms</th>
-                 </tr>
+              <tr>
+                <th>Number of Staff</th>
+                <th>Number of Students</th>  
+                <th>Number of Visitors</th>
+                <th>Total Screened</th>
+                <th class="card border-danger">Covid-19 Symptoms</th>
+              </tr>
                  <tr>
                   <td *ngFor = "let weekStaff of weeklyStaff">{{weekStaff.staffNum}}</td>
-                  <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>          
-                  
-                  <td *ngFor = "let weekConst of weeklyConst">NA</td>
+                  <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>  
                   <td *ngFor = "let weekVis of weeklyVis">{{weekVis.visNum}}</td>
                   <td>{{totWeek.totWeek}}</td>
                   
@@ -103,41 +120,22 @@
             <p class="card-text">Monthly Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totMon.totnum}}</strong></p>
             <table style="border: 1px" style="text-align: center" width=100%>
         
-                <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
-                   <th>Total Screened</th>
-                   <th>Covid-19 Symptoms</th>
-                 </tr>
+              <tr>
+                <th>Number of Staff</th>
+                <th>Number of Students</th>  
+                <th>Number of Visitors</th>
+                <th>Total Screened</th>
+                <th class="card border-danger">Covid-19 Symptoms</th>
+              </tr>
 
                  <tr>
                   <td *ngFor = "let monStaff of monthStaff">{{monStaff.staffNum}}</td>
                   <td *ngFor = "let monStud of monthStud">{{monStud.studNum}}</td>
-                  <td *ngFor = "let monConst of monthConst">NA</td>
                   <td *ngFor = "let monVis of monthVis">{{monVis.visNum}}</td>
                   <td>{{totMon.totnum}}</td>
                   <td *ngFor = "let monSymp of monthSymp">{{monSymp.sympNum}}</td>
                 </tr>
             </table>
-
-            
         </div>
     </div>
-
-    <br><br>
-    <div class="card border-danger">
-      <div class="card-header" style="text-align: center;">
-        <strong>HOTSPOT</strong>
-      </div>
-      <table style="border: 1px" style="text-align: center" width=100%>
-        <tr>
-          <th>Campus</th>
-          <th>Number Of Cases</th>
-        </tr>
-      </table>
-    </div>
-
-
 </div>

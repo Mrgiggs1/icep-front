@@ -28,40 +28,63 @@
         
       <!--/.Navbar-->
     </div>
-    <h1 class="display-6">Statistics</h1>
+    <br>
+    <div class="form-group">
+      <form #screeningForm="ngForm" (ngSubmit)="campusSubmit(screeningForm)">
+          <label for="campus">Campus &nbsp;</label>
+            <select required ngModel name="campus" id="campus">
+                <option  value="soshs" >soshanguve South Campus</option>
+                <option value="soshn">soshanguve North Campus</option>
+                <option value="rank">Ga-Rankuwa Campus</option>
+                <option  value="arc">Arcadia Campus</option>
+                <option value="art">Arts Campus</option>
+                <option value="emal">Emalehleni Campus</option>
+                <option value="main">Pretoria Campus</option>
+                <option value="pol">Polokwane Campus</option>
+
+              </select><label> - </label>
+                <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
+       </form>
+      </div>
+      <br>
+      <div  *ngFor = "let totMon of monthData" >
+        <h1 class="display-6"style="text-align: center; text-transform: uppercase;"><strong class="text-primary">{{totMon.campus}}</strong> <strong class="text-danger"> Statistics</strong></h1>
+      </div>
+    <br>
     <div class="card">
         <div class="card-header">
             Daily Report
         </div>
         <div class="card-body" *ngFor = "let data of dailyData">
           <div  >
-             <p class="card-text" >Daily Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data.totnum}}</p>
+             <p class="card-text" >Daily Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{data.totnum}}</strong></p>
           </div>  
          
 
             
-            <table style="border: 1px" style="text-align: center" width=100%>
+            <table style="border: 1px" style="text-align: center" id="tbldaily" width=100%>
         
                 <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
+                   <th>Number of Staff</th>
+                   <th>Number of Students</th>  
+                   <th>Number of Visitors</th>
                    <th>Total Screened</th>
-                   <th>Covid-19 Symptoms</th>
+                   <th class="card border-danger">Covid-19 Symptoms</th>
                  </tr>
 
                  <tr>
                    <td *ngFor = "let staff of dailyStaff">{{staff.staffNum}}</td>
                    <td *ngFor = "let stud of dailyStud">{{stud.studNum}}</td>
-                   <td *ngFor = "let const of dailyConst">{{const.constNum}}</td>
                    <td *ngFor = "let vis of dailyVis">{{vis.visNum}}</td>
                    <td>{{data.totnum}}</td>
                    <td *ngFor = "let symp of dailySymp">{{symp.sympNum}}</td>
                  </tr>
             </table>
 
-
+            <div class="col-md-4 text-right">
+              <button class="btn btn-danger btn-block" (click)="dayPDF()">Download Daily PDF</button>&nbsp;
+              <button style="cursor: pointer" (click)="exportexcel()" type="submit" class="btn btn-success">Daily Reports eXL</button>
+            </div>
         </div>
     </div>
     <br><br>
@@ -69,59 +92,64 @@
         <div class="card-header">
             Weekly Report
         </div>
-        <div class="card-body">
-            <p class="card-text">Weekly Campus Statistics</p>
-            <table style="border: 1px" style="text-align: center" width=100%>
+        <div class="card-body" *ngFor = "let totWeek of weekData">
+            <p class="card-text">Weekly Campus Statistics:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totWeek.totWeek}}</strong></p>
+            <table style="border: 1px" style="text-align: center" id="tblweekly" width=100%>
         
-                <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
-                   <th>Screened</th>
-                   <th>Covid-19 Symptoms</th>
-                 </tr>
+              <tr>
+                <th>Number of Staff</th>
+                <th>Number of Students</th>  
+                <th>Number of Visitors</th>
+                <th>Total Screened</th>
+                <th class="card border-danger">Covid-19 Symptoms</th>
+              </tr>
+                 <tr>
+                    <td *ngFor = "let weekStaff of weeklyStaff">{{weekStaff.staffNum}}</td>
+                    <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>  
+                    <td *ngFor = "let weekVis of weeklyVis">{{weekVis.visNum}}</td>
+                    <td>{{totWeek.totWeek}}</td>
+                    
+                    <td *ngFor = "let weekSym of weekSymp">{{weekSym.sympNum}}</td>
+                  </tr>   
             </table>
-
+            <div class="col-md-4 text-right">
+                <button class="btn btn-danger btn-block" (click)="weekPDF()">Download Weekly PDF</button>&nbsp;
+                <button style="cursor: pointer" (click)="exportexcelW()" type="submit" class="btn btn-success">Weekly Reports eXL</button>
+             </div>
         </div>
     </div>
     <br><br>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header" >
             Monthly Report
         </div>
-        <div class="card-body">
-            <p class="card-text">Monthly Campus Statistics</p>
-            <table style="border: 1px" style="text-align: center" width=100%>
+        <div class="card-body" *ngFor = "let totMon of monthData">
+            <p class="card-text">Monthly Campus Statistics: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{totMon.totnum}}</strong></p>
+            <table style="border: 1px" style="text-align: center" id="tblmonthly" width=100%>
         
-                <tr>
-                   <th>Staff</th>
-                   <th>Students</th>  
-                   <th>Contractors</th>
-                   <th>Visitors</th>
-                   <th>Screened</th>
-                   <th>Covid-19 Symptoms</th>
-                 </tr>
+              <tr>
+                <th>Number of Staff</th>
+                <th>Number of Students</th>  
+                <th>Number of Visitors</th>
+                <th>Total Screened</th>
+                <th class="card border-danger">Covid-19 Symptoms</th>
+              </tr>
+
+                 <tr>
+                    <td *ngFor = "let monStaff of monthStaff">{{monStaff.staffNum}}</td>
+                    <td *ngFor = "let monStud of monthStud">{{monStud.studNum}}</td>
+                    <td *ngFor = "let monVis of monthVis">{{monVis.visNum}}</td>
+                    <td>{{totMon.totnum}}</td>
+                    <td *ngFor = "let monSymp of monthSymp">{{monSymp.sympNum}}</td>
+                  </tr>
             </table>
 
-            
-        </div>
-    </div>
+            <div class="col-md-4 text-right">
+                <button class="btn btn-danger btn-block" (click)="monthPDF()">Download Monthly PDF</button>&nbsp;
+                <button style="cursor: pointer" (click)="exportexcelM()" type="submit" class="btn btn-success">Monthly Reports eXL</button>
+             </div>
 
-    <br><br>
-    <div class="card border-danger">
-      <div class="card-header" style="text-align: center;">
-        <strong>HOTSPOT</strong>
-      </div>
-      <table style="border: 1px" style="text-align: center" width=100%>
-        <tr>
-          <th>Campus</th>
-          <th>Number Of Cases</th>
-        </tr>
-        <tr *ngFor="let total of total_hotspot; let i = index" [attr.data-index]="i">
-          <td>{{i}}</td>
-        </tr>
-      </table>
+        </div>
     </div>
 
 
