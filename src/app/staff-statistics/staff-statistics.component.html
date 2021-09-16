@@ -30,7 +30,7 @@
     <div class="form-group">
       <form #screeningForm="ngForm" (ngSubmit)="campusSubmit(screeningForm)">
           <label for="campus">Campus &nbsp;</label>
-            <select required ngModel name="campus" id="campus">
+            <select required ngModel name="campus" id="campus" style ="text-transform: capitalize;">
                 <option  value="soshs" >soshanguve South Campus</option>
                 <option value="soshn">soshanguve North Campus</option>
                 <option value="rank">Ga-Rankuwa Campus</option>
@@ -40,7 +40,7 @@
                 <option value="main">Pretoria Campus</option>
                 <option value="pol">Polokwane Campus</option>
 
-              </select><label> - </label>
+              </select>
                 <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
        </form>
       </div>
@@ -103,7 +103,6 @@
                   <td *ngFor = "let weekStud of weeklyStud">{{weekStud.studNum}}</td>  
                   <td *ngFor = "let weekVis of weeklyVis">{{weekVis.visNum}}</td>
                   <td>{{totWeek.totWeek}}</td>
-                  
                   <td *ngFor = "let weekSym of weekSymp">{{weekSym.sympNum}}</td>
 
                 </tr>

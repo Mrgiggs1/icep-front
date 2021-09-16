@@ -30,31 +30,35 @@
     <div class="card text-center">
         <div class="card-header">
           
-            <table style="border: 1px" style="text-align: center" width=100%>
+            <table class="table table-striped" style="text-align: center" width=100%>
         
-             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>  
-                <th>Status</th>
-                <th>Symptons</th>
-                <th>Temperature</th>
+             <tr style ="text-transform: capitalize;">
+                <th>Name</th>
+                <th>Surname</th>  
+                <th>Staff/Student#</th>
                 <th>Campus</th>
-                <th>Tested</th>
-                <th>Tested Date</th>
-                <th>Screen Date<th>
-                
-              
+                <th>Symptoms</th>
+                <th>Temp</th>
+                <th>Fever</th>
+                <th>Breathing <br> problems</th>
+                <th>Covid <br>Contact</th>
+                <th>Cough<br> Symptoms</th>
+                <th>Screen</th>
               </tr>
 
-              <!-- <tr *ngFor = "let data of arrayStud">
-                  <td>{{data.ID_num}}</td>
-                  <td>{{data.email}}</td>
+              <tr *ngFor = "let data of reportObj" style ="text-transform: capitalize;">
                   <td>{{data.fname}}</td>
                   <td>{{data.lname}}</td>
-                  <td>{{data.address}}</td>
-                  <td>{{data.gender}}</td>
-                  <td>0{{data.contact}}</td>
-              </tr> -->
+                  <td>{{data.stud_num}}{{data.staff_num}}</td>
+                  <td>{{data.campus}}</td>
+                  <td>{{data.symptoms}}</td>
+                  <td class="text-danger"><strong>{{data.temp}}</strong></td>
+                  <td>{{data.fever}}</td>
+                  <td>{{data.breathing}}</td>
+                  <td>{{data.covid_contact}}</td>
+                  <td>{{data.cough}}</td>
+                  <td>{{data.screen_date}}</td>
+              </tr>
             </table>
         
         </div>    

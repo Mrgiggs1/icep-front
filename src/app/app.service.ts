@@ -24,7 +24,8 @@ export class AppService {
   statConstUrl =    "http://localhost:3000/statistics/campus/constractor";
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
-  hotspotUrl =      "http://localhost:3000/statistics/hotspot/";
+  reportData =      "http://localhost:3000/statistics/report/";
+  
 
     //weekly statistics root
   weelyDataUrl =    "http://localhost:3000/statistics/campus/weekly";
@@ -74,6 +75,10 @@ export class AppService {
     });
   }
   
+  getReport() : Observable<any> {
+    return this.httpClient.get(this.reportData);
+  }
+
   getClient() : Observable<any> {
     return this.httpClient.get(this.user_screening); 
   }
@@ -151,6 +156,8 @@ export class AppService {
     return this.httpClient.post(this.monSympUrl, newScreening);
   }
 
+  
+  
   //end of monthly
 
   login(newLogin : any) : Observable<any> {

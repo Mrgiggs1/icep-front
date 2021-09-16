@@ -32,8 +32,6 @@ export class StaffStatisticsComponent implements OnInit {
   // total_soshn: any; total_soshs: any; total_rank: any; total_arc: any; total_art: any; 
   // total_emal: any; total_main: any; total_pol: any;
 
-  campus: String[] = ["soshn", "soshs", "rank", "arc", "art", "emal", "main", "pol"];
-
   constructor(public appService: AppService) { }
 
   
@@ -120,12 +118,12 @@ export class StaffStatisticsComponent implements OnInit {
           console.log(error , 'GET error!!!')
       });
   
-      this.appService.getWeekConst(newScreening).subscribe( 
-        (      response: any) => {
-          this.weeklyConst = response;
-        }, (error: any) => {
-          console.log(error , 'GET error!!!')
-      });
+      // this.appService.getWeekConst(newScreening).subscribe( 
+      //   (      response: any) => {
+      //     this.weeklyConst = response;
+      //   }, (error: any) => {
+      //     console.log(error , 'GET error!!!')
+      // });
   
       this.appService.getWeekVis(newScreening).subscribe( 
         (      response: any) => {
