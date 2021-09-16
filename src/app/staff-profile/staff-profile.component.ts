@@ -20,7 +20,7 @@ export class StaffProfileComponent implements OnInit {
       response => {
         this.staffDetails = response;
       }, error => {
-        console.log(error , 'Sfaff profile error!!!')
+        console.log(error , 'Staff profile error!!!')
     });
   }
 }

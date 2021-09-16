@@ -36,28 +36,26 @@
             <table style="border: 1px" style="text-align: center" width=100%>
         
              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>  
-                <th>Status</th>
-                <th>Symptons</th>
-                <th>Temperature</th>
+                <th>Student/Staff</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Appointment</th>
                 <th>Campus</th>
-                <th>Tested</th>
-                <th>Tested Date</th>
+                <th>Symptons</th>
+                <th>Temperature</th> 
                 <th>Screen Date<th>
-                
-              
               </tr>
 
-              <!-- <tr *ngFor = "let data of arrayStud">
-                  <td>{{data.ID_num}}</td>
-                  <td>{{data.email}}</td>
-                  <td>{{data.fname}}</td>
-                  <td>{{data.lname}}</td>
-                  <td>{{data.address}}</td>
-                  <td>{{data.gender}}</td>
-                  <td>0{{data.contact}}</td>
-              </tr> -->
+              <tr *ngFor = "let data of screeningData">
+                <td>{{data.stud_staff}}</td>
+                <td>{{data.full_name}}</td>
+                <td>{{data.phone}}</td>
+                <td>{{data.appointment}}</td>
+                <td>{{data.campus}}</td>
+                <td>{{data.symptons}}</td>
+                <td>{{data.temp}}</td>
+                <td>{{data.screen_date}}</td>
+              </tr>
             </table>
         
         </div>    

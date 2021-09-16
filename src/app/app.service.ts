@@ -51,6 +51,36 @@ export class AppService {
   staffProfileUrl =        "http://localhost:3000/user/staff-profile";
   studentProfileUrl =      "http://localhost:3000/user/student-profile";
 
+  //screen reports
+
+  reportUrl =         "http://localhost:3000/screen_report/stud_staff"
+  getUsertUrl =       "http://localhost:3000/screen_report/user"
+  adminReportUrl =    "http://localhost:3000/screen_report/admin"
+
+  getUser(token : any) : Observable<any> { 
+    return this.httpClient.get<any>(this.getUsertUrl, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  adminScreenReport(token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.adminReportUrl, token, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  screenReport(token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.reportUrl, token, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
   adminProfile(token : any) : Observable<any> { 
     return this.httpClient.post<any>(this.adminProfileUrl, token, { 
       headers: new HttpHeaders({
@@ -59,7 +89,7 @@ export class AppService {
     });
   }
   
-  staffProfile(token : any) : Observable<any> { 
+  staffProfile(token : any) : Observable<any> {
     return this.httpClient.post<any>(this.staffProfileUrl, token, { 
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
@@ -170,6 +200,10 @@ export class AppService {
 
   loggedIn(){
     return !!localStorage.getItem('token');
+  }
+
+  logOut(){
+    localStorage.clear();
   }
   
   screening(screening : any) : Observable<any> {

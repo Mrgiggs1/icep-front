@@ -14,7 +14,7 @@ export class StaffStatisticsComponent implements OnInit {
   dailyConst: any;
   dailyVis: any;
   dailySymp: any;
-  total_hotspot: any[] = [];
+  //total_hotspot: any[] = [];
 
   weekData: any;
   weeklyStaff: any;
