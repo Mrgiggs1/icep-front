@@ -65,8 +65,8 @@ export class AppService {
     });
   }
 
-  adminScreenReport(token : any) : Observable<any> { 
-    return this.httpClient.post<any>(this.adminReportUrl, token, { 
+  adminScreenReport(token : any, report: any) : Observable<any> { 
+    return this.httpClient.post<any>(this.adminReportUrl, report, { 
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })

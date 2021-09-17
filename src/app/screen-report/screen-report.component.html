@@ -28,37 +28,64 @@
         
       <!--/.Navbar-->
     </div>
+
+    <div class="card-header">
+      <div class="form-group">
+        <form #filterForm="ngForm" (ngSubmit)="reportSubmit(filterForm)">
+            <label for="campus">Filter by &nbsp;</label>
+              <select required ngModel name="duration" id="duration" placeholder="Period" style ="text-transform: capitalize;">
+                  <option  value="1" >Daily</option>
+                  <option value="7">Weekly</option>
+                  <option value="31">Monthly</option>
+                  <option value="1825">All</option>
+                </select>
+                <label>&nbsp;</label>
+              <select required ngModel name="role" id="role"  style ="text-transform: capitalize;" placeholder="Role">
+                  <option  value="9" >student</option>
+                  <option value="6">staff</option>
+                </select>
+                  <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
+         </form>
+        </div>
+
+    </div>
     
     <br><br>
     <div class="card text-center">
-        <div class="card-header">
-          
-            <table style="border: 1px" style="text-align: center" width=100%>
+      <div class="card-header">
         
-             <tr>
-                <th>Student/Staff</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Appointment</th>
-                <th>Campus</th>
-                <th>Symptons</th>
-                <th>Temperature</th> 
-                <th>Screen Date<th>
-              </tr>
+          <table class="table table-striped" style="text-align: left" width=100%>
+      
+           <tr style ="text-transform: capitalize;">
+              <th>Name</th>
+              <th>Surname</th>  
+              <th>Staff/Student#</th>
+              <th>Campus</th>
+              <th>Symptoms</th>
+              <th>Temp</th>
+              <th>Fever</th>
+              <th>Breathing <br> problems</th>
+              <th>Covid <br>Contact</th>
+              <th>Cough<br> Symptoms</th>
+              <th>Screen Date</th>
+            </tr>
 
-              <tr *ngFor = "let data of screeningData">
-                <td>{{data.stud_staff}}</td>
-                <td>{{data.full_name}}</td>
-                <td>{{data.phone}}</td>
-                <td>{{data.appointment}}</td>
+            <tr *ngFor = "let data of durationRole" style ="text-transform: capitalize;">
+                <td>{{data.fname}}</td>
+                <td>{{data.lname}}</td>
+                <td>{{data.stud_num}}{{data.staff_num}}</td>
                 <td>{{data.campus}}</td>
-                <td>{{data.symptons}}</td>
-                <td>{{data.temp}}</td>
+                <td>{{data.symptoms}}</td>
+                <td class="text-danger"><strong>{{data.temp}}</strong></td>
+                <td>{{data.fever}}</td>
+                <td>{{data.breathing}}</td>
+                <td>{{data.covid_contact}}</td>
+                <td>{{data.cough}}</td>
                 <td>{{data.screen_date}}</td>
-              </tr>
-            </table>
-        
-        </div>    
+            </tr>
+          </table>
+      
+      </div>    
     </div>
 </div>
 

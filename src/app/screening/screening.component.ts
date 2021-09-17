@@ -28,7 +28,15 @@ export class ScreeningComponent implements OnInit {
   }
   
   onSubmit(screeningForm: NgForm) {
+
+    console.log(screeningForm.value.cough)
+    if(screeningForm.value.cough == true && screeningForm.value.breathing == true && screeningForm.value.fever == true)
+    {
+      alert("Visit Nearest Testing Station, check landing page");
+    }
+
     let newScreening = {
+
       stud_staff: screeningForm.value.stud_staff,
       screen_id: screeningForm.value.screen_id,
       temp: screeningForm.value.temp,

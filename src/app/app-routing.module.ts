@@ -38,7 +38,7 @@ const routes: Routes = [
   {path: 'landing' ,component: LandingComponent},
   {path: 'student-reports', component: StudentReportsComponent, canActivate: [AuthGuard]},
   //{path: 'staff-reports', component: StaffReportsComponent, canActivate: [AuthGuard]},
-  //{path: 'staff-reports', component: StaffReportsComponent, canActivate: [AuthGuard]},
+  {path: 'staff-reports', component: StaffReportsComponent, canActivate: [AuthGuard]},
   {path: 'student-statistict', component: StudentStatistictComponent, canActivate: [AuthGuard]},
   {path: 'staff-statistics', component: StaffStatisticsComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: '/landing', pathMatch: 'full'}
