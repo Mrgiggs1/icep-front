@@ -3,6 +3,11 @@
 /* Application-wide Styles */
 
 
-html,body{
+html,body, app-root{
     height: 100%
 }
+
+body {
+    margin-bottom: 0;
+    margin-top: 0;
+  }

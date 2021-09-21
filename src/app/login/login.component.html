@@ -1,6 +1,6 @@
 <div class="row" data-aos="fade-right">
-  <div class="col-md-6 offset-md-3 mt-4">
-    <h2>Login Form</h2>
+  <div class="login-form">
+    <h4 class="text-center">Covid Compliance Login</h4>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
           <div class="form-group">
             <label for="loginUsername">Username</label>
@@ -17,5 +17,16 @@
             <input class="btn btn-primary" [disabled]="loginForm.invalid" type="submit" value="Login">
           </div>
         </form>
+        <p class="text-center"><a class="nav-link" routerLink="/landing" routerLinkActive="active">Go Back Home</a></p>
   </div>
 </div>
+
+<br>
+
+
+<footer>
+  <hr>
+  <div class="footer-copyright text-center py-3">
+    © 2021 Covid Compliance. <strong>All Rights Reserved.</strong>
+  </div>
+</footer>

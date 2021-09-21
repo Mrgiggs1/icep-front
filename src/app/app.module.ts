@@ -24,6 +24,8 @@ import { StudentReportsComponent } from './student-reports/student-reports.compo
 import { StaffReportsComponent } from './staff-reports/staff-reports.component';
 import { StudentStatistictComponent } from './student-statistict/student-statistict.component';
 import { StaffStatisticsComponent } from './staff-statistics/staff-statistics.component';
+import { NavComponent } from './nav/nav.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { StaffStatisticsComponent } from './staff-statistics/staff-statistics.co
     StaffReportsComponent,
     StudentStatistictComponent,
     StaffStatisticsComponent,
+    NavComponent,
+    FooterComponent,
     
     
   ],
