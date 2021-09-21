@@ -231,13 +231,6 @@ fileName = 'Daily.xlsx';
           console.log(error , 'GET error!!!')
       });
   
-      this.appService.getWeekConst(newScreening).subscribe( 
-        (      response: any) => {
-          this.weeklyConst = response;
-        }, (error: any) => {
-          console.log(error , 'GET error!!!')
-      });
-  
       this.appService.getWeekVis(newScreening).subscribe( 
         (      response: any) => {
           this.weeklyVis = response;
