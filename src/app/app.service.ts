@@ -21,7 +21,6 @@ export class AppService {
   statUrl =         "http://localhost:3000/statistics/campus";
   statStudUrl =     "http://localhost:3000/statistics/campus/student";
   statStaffUrl =    "http://localhost:3000/statistics/campus/staff";
-  statConstUrl =    "http://localhost:3000/statistics/campus/constractor";
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
   reportData =      "http://localhost:3000/statistics/report/";
@@ -31,7 +30,6 @@ export class AppService {
   weelyDataUrl =    "http://localhost:3000/statistics/campus/weekly";
   weekStudUrl =     "http://localhost:3000/statistics/campus/student/weekStud";
   weekStaffUrl =    "http://localhost:3000/statistics/campus/staff/weekStaff";
-  weekConstUrl =    "http://localhost:3000/statistics/campus/constractor/weekCons";
   weekVisUrl  =     "http://localhost:3000/statistics/campus/visitor/weekVis";
   weekSympUrl =     "http://localhost:3000/statistics/campus/symptoms/weekSymp";
   //end stats
@@ -40,7 +38,6 @@ export class AppService {
   monDataUrl =     "http://localhost:3000/statistics/campus/monthly";
   monStudUrl =     "http://localhost:3000/statistics/campus/student/monthStud";
   monStaffUrl =    "http://localhost:3000/statistics/campus/staff/monthStaff";
-  monConstUrl =    "http://localhost:3000/statistics/campus/constractor/monthCons";
   monVisUrl  =     "http://localhost:3000/statistics/campus/visitor/monthVis";
   monSympUrl =     "http://localhost:3000/statistics/campus/symptoms/monthSymp";
   //end stat monthly
@@ -152,9 +149,6 @@ export class AppService {
     return this.httpClient.post(this.weekStaffUrl, newScreening);
   }
   
-  getWeekConst(newScreening: any) : Observable<any> {
-    return this.httpClient.post(this.weekConstUrl, newScreening);
-  }
 
   getWeekVis(newScreening: any) : Observable<any> {
     return this.httpClient.post(this.weekVisUrl, newScreening);

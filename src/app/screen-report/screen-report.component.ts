@@ -51,7 +51,8 @@ export class ScreenReportComponent implements OnInit {
   reportSubmit(filterForm: NgForm) {
     let report = {
       duration: filterForm.value.duration,
-      role: filterForm.value.role
+      role: filterForm.value.role,
+      temp: filterForm.value.temp
     }
     // this.appService.getDaily(newScreening).subscribe( 
     //   (data: any) => {
@@ -63,7 +64,7 @@ export class ScreenReportComponent implements OnInit {
     this.appService.adminScreenReport(this.token, report).subscribe(
       response => {
         this.durationRole = response;
-        console.log(report);
+        //console.log(report);
       }, error => {
         console.log(error , 'Screen report error!!!')
     });

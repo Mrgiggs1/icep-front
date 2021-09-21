@@ -39,12 +39,19 @@
                   <option value="31">Monthly</option>
                   <option value="1825">All</option>
                 </select>
-                <label>&nbsp;</label>
+                &nbsp;
               <select required ngModel name="role" id="role"  style ="text-transform: capitalize;" placeholder="Role">
                   <option  value="9" >student</option>
                   <option value="6">staff</option>
-                </select>
-                  <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
+              </select>&nbsp;
+              <select required ngModel name="temp" id="temp" placeholder="Temp">
+                
+                <option value="above" >Above 37</option>
+                <option value="below">Below 37</option>
+                <option value="all">All Temperatures</option>
+            </select>
+            &nbsp;
+            <input type="submit" style="border-radius: 25px;" class="btn-info" value="select">
          </form>
         </div>
 
