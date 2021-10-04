@@ -1,4 +1,4 @@
-import { Component, Input , HostBinding} from '@angular/core';
+import { Component} from '@angular/core';
 import { AppService } from './app.service';
 import { RouterOutlet, Router, NavigationStart} from '@angular/router';
 
@@ -17,7 +17,7 @@ export class AppComponent {
     //method for hiding menu in login and landing page
     router.events.forEach((event)=> {
       if(event instanceof NavigationStart){
-        this.showMenu = event.url !== "/landing" && event.url !== "/login"
+        this.showMenu = event.url !== "/login" && event.url !== "/landing"
       }
     });
   
@@ -29,7 +29,7 @@ export class AppComponent {
     });
     
   }
-  
+
    
   
 

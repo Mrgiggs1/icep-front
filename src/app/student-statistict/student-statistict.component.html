@@ -3,13 +3,15 @@
     <div class="card text-center">
         <div class="card-header">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand"  routerLink="/student-profile" routerLinkActive="active">Profile</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link"  routerLink="/student-profile" routerLinkActive="active">Profile</a>
+                  </li>
                 <li class="nav-item active">
                     <a class="nav-link" routerLink="/student-reports" routerLinkActive="active">Student Report</a>
                 </li>
@@ -103,22 +105,6 @@
 
             
         </div>
-    </div>
-
-    <br><br>
-    <div class="card border-danger">
-      <div class="card-header" style="text-align: center;">
-        <strong>HOTSPOT</strong>
-      </div>
-      <table style="border: 1px" style="text-align: center" width=100%>
-        <tr>
-          <th>Campus</th>
-          <th>Number Of Cases</th>
-        </tr>
-        <tr *ngFor="let total of total_hotspot; let i = index" [attr.data-index]="i">
-          <td>{{i}}</td>
-        </tr>
-      </table>
     </div>
 
 

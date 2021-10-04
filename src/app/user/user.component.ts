@@ -6,9 +6,15 @@ import { AppService } from '../app.service';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+
 export class UserComponent implements OnInit {
   arrayStud: any;
   arrayStaff: any;
+  currentIndex = -1;
+  page = 1;
+  count = 0;
+  tableSize = 3;
+  tableSizes = [3,6,9];
 
   constructor(public appService: AppService) { }
   
@@ -28,4 +34,15 @@ export class UserComponent implements OnInit {
     });
   }
 
+  handlePageChange(event: number): void{
+    this.page = event;
+    this.ngOnInit();
+  }
+
+  handlePageSizeChange(event: any): void{
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.ngOnInit();
+  }
 }
+
