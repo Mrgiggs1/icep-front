@@ -12,6 +12,9 @@ export class NavComponent implements OnInit {
 
   constructor(public appService: AppService, public router: Router) { }
 
+  token: any;
+  user: any;
+
   public logOut(): void{
     //on logout
     //clear localStorage
@@ -21,6 +24,6 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/login'])
   }
   ngOnInit(): void {
+    
   }
-
 }

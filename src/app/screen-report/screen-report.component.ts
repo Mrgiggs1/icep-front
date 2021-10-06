@@ -12,6 +12,7 @@ export class ScreenReportComponent implements OnInit {
   screeningData: any;
   user: any;
   durationRole: any;
+  dele: any;
 
   
 
@@ -69,6 +70,19 @@ export class ScreenReportComponent implements OnInit {
         console.log(error , 'Screen report error!!!')
     });
     
+    
+  }
+
+  deleteRow(d: any){
+    const index = this.durationRole.indexOf(d);
+    this.dele = this.durationRole.splice(index, 1);
+
+    this.appService.deleteScreen(this.dele[0].screen_id).subscribe( 
+      response => {
+        this.durationRole = response;
+      }, error => {
+        console.log(error , 'GET Info!!!')
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Params } from '@angular/router';
+import { Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 
 export class AppService {
 
-  constructor(public httpClient: HttpClient) { }
+  constructor(public httpClient: HttpClient, public router: Router) { }
+  user: any;
 
   user_screening =     "http://localhost:3000/screening/stud_staff";
   user_screeningVis =  "http://localhost:3000/screening/visitor";
@@ -54,12 +55,20 @@ export class AppService {
   getUsertUrl =       "http://localhost:3000/screen_report/user"
   adminReportUrl =    "http://localhost:3000/screen_report/admin"
 
-  getUser(token : any) : Observable<any> { 
-    return this.httpClient.get<any>(this.getUsertUrl, { 
+  dashboardUrl =      "http://localhost:3000/user/dashboard";
+
+  deteteUrl = "http://localhost:3000/screen_report/delete/";
+
+  getUser(token : any) : Observable<any> {
+   return this.httpClient.post<any>(this.dashboardUrl, token, { 
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
       })
     });
+  }
+
+  deleteScreen(index: any) : Observable<any> {
+    return this.httpClient.get(this.deteteUrl, index);
   }
 
   adminScreenReport(token : any, report: any) : Observable<any> { 

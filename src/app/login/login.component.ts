@@ -34,16 +34,16 @@ export class LoginComponent implements OnInit {
         }
         if (userData.user[0].role == "staff"){
           if (userData.user[0].staff_role == "admin"){
-            this._router.navigate(['/user-profile'])
-            alert("Admin Succesafully LoggedIn");
+            this._router.navigate(['/dashboard'])
+            alert("Admin Successfully LoggedIn");
           }else{
-            this._router.navigate(['/staff-profile'])
-            alert("Staff Succesafully LoggedIn");
+            this._router.navigate(['/staff-dashboard'])
+            alert("Staff Successfully LoggedIn");
           }
         }
         if (userData.user[0].role == "student"){
-          this._router.navigate(['/student-profile'])
-          alert("Student Succesafully LoggedIn");
+          this._router.navigate(['/student-dashboard'])
+          alert("Student Successfully LoggedIn");
         }
       }, (error: any) => {
         console.log(error, 'POST LOGIN error!!!')

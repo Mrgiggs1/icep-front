@@ -100,7 +100,11 @@
                <th>Contact Number</th>
              </tr>
 
-             <tr *ngFor = "let data of arrayStaff">
+             <tr  *ngFor = "let data of arrayStaff | paginate :
+             { itemsPerPage: tableSize,
+               currentPage: page,
+               totalItems: count
+             }; let i = index" [class.active]="i == currentIndex">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -108,8 +112,21 @@
                  <td>{{data.address}}</td>
                  <td>{{data.gender}}</td>
                  <td>{{data.phone}}</td>
+                
              </tr>
            </table>
+           <hr>
+           <div class="d-flex justify-content-center">
+             <pagination-controls
+
+             previousLabel="Prev"
+             nextLabel="Next"
+             [responsive]="true"
+
+             (pageChange)="handlePageChange($event)">
+               
+             </pagination-controls>
+           </div>
         </div>   
     </div>
 

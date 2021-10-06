@@ -17,7 +17,7 @@ export class AppComponent {
     //method for hiding menu in login and landing page
     router.events.forEach((event)=> {
       if(event instanceof NavigationStart){
-        this.showMenu = event.url !== "/login" && event.url !== "/landing"
+        this.showMenu = event.url !== "/login" && event.url !== "/landing" && event.url !== "/screening" && event.url !== "/"
       }
     });
   
