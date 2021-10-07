@@ -1,0 +1,21 @@
+
+
+#dashnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cdd4e0;
+    margin-bottom: 20px;
+}
+
+#dashnav .nav-link{
+    border-left: 1px solid #cdd4e0;
+}
+
+.card{
+    box-shadow: 0 4px 6px -5px hsl(0, 0%, 56%);
+}
+
+.card:hover{
+    transform: scale(1.0);
+}

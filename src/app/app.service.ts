@@ -13,6 +13,7 @@ export class AppService {
   constructor(public httpClient: HttpClient, public router: Router) { }
   user: any;
 
+  allScreened =     "http://localhost:3000/screening/allscreens";
   user_screening =     "http://localhost:3000/screening/stud_staff";
   user_screeningVis =  "http://localhost:3000/screening/visitor";
   userStud =           "http://localhost:3000/user/student";
@@ -48,14 +49,15 @@ export class AppService {
   adminProfileUrl =        "http://localhost:3000/user/admin-profile";
   staffProfileUrl =        "http://localhost:3000/user/staff-profile";
   studentProfileUrl =      "http://localhost:3000/user/student-profile";
-
+    dashboardUrl =      "http://localhost:3000/user/dashboard";
+    allusers =      "http://localhost:3000/user/allusers";
   //screen reports
 
   reportUrl =         "http://localhost:3000/screen_report/stud_staff"
   getUsertUrl =       "http://localhost:3000/screen_report/user"
   adminReportUrl =    "http://localhost:3000/screen_report/admin"
 
-  dashboardUrl =      "http://localhost:3000/user/dashboard";
+  
 
   deteteUrl = "http://localhost:3000/screen_report/delete/";
 
@@ -68,7 +70,7 @@ export class AppService {
   }
 
   deleteScreen(index: any) : Observable<any> {
-    return this.httpClient.get(this.deteteUrl, index);
+    return this.httpClient.delete("http://localhost:3000/screen_report/delete/"+ index);
   }
 
   adminScreenReport(token : any, report: any) : Observable<any> { 
@@ -113,6 +115,14 @@ export class AppService {
   
   getReport() : Observable<any> {
     return this.httpClient.get(this.reportData);
+  }
+
+  getAllUsers() : Observable<any> {
+    return this.httpClient.get(this.allusers);
+  }
+
+  getAllScreens() : Observable<any> {
+    return this.httpClient.get(this.allScreened);
   }
 
   getClient() : Observable<any> {

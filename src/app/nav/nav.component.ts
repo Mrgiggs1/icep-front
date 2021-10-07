@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
     //then navigate back to login page
 
     this.appService.logOut();
-    this.router.navigate(['/login'])
+    this.router.navigate(['/landing'])
   }
   ngOnInit(): void {
     

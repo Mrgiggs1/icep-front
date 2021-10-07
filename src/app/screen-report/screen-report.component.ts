@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { AppService } from '../app.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class ScreenReportComponent implements OnInit {
 
   
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // console.log("I am screening report!")
@@ -80,6 +81,9 @@ export class ScreenReportComponent implements OnInit {
     this.appService.deleteScreen(this.dele[0].screen_id).subscribe( 
       response => {
         this.durationRole = response;
+        this.toastr.success("Successfully deteted");
+        // console.log("succesffully deleted 2");
+       
       }, error => {
         console.log(error , 'GET Info!!!')
     });

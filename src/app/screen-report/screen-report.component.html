@@ -1,36 +1,30 @@
 <div class="container" data-aos="fade-right">
 
-    <div class="card text-center">
-        <div class="card-header">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" routerLink="/user-profile" routerLinkActive="active">Profile</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/user" routerLinkActive="active">Users</a>
-                  </li>
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/screen-report" routerLinkActive="active">Screen Report</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" routerLink="/statistics" routerLinkActive="active">Statistics</a>
-                </li>
-              
-              </ul>
-              
-            </div>
-          </nav>
-        </div>
-        
-      <!--/.Navbar-->
-    </div>
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light" id="dashnav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/user-profile" routerLinkActive="active">Profile</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/user" routerLinkActive="active">Users</a>
+            </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/screen-report" routerLinkActive="active">Screen Report</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/statistics" routerLinkActive="active">Statistics</a>
+          </li>
+        
+        </ul>
+      </div>
+  </nav>
+    
     <div class="card-header">
       <div class="form-group">
         <form #filterForm="ngForm" (ngSubmit)="reportSubmit(filterForm)">
@@ -63,19 +57,19 @@
     <div class="card text-center">
       <div class="card-header">
         
-          <table class="table table-striped" style="text-align: left" width=100%>
+          <table class="table table-striped" style="text-align: left">
       
            <tr style ="text-transform: capitalize;">
               <th>Name</th>
               <th>Surname</th>  
-              <th>Staff/Student#</th>
+              <th>Staff/Student</th>
               <th>Campus</th>
               <th>Symptoms</th>
               <th>Temp</th>
               <th>Fever</th>
-              <th>Breathing <br> problems</th>
-              <th>Covid <br>Contact</th>
-              <th>Cough<br> Symptoms</th>
+              <th>Breathing problems</th>
+              <th>Covid Contact</th>
+              <th>Cough Symptoms</th>
               <th>Screen Date</th>
             </tr>
 
@@ -91,7 +85,9 @@
                 <td>{{data.covid_contact}}</td>
                 <td>{{data.cough}}</td>
                 <td>{{data.screen_date}}</td>
-                <button id="remove" (click)="deleteRow(data.screen_id)">DELETE ROW</button>
+                <button type="button" class="btn btn-light" id="remove" (click)="deleteRow(data.screen_id)"><span class="material-icons">
+                  delete
+                </span></button>
             </tr>
           </table>
       

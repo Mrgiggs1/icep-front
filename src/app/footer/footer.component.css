@@ -1,0 +1,10 @@
+footer{
+    position: relative;
+    clear: both;
+    bottom: 0;
+    padding-top:20px;
+}
+
+.nav-link {
+    color: gray;
+}

@@ -8,6 +8,28 @@ html,body, app-root{
 }
 
 body {
+    font-family: "Helvetica", sans-serif;
     margin-bottom: 0;
     margin-top: 0;
   }
+
+#titless{
+    font-size: 20px;
+    font-weight: 650;
+    color: #1c273c;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    padding-top: 30px;
+}
+
+#dashnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #cdd4e0;
+    margin-bottom: 20px;
+}
+
+#dashnav .nav-link{
+    border-left: 1px solid #cdd4e0;
+}

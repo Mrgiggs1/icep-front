@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-dashboard.component.css']
 })
 export class StudentDashboardComponent implements OnInit {
-
+  
+  date: Date = new Date(); 
   constructor() { }
 
   ngOnInit(): void {

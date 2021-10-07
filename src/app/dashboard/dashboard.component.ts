@@ -10,21 +10,30 @@ import { AuthGuard } from '../auth.guard';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor(public appService: AppService, public router: Router, public auth: AuthGuard) { }
+  totScreen: any;
   token: any;
   user: any;
+  totUsers: any;
+
+  date: Date = new Date(); 
+  adminDetails: any;
+
+  constructor(public appService: AppService, public router: Router, public auth: AuthGuard) { }
+  
+  
 
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
+    
+    this.token = localStorage.getItem("token")
 
-    // this.auth.getUserRole().subscribe( 
-    //   response => {
-    //     this.user = response;
-    //   }, error => {
-    //     console.log(error , 'GET dashboard error!!!')
-    // });
-
+    this.appService.adminProfile(this.token).subscribe( 
+      response => {
+        this.adminDetails = response;
+      }, error => {
+        console.log(error , 'GET admin profile error!!!')
+    });
+    
     this.appService.getUser(this.token).subscribe( 
       response => {
         this.user = response;
@@ -41,6 +50,20 @@ export class DashboardComponent implements OnInit {
         }
       }, error => {
         console.log(error , 'GET dashboard error!!!')
+    });
+
+    this.appService.getAllUsers().subscribe( 
+      (      response: any) => {
+        this.totUsers = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
+    });
+
+    this.appService.getAllScreens().subscribe( 
+      (      response: any) => {
+        this.totScreen = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
     });
 
     
