@@ -34,7 +34,7 @@
         </div> 
         <div class="card-body">
           
-          <table style="border: 1px" width=100%>
+          <table id="table-data" style="overflow-x: auto;" class="table">
               
               
             <tr>
@@ -48,7 +48,8 @@
              </tr>
 
              <tr *ngFor = "let data of arrayStud | paginate :
-                         { itemsPerPage: tableSize,
+                         { 
+                           itemsPerPage: tableSize,
                            currentPage: page,
                            totalItems: count
                          }; let i = index" [class.active]="i == currentIndex">
@@ -83,23 +84,20 @@
         </div> 
         <div class="card-body">
           
-          <table id="table-data" style="width: 100%; border: 1px;">
-             
-            <tr>
-               <th>ID Number</th>
-               <th>Email Address</th>
-               <th>First Name</th>
-               <th>Last Name</th>
-               <th>Address</th>
-               <th>Gender</th>
-               <th>Contact Number</th>
-             </tr>
-
-             <tr  *ngFor = "let data of arrayStaff | paginate :
-             { itemsPerPage: tableSize,
-               currentPage: page,
-               totalItems: count
-             }; let i = index" [class.active]="i == currentIndex">
+          <table id="table-data" style="overflow-x: auto;" class="table">
+             <thead>
+              <tr >
+                <th>ID Number</th>
+                <th>Email Address</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Contact Number</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr *ngFor = "let data of arrayStaff">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -109,9 +107,9 @@
                  <td>{{data.phone}}</td>
                 
              </tr>
+            </tbody>
            </table>
-           <hr>
-           <div class="d-flex justify-content-center">
+           <!-- <div class="d-flex justify-content-center">
              <pagination-controls
 
              previousLabel="Prev"
@@ -121,7 +119,7 @@
              (pageChange)="handlePageChange($event)">
                
              </pagination-controls>
-           </div>
+           </div> -->
         </div>   
     </div>
 

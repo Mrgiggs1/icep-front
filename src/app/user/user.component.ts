@@ -13,8 +13,8 @@ export class UserComponent implements OnInit {
   currentIndex = -1;
   page = 1;
   count = 0;
-  tableSize = 10;
-  tableSizes = [3,6,9];
+  tableSize = 2;
+  tableSizes = [2,4,6];
 
   constructor(public appService: AppService) { }
   
