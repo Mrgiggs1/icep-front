@@ -58,13 +58,18 @@
             <form #screeningForm="ngForm" (ngSubmit)="onSubmit(screeningForm)">
             <div class="form-group">
                 <label for="fullname"> Student/Staff Number </label>
-                <input type="text" ngModel name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number">
+                <input type="text" ngModel name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" >
             </div>
+            <div *ngIf="stud_staff.invalid && (stud_staff.dirty || stud_staff.touched)" class="alert alert-danger">
+                <div *ngIf="stud_staff.errors?.required"> Student/Staff number is required </div>
+                </div>
             <div class="form-group">
                 <label for="temparature">Temperature</label>
                 <input type="text" ngModel name="temp" required #temp="ngModel" class="form-control" id="temparature" placeholder="Temperature">
             </div>
-
+            <div *ngIf="temp.invalid && (temp.dirty || temp.touched)" class="alert alert-danger">
+                <div *ngIf="temp.errors?.required"> Enter your Temperature!! </div>
+                </div>
             <div class="form-group">
                 <label for="campus">Campus &nbsp;</label>
                 <select  ngModel name="campus" id="campus" required>
@@ -133,9 +138,16 @@
                 
             </div>
             <div class="form-group">
-                <label for="travelled">Have you travelled abroad in the last 1-2 months?</label>
-                <input type="text" ngModel name="travel"  #travelled="ngModel" class="form-control" id="travel" placeholder="Have you travelled abroad in the last 1-2 months?" required>
-            </div>
+                <label for="travel">Have you travelled abroad in the last 1-2 months?</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" ngModel name="travel" value="Yes">
+                    <label class="form-check-label" for="travelYes">Yes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" ngModel name="travel" value="No">
+                    <label class="form-check-label" for="travelNo">No</label>
+                </div>
+                </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
                 <button type="submit" class="btn btn-primary" name=""> Submit Student </button> 
@@ -154,20 +166,32 @@
             <label for="fullname"> Full Name </label>
             <input type="text" ngModel name="fullname"  #fullname="ngModel" class="form-control" id="fullname" placeholder="Full Name" required>
         </div>
+        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert alert-danger">
+            <div *ngIf="fullname.errors?.required"> Enter your name </div>
+            </div>
         <div class="form-group">
 
             <label for="phone">Phone Number</label>
             <input type="text" ngModel name="phone"  #phone="ngModel" class="form-control" id="phone" placeholder="Phone Number" required>
         </div>
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+            <div *ngIf="phone.errors?.required"> Enter your Phone Number </div>
+            </div>
         <div>
             <label for="id"> ID Number </label>
             <input type="hidden" ngModel name="id" #id="ngModel" class="form-control" id="id">
             <input type="text" ngModel name="visitor_id" #visitor_id="ngModel" class="form-control" id="visitor_id" placeholder="ID Number" required>
         </div>
+        <div *ngIf="visitor_id.invalid && (visitor_id.dirty || visitor_id.touched)" class="alert alert-danger">
+            <div *ngIf="visitor_id.errors?.required"> Enter ID Number </div>
+            </div>
         <div class="form-group">
             <label for="temperature">Temperature</label>
             <input type="text" ngModel name="temp"  #temp="ngModel" class="form-control" id="temparature" placeholder="Temperature" required>
         </div>
+        <div *ngIf="temp.invalid && (temp.dirty || temp.touched)" class="alert alert-danger">
+            <div *ngIf="temp.errors?.required"> Enter Temperature </div>
+            </div>
         
        <!--Edetting-->
        <div class="form-group">
@@ -238,15 +262,24 @@
         
     </div>
     <div class="form-group">
-        <label for="travelled">Have you travelled abroad in the last 1-2 months?</label>
-        <input type="text" ngModel name="travel" required #travelled="ngModel" class="form-control" id="travel" placeholder="Have you travelled abroad in the last 1-2 months?">
+        <label for="travel">Have you travelled abroad in the last 1-2 months?</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" ngModel name="travel" value="Yes">
+            <label class="form-check-label" for="travelYes">Yes</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" ngModel name="travel" value="No">
+            <label class="form-check-label" for="travelNo">No</label>
+        </div>
     </div>
         <div class="form-group">
             <label for="appointment"> Reason for appointment </label>
             <input type="text" ngModel name="appointment" required #appointment="ngModel" class="form-control" id="appointment" placeholder="Reason for appointment">
         </div>
 
-        
+        <div *ngIf="appointment.invalid && (appointment.dirty || appointment.touched)" class="alert alert-danger">
+            <div *ngIf="appointment.errors?.required"> State your reason for appointment </div>
+            </div>
 
         <div class="form-group" ngModelGroup="submit_reset">
             <br>

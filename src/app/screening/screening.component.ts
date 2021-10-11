@@ -34,7 +34,7 @@ export class ScreeningComponent implements OnInit {
     {
       alert("Visit Nearest Testing Station, check landing page");
     }
-
+    
     let newScreening = {
 
       stud_staff: screeningForm.value.stud_staff,
