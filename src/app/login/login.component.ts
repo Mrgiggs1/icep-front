@@ -3,7 +3,6 @@ import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
-import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { User } from '../models/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  userModal = new User();
+  //userModal = new User();
   constructor(
     private location: Location,
     public appService: AppService,
@@ -22,9 +21,9 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(loginForm: NgForm) {
-    console.table(this.userModal);
+    
     let newLogin = {
-      email: loginForm.value.email,
+      username: loginForm.value.username,
       password: loginForm.value.password,
     }
 
