@@ -16,14 +16,16 @@
       </div>
     </div>
 </nav>
-  
+
 <div class="row" data-aos="fade-right">
 
    
     <div class="col-md-6 offset-md-3 mt-4">
     <h3>COVID-19 Screening Form</h3>
     <div class="shadow-lg p-3 mb-5 bg-white rounded border border-secondary">
-    <br>
+    <br><div style="text-align: center" class="text-success">
+                <label>{{this.data_message}} </label>
+            </div>
     <div class="form-group col-md-6">
         <div class="d-flex mb-2">
           <div class="form-check-radio m-0">
@@ -52,20 +54,31 @@
           </div>
         </div>
 
-       
+        
 
         <div *ngIf="has_cert">
+            
             <form #screeningForm="ngForm" (ngSubmit)="onSubmit(screeningForm)">
+            
             <div class="form-group">
                 <label for="fullname"> Student/Staff Number </label>
                 <input type="text" ngModel name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" >
+                    
+               
             </div>
+            <div class="text-danger">
+                <label>{{this.error_message}} </label>
+            </div>
+            
             <div *ngIf="stud_staff.invalid && (stud_staff.dirty || stud_staff.touched)" class="alert alert-danger">
                 <div *ngIf="stud_staff.errors?.required"> Student/Staff number is required </div>
                 </div>
             <div class="form-group">
                 <label for="temparature">Temperature</label>
                 <input type="text" ngModel name="temp" required #temp="ngModel" class="form-control" id="temparature" placeholder="Temperature">
+                <div class="text-danger">
+                    <label>{{this.temp_message}} </label>
+                </div>
             </div>
             <div *ngIf="temp.invalid && (temp.dirty || temp.touched)" class="alert alert-danger">
                 <div *ngIf="temp.errors?.required"> Enter your Temperature!! </div>
@@ -150,7 +163,7 @@
                 </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
-                <button type="submit" class="btn btn-primary" name=""> Submit Student </button> 
+                <button type="submit" class="btn btn-primary" onclick="this.value=''" name=""> Submit Student </button> 
                 
             </div>
     </form>

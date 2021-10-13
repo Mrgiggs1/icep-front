@@ -1,6 +1,8 @@
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 import { Client } from '../models/client.model';
 
@@ -20,8 +22,11 @@ export class ScreeningComponent implements OnInit {
 
 
   has_cert = true;
+  error_message: any;
+  data_message: any;
+  temp_message: any;
   
-  constructor(public appService: AppService) { }
+  constructor(public appService: AppService, private _router: Router) { }
 
   ngOnInit(): void {
     
@@ -52,10 +57,15 @@ export class ScreeningComponent implements OnInit {
 
     this.appService.screening(newScreening).subscribe( 
       (data: any) => {
-        console.log(data);
-        alert("Staff/Student Screening Data is Successfully Inserted");
+        this.data_message = data.stu_message;
+        if (this.data_message){
+          alert("Successfully screened!")
+          location.reload();
+        }
+        this.error_message = data.message;
+        this.temp_message = data.temp_message;
       }, (error: any) => {
-        console.log(error, 'POST error!!!')
+        console.log(error)
     });
   }
 
