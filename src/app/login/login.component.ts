@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  //userModal = new User();
   constructor(
     private location: Location,
     public appService: AppService,
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(loginForm: NgForm) {
+    
     let newLogin = {
       username: loginForm.value.username,
       password: loginForm.value.password,

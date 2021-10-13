@@ -61,28 +61,34 @@
             <form #screeningForm="ngForm" (ngSubmit)="onSubmit(screeningForm)">
             
             <div class="form-group">
+
                 <label for="fullname"> Student/Staff Number </label>
-                <input type="text" ngModel name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" >
-                    
+                <input type="text" [(ngModel)]="userModal.stud_staff" name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" >
+                <span class="text-danger" *ngIf="(stud_staff.touched || screeningForm.submitted) && stud_staff.errors?.required">
+                    Student/Staff Number is required
+                    </span> 
                
             </div>
             <div class="text-danger">
                 <label>{{this.error_message}} </label>
             </div>
             
-            <div *ngIf="stud_staff.invalid && (stud_staff.dirty || stud_staff.touched)" class="alert alert-danger">
+            <!-- <div *ngIf="stud_staff.invalid && (stud_staff.dirty || stud_staff.touched)" class="alert alert-danger">
                 <div *ngIf="stud_staff.errors?.required"> Student/Staff number is required </div>
-                </div>
+                </div> -->
             <div class="form-group">
+
                 <label for="temparature">Temperature</label>
-                <input type="text" ngModel name="temp" required #temp="ngModel" class="form-control" id="temparature" placeholder="Temperature">
+                <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  #temp="ngModel" required  id="temparature" placeholder="Temperature">
+            
+                <span class="text-danger" *ngIf="(temp.touched || screeningForm.submitted) && temp.errors?.required">
+                 Enter Temperature
+                 </span>
                 <div class="text-danger">
                     <label>{{this.temp_message}} </label>
                 </div>
             </div>
-            <div *ngIf="temp.invalid && (temp.dirty || temp.touched)" class="alert alert-danger">
-                <div *ngIf="temp.errors?.required"> Enter your Temperature!! </div>
-                </div>
+            
             <div class="form-group">
                 <label for="campus">Campus &nbsp;</label>
                 <select  ngModel name="campus" id="campus" required>
@@ -174,38 +180,45 @@
         
 
         <div *ngIf="!has_cert">
-            <form #screeningFormVis="ngForm" (ngSubmit)="onSubmitvis(screeningFormVis)">
+            <form #screeningFormVis="ngForm" (ngSubmit)="onSubmitvis(screeningFormVis)" novalidate>
         <div class="form-group">
             <label for="fullname"> Full Name </label>
-            <input type="text" ngModel name="fullname"  #fullname="ngModel" class="form-control" id="fullname" placeholder="Full Name" required>
+            
+                <input type="text" class="form-control" [(ngModel)]="userModal.fullname" name="fullname"  #fullname="ngModel" required id="studentOrStaff" placeholder="Full Name" >
+                <span class="text-danger" *ngIf="(fullname.touched || screeningFormVis.submitted) && fullname.errors?.required">
+                 Name is required
+                 </span>
         </div>
-        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)" class="alert alert-danger">
-            <div *ngIf="fullname.errors?.required"> Enter your name </div>
-            </div>
         <div class="form-group">
 
             <label for="phone">Phone Number</label>
-            <input type="text" ngModel name="phone"  #phone="ngModel" class="form-control" id="phone" placeholder="Phone Number" required>
+            
+                 <input type="text" class="form-control" [(ngModel)]="userModal.phone" name="phone"  #phone="ngModel" required id="studentOrStaff" placeholder="Phone Number" >
+                <span class="text-danger" *ngIf="(phone.touched || screeningFormVis.submitted) && phone.errors?.required">
+                 Phone number is required
+                 </span>
+            
         </div>
-        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
-            <div *ngIf="phone.errors?.required"> Enter your Phone Number </div>
-            </div>
+    
         <div>
             <label for="id"> ID Number </label>
             <input type="hidden" ngModel name="id" #id="ngModel" class="form-control" id="id">
-            <input type="text" ngModel name="visitor_id" #visitor_id="ngModel" class="form-control" id="visitor_id" placeholder="ID Number" required>
+            
+                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  #visitor_id="ngModel" required id="studentOrStaff" placeholder="ID Number" >
+                <span class="text-danger" *ngIf="(visitor_id.touched || screeningFormVis.submitted) && visitor_id.errors?.required">
+                 ID number is required
+                 </span>
+            
         </div>
-        <div *ngIf="visitor_id.invalid && (visitor_id.dirty || visitor_id.touched)" class="alert alert-danger">
-            <div *ngIf="visitor_id.errors?.required"> Enter ID Number </div>
-            </div>
+       
         <div class="form-group">
             <label for="temperature">Temperature</label>
-            <input type="text" ngModel name="temp"  #temp="ngModel" class="form-control" id="temparature" placeholder="Temperature" required>
+            <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  #temp="ngModel" required  id="temparature" placeholder="Temperature">
+            
+                <span class="text-danger" *ngIf="(temp.touched || screeningFormVis.submitted) && temp.errors?.required">
+                 Enter Temperature
+                 </span>
         </div>
-        <div *ngIf="temp.invalid && (temp.dirty || temp.touched)" class="alert alert-danger">
-            <div *ngIf="temp.errors?.required"> Enter Temperature </div>
-            </div>
-        
        <!--Edetting-->
        <div class="form-group">
         <label for="campus">Campus &nbsp;</label>
@@ -287,12 +300,14 @@
     </div>
         <div class="form-group">
             <label for="appointment"> Reason for appointment </label>
-            <input type="text" ngModel name="appointment" required #appointment="ngModel" class="form-control" id="appointment" placeholder="Reason for appointment">
+            
+                <input type="text" class="form-control" [(ngModel)]="userModal.appointment" name="appointment"  #appointment="ngModel" required  id="appointment" placeholder="Reason for appointment">
+            
+                <span class="text-danger" *ngIf="(appointment.touched || screeningFormVis.submitted) && appointment.errors?.required">
+                Please state the reason for your appointment
+                 </span>
+            
         </div>
-
-        <div *ngIf="appointment.invalid && (appointment.dirty || appointment.touched)" class="alert alert-danger">
-            <div *ngIf="appointment.errors?.required"> State your reason for appointment </div>
-            </div>
 
         <div class="form-group" ngModelGroup="submit_reset">
             <br>

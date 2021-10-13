@@ -1,111 +1,104 @@
 <div class="container">
 
-    <div class="card text-center">
-        <div class="card-header">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link"  routerLink="/staff-profile" routerLinkActive="active">Profile</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/staff-reports" routerLinkActive="active">Staff Report</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" routerLink="/staff-statistics" routerLinkActive="active">Statistics</a>
-                </li>
-              
-              </ul>
-            </div>
-          </nav>
-        </div>
-        
-     
+  <nav class="navbar navbar-expand-lg navbar-light" id="dashnav">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/staff-profile" routerLinkActive="active">Profile</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/staff-reports" routerLinkActive="active">Staff Report</a>
+          </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/staff-statistics" routerLinkActive="active">Statistics</a>
+        </li>
+      
+      </ul>
     </div>
-
-
-</div>
-
-<div class="col-md-12" data-aos="fade-right">
-  <div class="col-md-6 offset-md-3 mt-10">
-     
-      <div>
-          <h2>Staff Profile</h2>
-      </div><br>
-      <div *ngFor = "let data of staffDetails">
-        <div class="form-group">
-          <label for="regUsername">First Name</label>
-          <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="regFname" placeholder={{data.fname}}>
-        </div>
-        <div class="form-group">
-            <label for="loginUsername">Last Name</label>
-            <input type="text" name="last"  value={{data.fname}} ngModel #last="ngModel" class="form-control" id="regLname" placeholder={{data.lname}}>
-        </div>
-        <div class="form-group">
-            <label for="loginUsername">ID Number</label>
-            <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" id="regUname" placeholder={{data.id_number}}>
-        </div>
-        <div class="form-group">
-            <label for="loginUsername">Email</label>
-            <input type="email" name="email" ngModel #email="ngModel" class="form-control" id="regLname" placeholder={{data.email}}>
-        </div>
-        <div class="form-group">
-          <label for="loginUsername">Address</label>
-          <input type="text" name="address" ngModel required #email="ngModel" class="form-control" id="regLname" placeholder={{data.address}}>
-      </div>
+  </nav>
+  
+  <div class="col-md-12" data-aos="fade-right">
+    <div class="col-md-6 offset-md-3 mt-10">
       
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" name="password" ngModel required #password="ngModel" class="form-control" id="loginPassword" placeholder="Password">
+        <div>
+            <h2 *ngFor = "let data of staffDetails">{{data.fname + "'s"}} Profile</h2>
+        </div><br>
+        <div *ngFor = "let data of staffDetails">
+          <div class="form-group">
+            <label for="regUsername">First Name</label>
+            <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="regFname" placeholder={{data.fname}}>
           </div>
-  </div><br>
-  <div *ngFor = "let data of staffDetails">
-
-    <table class="table table-striped">
-      <tbody>
-          <tr>
-              <td>Staff Number:</td>
-              <td>{{data.staff_num}}</td>
-          </tr>
-          <tr>
-              <td>Gender:</td>
-              <td>{{data.gender}}</td>
-          </tr>
-          <tr>
-              <td>Marital Status</td>
-              <td>{{data.marital_status}}</td>
-          </tr>
-          <tr>
-              <td>Home Language</td>
-              <td>{{data.home_lang}}</td>
-          </tr>
-          <tr>
-              <td>Citizenship</td>
-              <td>{{data.citizenship}}</td>
-          </tr>
-          <tr>
-            <td>Staff Email</td>
-            <td>{{data.staff_email}}</td>
-        </tr>
-        <tr>
-          <td>Satff Phone#</td>
-          <td>{{data.phone}}</td>
-      </tr>
-      </tbody>
+          <div class="form-group">
+              <label for="loginUsername">Last Name</label>
+              <input type="text" name="last"  value={{data.fname}} ngModel #last="ngModel" class="form-control" id="regLname" placeholder={{data.lname}}>
+          </div>
+          <div class="form-group">
+              <label for="loginUsername">ID Number</label>
+              <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" id="regUname" placeholder={{data.id_number}}>
+          </div>
+          <div class="form-group">
+              <label for="loginUsername">Email</label>
+              <input type="email" name="email" ngModel #email="ngModel" class="form-control" id="regLname" placeholder={{data.email}}>
+          </div>
+          <div class="form-group">
+            <label for="loginUsername">Address</label>
+            <input type="text" name="address" ngModel required #email="ngModel" class="form-control" id="regLname" placeholder={{data.address}}>
+        </div>
         
-    </table>
-  </div>
-      <!--  -->
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" name="password" ngModel required #password="ngModel" class="form-control" id="loginPassword" placeholder="Password">
+            </div>
+    </div><br>
+    <div *ngFor = "let data of staffDetails">
 
-      
-  </div>
-      
+      <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Staff Number:</td>
+                <td>{{data.staff_num}}</td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>{{data.gender}}</td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td>{{data.marital_status}}</td>
+            </tr>
+            <tr>
+                <td>Home Language</td>
+                <td>{{data.home_lang}}</td>
+            </tr>
+            <tr>
+                <td>Citizenship</td>
+                <td>{{data.citizenship}}</td>
+            </tr>
+            <tr>
+              <td>Staff Email</td>
+              <td>{{data.staff_email}}</td>
+          </tr>
+          <tr>
+            <td>Satff Phone#</td>
+            <td>{{data.phone}}</td>
+        </tr>
+        </tbody>
+          
+      </table>
+    </div>
+        <!--  -->
 
+        
+    </div>
+        
+
+  </div>
 </div>
+
+
 
 

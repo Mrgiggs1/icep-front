@@ -19,6 +19,7 @@ import { StaffReportsComponent } from './staff-reports/staff-reports.component';
 import { StudentStatistictComponent } from './student-statistict/student-statistict.component';
 import { StaffStatisticsComponent } from './staff-statistics/staff-statistics.component';
 
+
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
