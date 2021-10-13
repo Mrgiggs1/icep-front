@@ -2,7 +2,9 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms';
 import { AppService } from '../app.service';
-import { Client } from '../models/client.model';
+import { User } from '../models/user.model';
+
+
 
 @Component({
   selector: 'app-screening',
@@ -10,7 +12,8 @@ import { Client } from '../models/client.model';
   styleUrls: ['./screening.component.css']
 })
 export class ScreeningComponent implements OnInit { 
-
+  userModal = new User();
+  
   screening_data: any;
 
   isCough = false;
@@ -28,6 +31,9 @@ export class ScreeningComponent implements OnInit {
   }
   
   onSubmit(screeningForm: NgForm) {
+
+    //alert('Form Submitted succesfully!!!\n Check the values in browser console.');
+    console.table(this.userModal);
 
     console.log(screeningForm.value.cough)
     if(screeningForm.value.cough == true && screeningForm.value.breathing == true && screeningForm.value.fever == true)
