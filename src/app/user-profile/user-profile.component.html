@@ -57,41 +57,67 @@
           </nav>
         </div>
     </div> -->
+  <div class="row">
+          <div class="col-md-6">
+              <div *ngFor = "let data of adminDetails">
+                    <div class="form-group">
+                      <label for="firstName">First Name</label>
+                      <input type="text" name="first" readonly class="form-control" id="fname" placeholder={{data.fname}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="last" readonly class="form-control" id="lname" placeholder={{data.lname}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="idNumber">ID Number</label>
+                        <input type="text" name="id_num" readonly class="form-control" id="idnumber" placeholder={{data.id_number}}>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAdd">Email</label>
+                        <input type="email" name="email" readonly class="form-control" id="emailadd" placeholder={{data.email}}>
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input type="text" name="address" readonly  class="form-control" id="homeAdd" placeholder={{data.address}}>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <input type="submit" value="Toggle Edit Form" (click)="openEditForm()" class="btn btn-secondary">
+                  </div>
+
+              </div>
+          </div>
+
+          <div class="col-md-6" *ngFor = "let data of adminDetails" data-aos="fade-right">
+            
+            <form *ngIf="editForm" #editForm="ngForm" (ngSubmit)="onSubmit(editForm)" novalidate>
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="firstname" placeholder={{data.fname}}>
+              </div>
+              <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input type="text" name="last" ngModel #last="ngModel" class="form-control" id="lastname" placeholder={{data.lname}}>
+              </div>
+              <div class="form-group">
+                <label for="emailAdd">Email</label>
+                <input type="email" name="email"  ngModel #email="ngModel"  class="form-control" id="email" placeholder={{data.email}}>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" ngModel required #email="ngModel" class="form-control" id="addressHome" placeholder={{data.address}}>
+              </div>
+              <br>
+              <div class="form-group">
+                <input type="submit" value="Update Details" class="btn btn-primary">
+              </div>
+            </form>
+            
+          </div>
+    </div>
+
+
 
 
 </div>
-
- <div class="row">
-        <div class="col-md-4 offset-md-3 mt-10">
-            <div *ngFor = "let data of adminDetails">
-                  <div class="form-group">
-                    <label for="regUsername">First Name {{data.fname}} </label>
-                    <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="regFname" placeholder={{data.fname}}>
-                  </div>
-                  <div class="form-group">
-                      <label for="loginUsername">Last Name</label>
-                      <input type="text" name="last"  value={{data.fname}} ngModel #last="ngModel" class="form-control" id="regLname" placeholder={{data.lname}}>
-                  </div>
-                  <div class="form-group">
-                      <label for="loginUsername">ID Number</label>
-                      <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" id="regUname" placeholder={{data.id_number}}>
-                  </div>
-                  <div class="form-group">
-                      <label for="loginUsername">Email</label>
-                      <input type="email" name="email" ngModel #email="ngModel" class="form-control" id="regLname" placeholder={{data.email}}>
-                  </div>
-                  <div class="form-group">
-                    <label for="loginUsername">Address</label>
-                    <input type="text" name="address" ngModel required #email="ngModel" class="form-control" id="regLname" placeholder={{data.address}}>
-                </div>
-                
-                  <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" name="password" ngModel required #password="ngModel" class="form-control" id="loginPassword" placeholder="Password">
-                    </div>
-            </div>
-            
-        </div>
-  </div>
-
 
