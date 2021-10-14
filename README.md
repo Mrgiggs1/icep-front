@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> a5ac5148f821d83a6a9dce0a85b0248f9d38e3da
+
 # CovidCompliance
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
@@ -33,9 +30,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Front End by
 
 Front-end Team
-<<<<<<< HEAD
-=======
-=======
-# civid-compliance
->>>>>>> d16709b5fcf9e2971b6346103c0d1d99ffe2b1fa
->>>>>>> a5ac5148f821d83a6a9dce0a85b0248f9d38e3da
