@@ -23,9 +23,9 @@
     <div class="col-md-6 offset-md-3 mt-4">
     <h3>COVID-19 Screening Form</h3>
     <div class="shadow-lg p-3 mb-5 bg-white rounded border border-secondary">
-    <br><div style="text-align: center" class="text-success">
+    <!-- <br><div style="text-align: center" class="text-success">
                 <label>{{this.data_message}} </label>
-            </div>
+            </div> -->
     <div class="form-group col-md-6">
         <div class="d-flex mb-2">
           <div class="form-check-radio m-0">
@@ -69,13 +69,10 @@
                     </span> 
                
             </div>
-            <div class="text-danger">
+            <div class="text-danger" style="width: 120%;">
                 <label>{{this.error_message}} </label>
             </div>
-            
-            <!-- <div *ngIf="stud_staff.invalid && (stud_staff.dirty || stud_staff.touched)" class="alert alert-danger">
-                <div *ngIf="stud_staff.errors?.required"> Student/Staff number is required </div>
-                </div> -->
+
             <div class="form-group">
 
                 <label for="temparature">Temperature</label>
@@ -103,7 +100,6 @@
 
                   </select>
             </div>
-            
             
             <div class="form-group">
                 <label for="symptoms">Do have any of the following symptoms?</label>

@@ -20,34 +20,7 @@ export class ScreenReportComponent implements OnInit {
   constructor(private appService: AppService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    // console.log("I am screening report!")
-    // this.token = localStorage.getItem("token")
     
-    // this.appService.getUser(this.token).subscribe(
-    //   response => {
-    //     this.user = response;
-    //     console.log(this.user[0])
-    //     console.log(this.user[0].role)
-    //     if (this.user[0].staff_role){
-    //       if (this.user[0].staff_role == "admin"){
-    //         this.appService.adminScreenReport(this.token).subscribe( 
-    //           response => {
-    //             this.screeningData = response;
-    //           }, error => {
-    //             console.log(error , 'Screening report error!!!')
-    //         });
-    //       }
-    //     }else{
-    //       this.appService.screenReport(this.token).subscribe(
-    //         response => {
-    //           this.screeningData = response;
-    //         }, error => {
-    //           console.log(error , 'Screening report error!!!')
-    //       });
-    //     }
-    //   }, error => {
-    //     console.log(error , 'Screening report error!!!')
-    // });
   }
 
   reportSubmit(filterForm: NgForm) {
@@ -56,12 +29,6 @@ export class ScreenReportComponent implements OnInit {
       role: filterForm.value.role,
       temp: filterForm.value.temp
     }
-    // this.appService.getDaily(newScreening).subscribe( 
-    //   (data: any) => {
-    //     console.log(data);
-    //   }, (error: any) => {
-    //     console.log(error, 'POST error!!!')
-    // }); 
 
     this.appService.adminScreenReport(this.token, report).subscribe(
       response => {

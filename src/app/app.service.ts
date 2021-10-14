@@ -25,7 +25,7 @@ export class AppService {
   statStaffUrl =    "http://localhost:3000/statistics/campus/staff";
   statVisUrl  =     "http://localhost:3000/statistics/campus/visitor";
   statSympUrl =     "http://localhost:3000/statistics/campus/symptoms";
-  reportData =      "http://localhost:3000/statistics/report/";
+ 
   
 
     //weekly statistics root
@@ -56,7 +56,7 @@ export class AppService {
   reportUrl =         "http://localhost:3000/screen_report/stud_staff"
   getUsertUrl =       "http://localhost:3000/screen_report/user"
   adminReportUrl =    "http://localhost:3000/screen_report/admin"
-
+  reportData =        "http://localhost:3000/screen_report/report";
   
 
   deteteUrl = "http://localhost:3000/screen_report/delete/";
@@ -70,7 +70,7 @@ export class AppService {
   }
 
   deleteScreen(index: any) : Observable<any> {
-    return this.httpClient.delete("http://localhost:3000/screen_report/delete/"+ index);
+    return this.httpClient.delete("http://localhost:3000/screen_report/delete/" + index);
   }
 
   adminScreenReport(token : any, report: any) : Observable<any> { 
@@ -112,9 +112,13 @@ export class AppService {
       })
     });
   }
-  
-  getReport() : Observable<any> {
-    return this.httpClient.get(this.reportData);
+
+  getReport(token : any) : Observable<any> {
+    return this.httpClient.post<any>(this.reportData, token, { 
+       headers: new HttpHeaders({
+         'Authorization': `Bearer ${token}`
+      })
+    });
   }
 
   getAllUsers() : Observable<any> {
