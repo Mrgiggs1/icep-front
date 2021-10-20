@@ -63,10 +63,13 @@
             <div class="form-group">
 
                 <label for="fullname"> Student/Staff Number </label>
-                <input type="text" [(ngModel)]="userModal.stud_staff" name="stud_staff" required #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" >
+                <input type="text" [(ngModel)]="userModal.stud_staff" name="stud_staff" required [pattern] = "sNumPattern" #stud_staff="ngModel" class="form-control" id="studentOrStaff" placeholder="Student Or Staff Number" min="6" >
                 <span class="text-danger" *ngIf="(stud_staff.touched || screeningForm.submitted) && stud_staff.errors?.required">
                     Student/Staff Number is required
                     </span> 
+                    <span class="text-danger" *ngIf="stud_staff.errors?.pattern">
+                        Invalid student/staff number!
+                    </span>
                
             </div>
             <div class="text-danger" style="width: 120%;">
@@ -180,18 +183,24 @@
         <div class="form-group">
             <label for="fullname"> Full Name </label>
             
-                <input type="text" class="form-control" [(ngModel)]="userModal.fullname" name="fullname"  #fullname="ngModel" required id="studentOrStaff" placeholder="Full Name" >
+                <input type="text" class="form-control" [(ngModel)]="userModal.fullname" name="fullname" [pattern] = "namePattern" #fullname="ngModel" required id="studentOrStaff" placeholder="Full Name" >
                 <span class="text-danger" *ngIf="(fullname.touched || screeningFormVis.submitted) && fullname.errors?.required">
                  Name is required
+                 </span>
+                 <span class="text-danger" *ngIf="fullname.errors?.pattern">
+                    Invalid name
                  </span>
         </div>
         <div class="form-group">
 
             <label for="phone">Phone Number</label>
             
-                 <input type="text" class="form-control" [(ngModel)]="userModal.phone" name="phone"  #phone="ngModel" required id="studentOrStaff" placeholder="Phone Number" >
+                 <input type="text" class="form-control" [(ngModel)]="userModal.phone" name="phone" [pattern] = "phoneNumPattern" #phone="ngModel" required id="studentOrStaff" placeholder="Phone Number"  [ngModelOptions]="{ updateOn: 'blur' }" >
                 <span class="text-danger" *ngIf="(phone.touched || screeningFormVis.submitted) && phone.errors?.required">
                  Phone number is required
+                 </span>
+                 <span class="text-danger" *ngIf="phone.errors?.pattern" >
+                     Enter a valid cell number!
                  </span>
             
         </div>
@@ -200,10 +209,13 @@
             <label for="id"> ID Number </label>
             <input type="hidden" ngModel name="id" #id="ngModel" class="form-control" id="id">
             
-                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  #visitor_id="ngModel" required id="studentOrStaff" placeholder="ID Number" >
+                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id "  [pattern] = "idNumPattern" #visitor_id="ngModel" required id="studentOrStaff" placeholder="ID Number" >
                 <span class="text-danger" *ngIf="(visitor_id.touched || screeningFormVis.submitted) && visitor_id.errors?.required">
                  ID number is required
                  </span>
+                 <span class="text-danger" *ngIf="visitor_id.errors?.pattern" >
+                    Enter a valid I.D number!
+                </span>
             
         </div>
        
