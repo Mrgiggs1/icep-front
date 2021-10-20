@@ -97,12 +97,7 @@
               </tr>
             </thead>
             <tbody>
-             <tr *ngFor = "let data of arrayStaff | paginate :
-                         { id: 'staff',
-                           itemsPerPage: tableSize,
-                           currentPage: page,
-                           totalItems: count
-                         }; let i = index" [class.active]="i == currentIndex">
+             <tr *ngFor = "let data of arrayStaff">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -114,7 +109,7 @@
              </tr>
             </tbody>
            </table>
-           <div class="d-flex justify-content-center">
+           <!-- <div class="d-flex justify-content-center">
              <pagination-controls
               id="staff"
               previousLabel="Prev"
@@ -124,7 +119,7 @@
               (pageChange)="handlePageChange($event)">
                
              </pagination-controls>
-           </div>
+           </div> -->
         </div>   
     </div>
 

@@ -33,3 +33,9 @@ body {
 #dashnav .nav-link{
     border-left: 1px solid #cdd4e0;
 }
+
+@media screen and (max-width: 320px) {
+    #dashnav{
+        display: inline;
+    }
+}

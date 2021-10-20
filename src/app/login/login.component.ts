@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  data_message: any;
+  error_message: any;
+  
   //userModal = new User();
   constructor(
     private location: Location,
@@ -19,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   
   onSubmit(loginForm: NgForm) {
     
@@ -31,23 +35,27 @@ export class LoginComponent implements OnInit {
       (userData: any) => {
         localStorage.setItem('token', userData.token)
         if (userData.message){
-          alert(userData.message);
+          this.error_message = userData.message;
         }
         if (userData.user[0].role == "staff"){
           if (userData.user[0].staff_role == "admin"){
             this._router.navigate(['/dashboard'])
-            alert("Admin Successfully LoggedIn");
           }else{
             this._router.navigate(['/staff-dashboard'])
-            alert("Staff Successfully LoggedIn");
           }
         }
         if (userData.user[0].role == "student"){
           this._router.navigate(['/student-dashboard'])
-          alert("Student Successfully LoggedIn");
         }
+        
       }, (error: any) => {
         console.log(error, 'POST LOGIN error!!!')
     });
+    
+
+
+    
   }
+
+
 }
