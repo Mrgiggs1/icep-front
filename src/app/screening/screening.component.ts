@@ -14,6 +14,12 @@ import { User } from '../models/user.model';
   styleUrls: ['./screening.component.css']
 })
 export class ScreeningComponent implements OnInit { 
+
+  phoneNumPattern = "^((\\+27-?)|0)?[0-9]{10}$"; 
+  idNumPattern = "^((\\+27-?)|0)?[0-9]{13}$";
+  sNumPattern = "^((\\+27-?)|0)?[0-9]{9}$";
+  namePattern = "[a-zA-Z]*";
+  
   userModal = new User();
   
   screening_data: any;
