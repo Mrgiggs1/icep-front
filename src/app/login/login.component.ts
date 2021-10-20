@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit {
   
   
   onSubmit(loginForm: NgForm) {
+    console.table(this.userModal);
     
     let newLogin = {
       username: loginForm.value.username,
@@ -55,6 +57,9 @@ export class LoginComponent implements OnInit {
 
 
     
+  }
+  userModal(userModal: any) {
+    throw new Error('Method not implemented.');
   }
 
 

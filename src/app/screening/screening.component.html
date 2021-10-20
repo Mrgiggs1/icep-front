@@ -128,34 +128,29 @@
             <div class="form-group">
                 <label for="contact">Have you been in contact with anyone in the last 14 days who is experiencing these symptoms?</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel #contact="ngModel" name="contact" value="Yes" required>
+                    <input class="form-check-input" type="radio" ngModel name="contact" value="Yes" required>
                     <label class="form-check-label" for="contactYes">
                       Yes
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel #contact="ngModel" name="contact" value="No" required>
+                    <input class="form-check-input" type="radio" ngModel name="contact" value="No" required>
                     <label class="form-check-label" for="contactNo">
                       No
                     </label>
                 </div>
-                <span class="text-danger" *ngIf="(contact.touched || contact.invalid) && contact.errors?.required">
-                    Choose Yes or No.
-                </span>
             </div>
             <div class="form-group">
                 <label for="contact_covid">Have you been in contact with anyone who has since tested positive for Covid-19?</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel #contact_covid="ngModel" name="contact_covid" value="Yes" required>
+                    <input class="form-check-input" type="radio" ngModel name="contact_covid" value="Yes">
                     <label class="form-check-label" for="contact_covidYes">Yes</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel #contact_covid="ngModel" name="contact_covid" value="No" required>
+                    <input class="form-check-input" type="radio" ngModel name="contact_covid" value="No">
                     <label class="form-check-label" for="contact_covidNo">No</label>
                 </div>
-                <span class="text-danger" *ngIf="(contact_covid.touched || contact_covid.invalid) && contact_covid.errors?.required">
-                    Choose Yes or No.
-                </span>
+                
             </div>
             <div class="form-group">
                 <label for="travel">Have you travelled abroad in the last 1-2 months?</label>
@@ -170,7 +165,7 @@
                 </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
-                <button type="submit" class="btn btn-primary" [disabled]="screeningForm.invalid"> Submit Student </button> 
+                <button type="submit" class="btn btn-primary" onclick="this.value=''" name=""> Submit Student </button> 
                 
             </div>
     </form>
@@ -185,7 +180,7 @@
         <div class="form-group">
             <label for="fullname"> Full Name </label>
             
-                <input type="text" class="form-control" [(ngModel)]="userModal.fullname" name="fullname"  #fullname="ngModel" required id="fname" placeholder="Full Name" >
+                <input type="text" class="form-control" [(ngModel)]="userModal.fullname" name="fullname"  #fullname="ngModel" required id="studentOrStaff" placeholder="Full Name" >
                 <span class="text-danger" *ngIf="(fullname.touched || screeningFormVis.submitted) && fullname.errors?.required">
                  Name is required
                  </span>
@@ -194,7 +189,7 @@
 
             <label for="phone">Phone Number</label>
             
-                 <input type="text" class="form-control" [(ngModel)]="userModal.phone" name="phone"  #phone="ngModel" required id="lname" placeholder="Phone Number" minlength="10" maxlength="10">
+                 <input type="text" class="form-control" [(ngModel)]="userModal.phone" name="phone"  #phone="ngModel" required id="studentOrStaff" placeholder="Phone Number" >
                 <span class="text-danger" *ngIf="(phone.touched || screeningFormVis.submitted) && phone.errors?.required">
                  Phone number is required
                  </span>
@@ -205,7 +200,7 @@
             <label for="id"> ID Number </label>
             <input type="hidden" ngModel name="id" #id="ngModel" class="form-control" id="id">
             
-                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  #visitor_id="ngModel" required id="idnum" placeholder="ID Number" minlength="13" maxlength="13">
+                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  #visitor_id="ngModel" required id="studentOrStaff" placeholder="ID Number" >
                 <span class="text-danger" *ngIf="(visitor_id.touched || screeningFormVis.submitted) && visitor_id.errors?.required">
                  ID number is required
                  </span>
