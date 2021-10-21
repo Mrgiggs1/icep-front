@@ -15,12 +15,12 @@ import { User } from '../models/user.model';
 })
 export class ScreeningComponent implements OnInit { 
 
-  phoneNumPattern = "^(((\\+27)|0)([0-9]){9}$)^{6,}";  
+  phoneNumPattern = "^((\\+27)|0)([0-9]){9}$";  
   idNumPattern = "^((\\+27-?)|0)?[0-9]{13}$";
   sNumPattern = "^([0-9]{9}$)|(^[0-9]{6}$)";
-  tempPattern = "^([10.00-50.05]{5}$)|^([10.00-50.05]{4}$)";
+  tempPattern = "^([0-9\.]{4}$)";
   namePattern = "[a-zA-Z]*";
-  
+
   userModal = new User();
   
   screening_data: any;
@@ -104,7 +104,10 @@ export class ScreeningComponent implements OnInit {
     this.appService.screeningVis(newScreening).subscribe( 
       (data: any) => {
         console.log(data);
-        alert("Visitor Screening Data is Successfully Inserted");
+        this.temp_message = data.temp_message;
+        if(!this.temp_message){
+          alert("Visitor Screening Data is Successfully Inserted");
+        }
       }, (error: any) => {
         console.log(error, 'POST error!!!')
     });
