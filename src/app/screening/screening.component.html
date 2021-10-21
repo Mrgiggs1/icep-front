@@ -79,11 +79,14 @@
             <div class="form-group">
 
                 <label for="temparature">Temperature</label>
-                <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  #temp="ngModel" required  id="temparature" placeholder="Temperature">
+                <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  #temp="ngModel" required [pattern] ="tempPattern" id="temparature" placeholder="Temperature">
             
                 <span class="text-danger" *ngIf="(temp.touched || screeningForm.submitted) && temp.errors?.required">
                  Enter Temperature
                  </span>
+                 <span class="text-danger" *ngIf="temp.errors?.pattern">
+                    Invalid temperature
+                </span>
                 <div class="text-danger">
                     <label>{{this.temp_message}} </label>
                 </div>
@@ -91,7 +94,7 @@
             
             <div class="form-group">
                 <label for="campus">Campus &nbsp;</label>
-                <select  ngModel name="campus" id="campus" required>
+                <select  ngModel name="campus" id="campus" #campus="ngModel" required>
                     <option value="soshanguve South Campus">Soshanguve South</option>
                     <option value="soshanguve North Campus">Soshanguve North</option>
                     <option value="Ga-Rankuwa Campus">Ga-Rankuwa</option>
@@ -102,6 +105,9 @@
                     <option value="Polokwane Campus">Polokwane</option>
 
                   </select>
+                  <span class="text-danger" *ngIf="(campus.touched || screeningForm.submitted) && campus.errors?.required">
+                    Select your campus
+                  </span>
             </div>
             
             <div class="form-group">
@@ -131,45 +137,56 @@
             <div class="form-group">
                 <label for="contact">Have you been in contact with anyone in the last 14 days who is experiencing these symptoms?</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="contact" value="Yes" required>
+                    <input class="form-check-input" type="radio" ngModel #contact="ngModel"  name="contact" value="Yes" required>
                     <label class="form-check-label" for="contactYes">
                       Yes
                     </label>
+
+                    
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="contact" value="No" required>
+                    <input class="form-check-input" type="radio" ngModel name="contact" #contact="ngModel"  value="No" required>
                     <label class="form-check-label" for="contactNo">
                       No
                     </label>
+                    
                 </div>
+                <span class="text-danger" *ngIf="(contact.touched || screeningForm.submitted) && contact.errors?.required">
+                    Have you been in contact with anyone in the last 14 days who is experiencing these symptoms?
+                    </span>
             </div>
             <div class="form-group">
                 <label for="contact_covid">Have you been in contact with anyone who has since tested positive for Covid-19?</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="contact_covid" value="Yes">
+                    <input class="form-check-input" type="radio" ngModel name="contact_covid" #contact_covid="ngModel" value="Yes" required>
                     <label class="form-check-label" for="contact_covidYes">Yes</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="contact_covid" value="No">
+                    <input class="form-check-input" type="radio" ngModel name="contact_covid" #contact_covid="ngModel" value="No" required>
                     <label class="form-check-label" for="contact_covidNo">No</label>
                 </div>
-                
+                <span class="text-danger" *ngIf="(contact_covid.touched || screeningForm.submitted) && contact_covid.errors?.required">
+                    Have you been in contact with anyone who has since tested positive for Covid-19?
+                    </span>
             </div>
             <div class="form-group">
                 <label for="travel">Have you travelled abroad in the last 1-2 months?</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="travel" value="Yes">
+                    <input class="form-check-input" type="radio" ngModel name="travel" #travel="ngModel" value="Yes" required>
                     <label class="form-check-label" for="travelYes">Yes</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" ngModel name="travel" value="No">
+                    <input class="form-check-input" type="radio" ngModel name="travel" #travel="ngModel" value="No" required>
                     <label class="form-check-label" for="travelNo">No</label>
                 </div>
+                <span class="text-danger" *ngIf="(travel.touched || screeningForm.submitted) && travel.errors?.required">
+                    Have you travelled abroad in the last 1-2 months?
+                </span>
                 </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
-                <button type="submit" class="btn btn-primary" onclick="this.value=''" name=""> Submit Student </button> 
-                
+                <button type="submit" class="btn btn-primary" onclick="this.value=''"  name=""> Submit Student </button> 
+                <!--[disabled]="screeningForm.invalid"-->
             </div>
     </form>
         </div> 
@@ -221,16 +238,19 @@
        
         <div class="form-group">
             <label for="temperature">Temperature</label>
-            <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  #temp="ngModel" required  id="temparature" placeholder="Temperature">
+            <input type="text" class="form-control" [(ngModel)]="userModal.temp" name="temp"  [pattern] ="tempPattern" #temp="ngModel" required  id="temparature" placeholder="Temperature">
             
                 <span class="text-danger" *ngIf="(temp.touched || screeningFormVis.submitted) && temp.errors?.required">
                  Enter Temperature
                  </span>
+                 <span class="text-danger" *ngIf="temp.errors?.pattern">
+                    Invalid temperature
+                </span>
         </div>
        <!--Edetting-->
        <div class="form-group">
         <label for="campus">Campus &nbsp;</label>
-        <select ngModel name="campus" id="campus" required>
+        <select ngModel name="campus" id="campus" #campus="ngModel" required>
             <option value="soshanguve South Campus">Soshanguve South</option>
             <option value="soshanguve North Campus">Soshanguve North</option>
             <option value="Ga-Rankuwa Campus">Ga-Rankuwa</option>
@@ -241,6 +261,9 @@
             <option value="Polokwane Campus">Polokwane</option>
 
           </select>
+          <span class="text-danger" *ngIf="(campus.touched || screeningFormVis.submitted) && campus.errors?.required">
+            Select your campus
+          </span>
     </div>
     
     
@@ -271,40 +294,48 @@
     <div class="form-group">
         <label for="contact">Have you been in contact with anyone in the last 14 days who is experiencing these symptoms?</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="contact" value="Yes" required>
+            <input class="form-check-input" type="radio" ngModel name="contact" #contact="ngModel" value="Yes" required>
             <label class="form-check-label" for="contactYes">
               Yes
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="contact" value="No" required>
+            <input class="form-check-input" type="radio" ngModel name="contact" #contact="ngModel" value="No" required>
             <label class="form-check-label" for="contactNo">
               No
             </label>
         </div>
+        <span class="text-danger" *ngIf="(contact.touched || screeningFormVis.submitted) && contact.errors?.required">
+            Have you been in contact with anyone who has since tested positive for Covid-19?
+         </span>
     </div>
     <div class="form-group">
         <label for="contact_covid">Have you been in contact with anyone who has since tested positive for Covid-19?</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="contact_covid" value="Yes">
+            <input class="form-check-input" type="radio" ngModel name="contact_covid" #contact_covid="ngModel" value="Yes" required>
             <label class="form-check-label" for="contact_covidYes">Yes</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="contact_covid" value="No">
+            <input class="form-check-input" type="radio" ngModel name="contact_covid" value="No" required>
             <label class="form-check-label" for="contact_covidNo">No</label>
         </div>
-        
+        <span class="text-danger" *ngIf="(contact_covid.touched || screeningFormVis.submitted) && contact_covid.errors?.required">
+            Have you been in contact with anyone who has since tested positive for Covid-19?
+            </span>
     </div>
     <div class="form-group">
         <label for="travel">Have you travelled abroad in the last 1-2 months?</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="travel" value="Yes">
+            <input class="form-check-input" type="radio" ngModel name="travel" #travel="ngModel" value="Yes" required >
             <label class="form-check-label" for="travelYes">Yes</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" ngModel name="travel" value="No">
+            <input class="form-check-input" type="radio" ngModel name="travel" #travel="ngModel" value="No" required>
             <label class="form-check-label" for="travelNo">No</label>
         </div>
+        <span class="text-danger" *ngIf="(travel.touched || screeningFormVis.submitted) && travel.errors?.required">
+            Have you travelled abroad in the last 1-2 months?
+        </span>
     </div>
         <div class="form-group">
             <label for="appointment"> Reason for appointment </label>
@@ -319,7 +350,7 @@
 
         <div class="form-group" ngModelGroup="submit_reset">
             <br>
-            <button type="submit" class="btn btn-primary" name="">Submit Visitor </button> 
+            <button type="submit" class="btn btn-primary" onclick="this.value=''"  name="">Submit Visitor </button> 
             
         </div>
 
