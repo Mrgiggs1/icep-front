@@ -15,10 +15,10 @@ import { User } from '../models/user.model';
 })
 export class ScreeningComponent implements OnInit { 
 
-  phoneNumPattern = "^((\\+27)|0)[0-9]{9}$"; 
+  phoneNumPattern = "^(((\\+27)|0)([0-9]){9}$)^{6,}";  
   idNumPattern = "^((\\+27-?)|0)?[0-9]{13}$";
   sNumPattern = "^([0-9]{9}$)|(^[0-9]{6}$)";
-  tempPattern = "^([10.00-50.05]{5}$)";
+  tempPattern = "^([10.00-50.05]{5}$)|^([10.00-50.05]{4}$)";
   namePattern = "[a-zA-Z]*";
   
   userModal = new User();

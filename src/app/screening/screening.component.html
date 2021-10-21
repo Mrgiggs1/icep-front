@@ -185,7 +185,7 @@
                 </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
-                <button type="submit" class="btn btn-primary" onclick="this.value=''"  name=""> Submit Student </button> 
+                <button type="submit" class="btn btn-primary" onclick="this.value=''" [disabled]="screeningForm.invalid"  name=""> Submit Student </button> 
                 <!--[disabled]="screeningForm.invalid"-->
             </div>
     </form>
