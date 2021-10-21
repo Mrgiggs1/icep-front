@@ -196,7 +196,7 @@
         
 
         <div *ngIf="!has_cert">
-            <form #screeningFormVis="ngForm" (ngSubmit)="onSubmitvis(screeningFormVis)" novalidate>
+            <form #screeningFormVis="ngForm" (ngSubmit)="onSubmitvis(screeningFormVis)">
         <div class="form-group">
             <label for="fullname"> Full Name </label>
             
@@ -350,7 +350,7 @@
 
         <div class="form-group" ngModelGroup="submit_reset">
             <br>
-            <button type="submit" class="btn btn-primary" onclick="this.value=''"  name="">Submit Visitor </button> 
+            <button type="submit" class="btn btn-primary" onclick="this.value=''" [disabled]="screeningFormVis.invalid" name="">Submit Visitor </button> 
             
         </div>
 
