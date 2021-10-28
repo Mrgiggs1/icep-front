@@ -13,7 +13,7 @@ export class AppService {
   constructor(public httpClient: HttpClient, public router: Router) { }
   user: any;
 
-  allScreened =     "http://localhost:3000/screening/allscreens";
+  allScreened =        "http://localhost:3000/screening/allscreens";
   user_screening =     "http://localhost:3000/screening/stud_staff";
   user_screeningVis =  "http://localhost:3000/screening/visitor";
   userStud =           "http://localhost:3000/user/student";
@@ -49,8 +49,9 @@ export class AppService {
   adminProfileUrl =        "http://localhost:3000/user/admin-profile";
   staffProfileUrl =        "http://localhost:3000/user/staff-profile";
   studentProfileUrl =      "http://localhost:3000/user/student-profile";
-    dashboardUrl =      "http://localhost:3000/user/dashboard";
-    allusers =      "http://localhost:3000/user/allusers";
+  dashboardUrl =           "http://localhost:3000/user/dashboard";
+  allusers =               "http://localhost:3000/user/allusers";
+  edit_admin =             "http://localhost:3000/user/edit_admin";
   //screen reports
 
   reportUrl =         "http://localhost:3000/screen_report/stud_staff"
@@ -93,6 +94,14 @@ export class AppService {
     return this.httpClient.post<any>(this.adminProfileUrl, token, { 
       headers: new HttpHeaders({
         'Authorization': `Bearer ${token}`
+      })
+    });
+  }
+
+  editAdminProfile(new_data : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.edit_admin, new_data, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
       })
     });
   }

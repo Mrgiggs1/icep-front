@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   editForm: boolean = false;
 
   constructor(public appService: AppService) { }
-
+  
   ngOnInit(): void {
     this.token = localStorage.getItem("token")
 
@@ -26,12 +26,23 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  openEditForm(){
-    
-    this.editForm = !this.editForm
+  onSubmit(editForm : NgForm) {
+    let new_data = {
+      fname: editForm.value.firstName,
+      lname: editForm.value.lastName,
+      email: editForm.value.email,
+      address: editForm.value.address 
+    }
+
+    this.appService.editAdminProfile(new_data).subscribe( 
+      (data: any) => {
+
+      }, (error: any) => {
+        console.log(error, 'PUT admin error!!!')
+    });
   }
 
-  onSubmit(editForm: NgForm){
-    
+  openEditForm(){ 
+    this.editForm = !this.editForm
   }
 }

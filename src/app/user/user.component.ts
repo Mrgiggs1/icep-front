@@ -15,6 +15,7 @@ export class UserComponent implements OnInit {
   count = 0;
   tableSize = 2;
   tableSizes = [2,4,6];
+  new_data: any;
 
   constructor(public appService: AppService) { }
   
