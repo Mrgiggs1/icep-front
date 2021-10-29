@@ -66,16 +66,5 @@ export class UserProfileComponent implements OnInit {
 
   openEditForm(){ 
     this.editForm = !this.editForm
-    this.appService.adminProfile(this.token).subscribe( 
-      response => {
-        this.adminDetails = response;
-        // old values to be editted
-        this.email = response.email;
-        this.address = response.address;
-        this.fname = response.fname;
-        this.lname = response.lname;
-      }, error => {
-        console.log(error , 'GET admin profile error!!!')
-    });
   }
 }
