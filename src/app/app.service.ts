@@ -19,6 +19,7 @@ export class AppService {
   userStud =           "http://localhost:3000/user/student";
   userStaff =          "http://localhost:3000/user/staff";
   userLogin =          "http://localhost:3000/login";
+  refrashTokenUrl =    "http://localhost:3000/login/refrash_token";
 
   statUrl =         "http://localhost:3000/statistics/campus";
   statStudUrl =     "http://localhost:3000/statistics/campus/student";
@@ -100,6 +101,14 @@ export class AppService {
 
   editAdminProfile(new_data : any) : Observable<any> { 
     return this.httpClient.post<any>(this.edit_admin, new_data, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      })
+    });
+  }
+
+  refrash_token() : Observable<any> { 
+    return this.httpClient.get<any>(this.refrashTokenUrl, { 
       headers: new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem("token")}`
       })
