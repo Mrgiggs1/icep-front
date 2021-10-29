@@ -14,12 +14,16 @@ export class UserComponent implements OnInit {
   page = 1;
   count = 0;
   tableSize = 2;
-  tableSizes = [2,4,6];
+  tableSizes = [3,6,9,12];
   new_data: any;
 
   constructor(public appService: AppService) { }
   
   ngOnInit(): void {
+    this.fetchPosts();
+  }
+
+  fetchPosts(): void{
     this.appService.getStud().subscribe( 
       response => {
         this.arrayStud = response;
@@ -37,13 +41,13 @@ export class UserComponent implements OnInit {
 
   handlePageChange(event: number): void{
     this.page = event;
-    this.ngOnInit();
+    this.fetchPosts();
   }
 
   handlePageSizeChange(event: any): void{
     this.tableSize = event.target.value;
     this.page = 1;
-    this.ngOnInit();
+    this.fetchPosts();
   }
 }
 
