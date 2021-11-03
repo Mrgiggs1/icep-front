@@ -84,9 +84,9 @@
                            totalItems: count
                          }; let i = index" [class.active]="i == currentIndex">
               
-                <td >{{data.fname}}</td>
+                <td >{{data.fname}}{{data.full_name}}</td>
                 <td>{{data.lname}}</td>
-                <td>{{data.stud_num}}{{data.staff_num}}</td>
+                <td>{{data.stud_num}}{{data.staff_num}}{{data.visitor_id}}</td>
                 <td>{{data.campus}}</td>
                 <td>{{data.symptoms}}</td>
                 <td>{{data.screen_date}}</td>

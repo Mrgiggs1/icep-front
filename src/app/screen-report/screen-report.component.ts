@@ -62,7 +62,7 @@ export class ScreenReportComponent implements OnInit {
     this.appService.adminScreenReport(this.token, report).subscribe(
       response => {
         this.durationRole = response;
-        //console.log(report);
+        console.log(this.durationRole);
       }, error => {
         console.log(error , 'Screen report error!!!')
     });

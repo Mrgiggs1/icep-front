@@ -9,7 +9,8 @@ import { AppService } from '../app.service';
 export class LandingComponent implements OnInit {
   camp_id: String[] = ["soshn", "soshs", "rank", "arc", "art", "emal", "main", "pol"];
   vaccines: any[] = [];
-  tot_screening: any[] = []; 
+  tot_screening: any[] = [];
+
 
   constructor(public appService: AppService) { }
 
@@ -17,7 +18,11 @@ export class LandingComponent implements OnInit {
     for(let i = 0; i < 8; i++){
       this.appService.getVaccines(this.camp_id[i]).subscribe( 
         response => {
-          this.vaccines[i] = response[0].tot_v
+          if (i == 1){
+            this.vaccines[i] = this.vaccines[0] + response[0].tot_v
+          }else{
+            this.vaccines[i] = response[0].tot_v
+          }
           console.log(this.vaccines[i])
         }, error => {
           console.log(error , 'GET Info!!!')
