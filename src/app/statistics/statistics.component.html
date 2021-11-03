@@ -106,10 +106,7 @@
                  </tr>
             </table>
 
-            <div class="col-md-4 text-right">
-              <button class="btn btn-danger btn-block" (click)="dayPDF()">Download Daily PDF</button>&nbsp;
-              <button style="cursor: pointer" (click)="exportexcel()" type="submit" class="btn btn-success">Daily Reports eXL</button>
-            </div>
+            
         </div>
     </div>
     <br><br>
@@ -137,10 +134,7 @@
                     <td *ngFor = "let weekSym of weekSymp">{{weekSym.sympNum}}</td>
                   </tr>   
             </table>
-            <div class="col-md-4 text-right">
-                <button class="btn btn-danger btn-block" (click)="weekPDF()">Download Weekly PDF</button>&nbsp;
-                <button style="cursor: pointer" (click)="exportexcelW()" type="submit" class="btn btn-success">Weekly Reports eXL</button>
-             </div>
+            
         </div>
     </div>
     <br><br>
@@ -168,10 +162,7 @@
                     <td *ngFor = "let monSymp of monthSymp">{{monSymp.sympNum}}</td>
                   </tr>
             </table>
-          <div class="col-md-6 text-right">
-            <button class="btn btn-danger btn-block" (click)="monthPDF()">Download Weekly PDF</button>&nbsp;
-            <button style="cursor: pointer" (click)="exportexcelM()" type="submit" class="btn btn-success">Monthly Reports eXL</button>
-         </div>
+          
              
 
         </div>
