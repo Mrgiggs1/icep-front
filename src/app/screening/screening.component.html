@@ -60,6 +60,20 @@
             
             <form #screeningForm="ngForm" (ngSubmit)="onSubmit(screeningForm)">
             
+                <div class="form-group">
+                    <label for="vaccinated">Have you been vaccinated?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ngModel name="vaccinated" #vaccinated="ngModel" value="Yes" required>
+                        <label class="form-check-label" for="vaccinatedYes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ngModel name="vaccinated" #vaccinated="ngModel" value="No" required>
+                        <label class="form-check-label" for="vaccinatedNo">No</label>
+                    </div>
+                    <span class="text-danger" *ngIf="(vaccinated.touched || screeningForm.submitted) && vaccinated.errors?.required">
+                        Have you been vaccinated?
+                    </span>
+                    </div>
             <div class="form-group">
 
                 <label for="fullname"> Student/Staff Number </label>
@@ -185,7 +199,7 @@
                 </div>
              <div class="form-group" ngModelGroup="submit_reset">
                  <br>
-                <button type="submit" class="btn btn-primary" onclick="this.value=''" [disabled]="screeningForm.invalid"  name=""> Submit Student </button> 
+                <button type="submit" class="btn btn-primary" onclick="this.value=''" [disabled]="screeningForm.invalid"  name="">Submit</button> 
                 <!--[disabled]="screeningForm.invalid"-->
             </div>
     </form>
@@ -197,6 +211,20 @@
 
         <div *ngIf="!has_cert">
             <form #screeningFormVis="ngForm" (ngSubmit)="onSubmitvis(screeningFormVis)">
+                <div class="form-group">
+                    <label for="vaccinated">Have you been vaccinated?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ngModel name="vaccinated" #vaccinated="ngModel" value="Yes" required>
+                        <label class="form-check-label" for="vaccinatedYes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" ngModel name="vaccinated" #vaccinated="ngModel" value="No" required>
+                        <label class="form-check-label" for="vaccinatedNo">No</label>
+                    </div>
+                    <span class="text-danger" *ngIf="(vaccinated.touched || screeningFormVis.submitted) && vaccinated.errors?.required">
+                        Have you been vaccinated?
+                    </span>
+                    </div>
         <div class="form-group">
             <label for="fullname"> Full Name </label>
             
@@ -217,7 +245,10 @@
                  Phone number is required
                  </span>
                  <span class="text-danger" *ngIf="phone.errors?.pattern" >
-                     Enter a valid cell number!
+                     Enter a valid cell number! <br>
+                     <span class="text-success">
+                    * Must be numbers only , must have 10 digits and begin with a 0 or +27
+                     </span>
                  </span>
             
         </div>

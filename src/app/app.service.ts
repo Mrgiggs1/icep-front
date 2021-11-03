@@ -62,7 +62,8 @@ export class AppService {
   
   
 
-  deteteUrl = "http://localhost:3000/screen_report/delete/";
+  deteteUrl =   "http://localhost:3000/screen_report/delete/";
+  vaccinesUrl = "http://localhost:3000/landing/vaccines";
 
   getStudDaily(token : any) : Observable<any> {
     return this.httpClient.post<any>("http://localhost:3000/screen_report/stud_daily_report", token, { 
@@ -87,6 +88,15 @@ export class AppService {
         'Authorization': `Bearer ${token}`
       })
     });
+  }
+
+  getVaccines(camp_id: any) : Observable<any> {
+    return this.httpClient.get("http://localhost:3000/landing/" + camp_id);
+  }
+
+  // count number of row in screening table 
+  getScreenRows(camp_id: any) : Observable<any> {
+    return this.httpClient.get("http://localhost:3000/landing/screen_rows" + camp_id);
   }
 
   deleteScreen(index: any) : Observable<any> {
@@ -116,7 +126,7 @@ export class AppService {
       })
     });
   }
-
+  
   editAdminProfile(new_data : any) : Observable<any> { 
     return this.httpClient.post<any>(this.edit_admin, new_data, { 
       headers: new HttpHeaders({

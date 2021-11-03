@@ -14,9 +14,10 @@ import { User } from '../models/user.model';
   styleUrls: ['./screening.component.css']
 })
 export class ScreeningComponent implements OnInit { 
-
-  phoneNumPattern = "^((\\+27)|0)([0-9]){9}$";  
-  idNumPattern = "^((\\+27-?)|0)?[0-9]{13}$";
+  phoneNumPattern="((\\+27)|0)"+"[6-8]{1}"+"([0-9]{8})";
+  //phoneNumPattern = "^((\\+27)|0)([6-8])([0-9]){9}$";  
+  //idNumPattern = "^\d{2}[0-1][0-9][0-3]\d\d{4}[0-1]\d{2}$/";
+  idNumPattern="[2-9][0-9]{1}"+"(0[1-9]|1[0-2])"+"(0[1-9]|[12][0-9]|3[0-1])"+"[1-9]{1}"+"[0-9]{4}"+"[7-9]{1}"+"[0-9]{1}";
   sNumPattern = "^([0-9]{9}$)|(^[0-9]{6}$)";
   tempPattern = "^([0-9\.]{4}$)";
   namePattern = "[a-zA-Z]*";
@@ -54,7 +55,7 @@ export class ScreeningComponent implements OnInit {
     }
     
     let newScreening = {
-
+      
       stud_staff: screeningForm.value.stud_staff,
       screen_id: screeningForm.value.screen_id,
       temp: screeningForm.value.temp,
@@ -65,7 +66,8 @@ export class ScreeningComponent implements OnInit {
       symptom: screeningForm.value.symptom,
       contact: screeningForm.value.contact,
       contact_covid: screeningForm.value.contact_covid,
-      travel: screeningForm.value.travel
+      travel: screeningForm.value.travel,
+      vaccinated: screeningForm.value.vaccinated
     }
 
     this.appService.screening(newScreening).subscribe( 
