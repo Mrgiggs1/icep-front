@@ -61,7 +61,8 @@ export class AppService {
   reportData =        "http://localhost:3000/screen_report/report";
   
 
-  deteteUrl = "http://localhost:3000/screen_report/delete/";
+  deteteUrl =   "http://localhost:3000/screen_report/delete/";
+  vaccinesUrl = "http://localhost:3000/landing/vaccines";
 
   getUser(token : any) : Observable<any> {
    return this.httpClient.post<any>(this.dashboardUrl, token, { 
@@ -69,6 +70,15 @@ export class AppService {
         'Authorization': `Bearer ${token}`
       })
     });
+  }
+
+  getVaccines(camp_id: any) : Observable<any> {
+    return this.httpClient.get("http://localhost:3000/landing/" + camp_id);
+  }
+
+  // count number of row in screening table 
+  getScreenRows(camp_id: any) : Observable<any> {
+    return this.httpClient.get("http://localhost:3000/landing/screen_rows" + camp_id);
   }
 
   deleteScreen(index: any) : Observable<any> {
