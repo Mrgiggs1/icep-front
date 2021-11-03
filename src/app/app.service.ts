@@ -108,7 +108,7 @@ export class AppService {
       })
     });
   }
-
+  
   editAdminProfile(new_data : any) : Observable<any> { 
     return this.httpClient.post<any>(this.edit_admin, new_data, { 
       headers: new HttpHeaders({

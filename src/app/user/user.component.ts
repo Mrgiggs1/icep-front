@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
   currentIndex = -1;
   page = 1;
   count = 0;
-  tableSize = 2;
+  tableSize = 10;
   tableSizes = [3,6,9,12];
   new_data: any;
 
