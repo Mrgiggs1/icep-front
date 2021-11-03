@@ -1,137 +1,87 @@
 <div class="container" data-aos="fade-right">
 
-  <div class="card text-center">
-      <div class="card-header">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" routerLink="/student-profile" routerLinkActive="active">Profile</a>
-              </li>
-              <li class="nav-item active">
-                  <a class="nav-link" routerLink="/student-reports" routerLinkActive="active">Student Report</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" routerLink="/student-statistict" routerLinkActive="active">Statistics</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+  <div class="row" id="titless">
+    <div class="col">
+      <label >Student Profile</label>
+    </div>
+  </div>
+
+
+  <nav id="dashnav">
+    <ul class="nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/student-profile" routerLinkActive="active">Profile</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/student-reports" routerLinkActive="active">Student Report</a>
+        </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/student-statistict" routerLinkActive="active">Statistics</a>
+      </li>
+    </ul>
+  </nav>
+
+ <div class="row">
+   <div class="col-md-6">
+      <div *ngFor = "let data of studDetails">
+        <div class="form-group">
+          <label for="regUsername">First Name</label>
+          <input type="text" name="first" readonly ngModel #first="ngModel" class="form-control" placeholder={{data.fname}}>
+        </div>
+        <div class="form-group">
+            <label for="loginUsername">Last Name</label>
+            <input type="text" name="last" readonly ngModel #last="ngModel" class="form-control" placeholder={{data.lname}}>
+        </div>
+        <div class="form-group">
+            <label for="loginUsername">ID Number</label>
+            <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" placeholder={{data.id_number}}>
+        </div>
+        <div class="form-group">
+          <label for="loginUsername">Student Number</label>
+          <input type="text" name="stud_num" readonly ngModel #stud_num="ngModel" class="form-control" placeholder={{data.stud_num}}>
+        </div>
+        <div class="form-group">
+            <label for="loginUsername">Email</label>
+            <input type="email" name="email" readonly ngModel #email="ngModel" class="form-control"  placeholder={{data.email}}>
+        </div>
+        <div class="form-group">
+          <label for="loginUsername">Address</label>
+          <input type="text" name="address" ngModel readonly #email="ngModel" class="form-control" placeholder={{data.address}}>
       </div>
       
-    <!--/.Navbar-->
-  </div>
-</div>
-
- <div class="col-md-12">
-        <div class="col-md-6 offset-md-3 mt-10">
-           
-            <div>
-                <h2>Student</h2>
-            </div><br>
-            <div *ngFor = "let data of studDetails">
-              <div class="form-group">
-                <label for="regUsername">First Name</label>
-                <input type="text" name="first"  ngModel #first="ngModel" class="form-control" id="regFname" placeholder={{data.fname}}>
-              </div>
-              <div class="form-group">
-                  <label for="loginUsername">Last Name</label>
-                  <input type="text" name="last"  value={{data.fname}} ngModel #last="ngModel" class="form-control" id="regLname" placeholder={{data.lname}}>
-              </div>
-              <div class="form-group">
-                  <label for="loginUsername">ID Number</label>
-                  <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" id="regUname" placeholder={{data.id_number}}>
-              </div>
-              <div class="form-group">
-                  <label for="loginUsername">Email</label>
-                  <input type="email" name="email" ngModel #email="ngModel" class="form-control" id="regLname" placeholder={{data.email}}>
-              </div>
-              <div class="form-group">
-                <label for="loginUsername">Address</label>
-                <input type="text" name="address" ngModel required #email="ngModel" class="form-control" id="regLname" placeholder={{data.address}}>
-            </div>
-            
-              <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" name="password" ngModel required #password="ngModel" class="form-control" id="loginPassword" placeholder="Password">
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Toggle Edit Form" (click)="openEditForm()" class="btn btn-secondary">
-                </div>
-        </div><br>
-        <div *ngFor = "let data of studDetails">
-
-          <div class="col-md-6" *ngFor = "let data of studDetails" data-aos="fade-right">
-            
-            <form *ngIf="editForm" #editForm="ngForm" (ngSubmit)="onSubmit(editForm)" novalidate>
-              <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" [(ngModel)]="data.fname" name="firstName" class="form-control" id="firstname" value="{{fname}}">
-              </div>
-              <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <input type="text"  [(ngModel)]="data.lname" name="lastName" class="form-control" id="lastname" value="{{lname}}">
-              </div>
-              <div class="form-group">
-                <label for="emailAdd">Email</label>
-                <input type="email" [(ngModel)]="data.email" name="email" name="email"  class="form-control" id="email" value="{{email}}">
-              </div>
-              <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" [(ngModel)]="data.address" name="address" class="form-control" id="address" value="{{address}}">
-                <!-- <input [(ngModel)]="email" (ngModelChange)="onSubmit($event)"> -->
-              </div>
-              <br>
-              <div class="form-group">
-                <input type="submit" value="Update Details" class="btn btn-primary">
-              </div>
-            </form>
-            
+          <div class="form-group">
+            <input type="submit" value="Toggle Edit Form" (click)="openEditForm()" class="btn btn-secondary">
           </div>
-
-          <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <td>Student Number:</td>
-                    <td>{{data.stud_num}}</td>
-                </tr>
-                <tr>
-                    <td>Gender:</td>
-                    <td>{{data.gender}}</td>
-                </tr>
-                <tr>
-                    <td>Marital Status</td>
-                    <td>{{data.marital_status}}</td>
-                </tr>
-                <tr>
-                    <td>Home Language</td>
-                    <td>{{data.home_lang}}</td>
-                </tr>
-                <tr>
-                    <td>Citizenship</td>
-                    <td>{{data.citizenship}}</td>
-                </tr>
-                <tr>
-                  <td>Student Email</td>
-                  <td>{{data.stud_email}}</td>
-              </tr>
-              <tr>
-                <td>Student Phone#</td>
-                <td>{{data.phone}}</td>
-            </tr>
-            </tbody>
-              
-          </table>
-        </div>
-            <!--  -->
-  
+      </div>
+   </div>
+   <div class="col-md-6" *ngFor = "let data of studDetails" data-aos="fade-right">
             
-        </div>
-            
+    <form *ngIf="editForm" #editForm="ngForm" (ngSubmit)="onSubmit(editForm)" novalidate>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" [(ngModel)]="data.fname" name="firstName" class="form-control" id="firstname" value="{{fname}}">
+      </div>
+      <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text"  [(ngModel)]="data.lname" name="lastName" class="form-control" id="lastname" value="{{lname}}">
+      </div>
+      <div class="form-group">
+        <label for="emailAdd">Email</label>
+        <input type="email" [(ngModel)]="data.email" name="email" name="email"  class="form-control" id="email" value="{{email}}">
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" [(ngModel)]="data.address" name="address" class="form-control" id="address" value="{{address}}">
+        <!-- <input [(ngModel)]="email" (ngModelChange)="onSubmit($event)"> -->
+      </div>
+      <br>
+      <div class="form-group">
+        <input type="submit" value="Update Details" class="btn btn-primary">
+      </div>
+    </form>
     
   </div>
+    
+  </div>
+
+</div>

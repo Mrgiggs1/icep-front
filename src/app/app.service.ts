@@ -60,8 +60,26 @@ export class AppService {
   adminReportUrl =    "http://localhost:3000/screen_report/admin"
   reportData =        "http://localhost:3000/screen_report/report";
   
+  
 
   deteteUrl = "http://localhost:3000/screen_report/delete/";
+
+  getStudDaily(token : any) : Observable<any> {
+    return this.httpClient.post<any>("http://localhost:3000/screen_report/stud_daily_report", token, { 
+       headers: new HttpHeaders({
+         'Authorization': `Bearer ${token}`
+       })
+     });
+   }
+
+   getStudWeekly(token : any) : Observable<any> {
+    return this.httpClient.post<any>("http://localhost:3000/screen_report/stud_weekly_report", token, { 
+       headers: new HttpHeaders({
+         'Authorization': `Bearer ${token}`
+       })
+     });
+   }
+
 
   getUser(token : any) : Observable<any> {
    return this.httpClient.post<any>(this.dashboardUrl, token, { 

@@ -28,8 +28,27 @@ body {
     justify-content: space-between;
     border-bottom: 1px solid #cdd4e0;
     margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+#dashnav a{
+    color: rgb(24, 23, 23);
+}
+
+#dashnav a:hover{
+    color: grey;
+}
+
+#dashnav a:active{
+    color: rgb(92, 91, 91);
 }
 
 #dashnav .nav-link{
     border-left: 1px solid #cdd4e0;
+}
+
+@media screen and (max-width: 320px) {
+    table{
+        overflow-x: auto;
+    }
 }
