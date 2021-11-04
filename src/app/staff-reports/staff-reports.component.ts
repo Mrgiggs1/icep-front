@@ -10,12 +10,9 @@ import { AppService } from '../app.service';
 export class StaffReportsComponent implements OnInit {
   reportObj: any;
   token = localStorage.getItem("token");
-  
-  currentIndex = -1;
-  page = 1;
-  count = 0;
-  tableSize = 10;
-  tableSizes = [3,6,9,12];
+  page: number = 1;
+  page2: number = 2;
+  page3: number = 3;
 
   dailyStaff: any;
   weeklyStaff: any;
@@ -54,17 +51,6 @@ export class StaffReportsComponent implements OnInit {
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
-  }
-
-  handlePageChange(event: number): void{
-    this.page = event;
-    this.ngOnInit();
-  }
-
-  handlePageSizeChange(event: any): void{
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.ngOnInit();
   }
 
 }
