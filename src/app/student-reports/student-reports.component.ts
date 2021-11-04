@@ -41,6 +41,13 @@ export class StudentReportsComponent implements OnInit {
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
+
+    this.appService.getStudMonthly(this.token).subscribe( 
+      (      response: any) => {
+        this.monthlyStud = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
+    });
   }
 
 }

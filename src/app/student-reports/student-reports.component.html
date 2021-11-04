@@ -113,7 +113,40 @@
                   </button>
                 </h2>
                 <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">No Data</div>
+                  <div class="accordion-body">
+                    <table class="table table-striped" style="text-align: center" width=100%>
+        
+                      <tr style ="text-transform: capitalize;">
+                         <th>Name</th>
+                         <th>Surname</th>  
+                         <th>Staff</th>
+                         <th>Campus</th>
+                         <th>Symptoms</th>
+                         <th>Temp</th>
+                         <th>Fever</th>
+                         <th>Breathing <br> problems</th>
+                         <th>Covid <br>Contact</th>
+                         <th>Cough<br> Symptoms</th>
+                         <th>Screen</th>
+                       </tr>
+         
+                       <tr *ngFor = "let data of monthlyStud"
+                          
+                       style ="text-transform: capitalize;">
+                           <td>{{data.fname}}</td>
+                           <td>{{data.lname}}</td>
+                           <td>{{data.stud_num}}{{data.staff_num}}</td>
+                           <td>{{data.campus}}</td>
+                           <td>{{data.symptoms}}</td>
+                           <td class="text-danger"><strong>{{data.temp}}</strong></td>
+                           <td>{{data.fever}}</td>
+                           <td>{{data.breathing}}</td>
+                           <td>{{data.covid_contact}}</td>
+                           <td>{{data.cough}}</td>
+                           <td>{{data.screen_date}}</td>
+                       </tr>
+                     </table>
+                  </div>
                 </div>
               </div>
               <div class="accordion-item">

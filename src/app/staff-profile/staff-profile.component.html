@@ -1,5 +1,12 @@
 <div class="container">
 
+  <div class="row" id="titless">
+    <div class="col">
+      <label >Staff Profile</label>
+    </div>
+  </div>
+
+
   <nav class="navbar navbar-expand-lg navbar-light" id="dashnav">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +37,7 @@
       </div>
       <div class="form-group">
           <label for="loginUsername">Last Name</label>
-          <input type="text" name="last" readonly value={{data.fname}} ngModel #last="ngModel" class="form-control" placeholder={{data.lname}}>
+          <input type="text" name="last" readonly ngModel #last="ngModel" class="form-control" placeholder={{data.lname}}>
       </div>
       <div class="form-group">
           <label for="loginUsername">ID Number</label>
@@ -42,10 +49,10 @@
     </div>
     <div class="form-group">
       <label for="satffmail">Staff Email</label>
-      <input type="text" name="id_num" readonly ngModel #username="ngModel" class="form-control" placeholder={{data.staff_email}}>
+      <input type="text" name="staff_email" readonly ngModel #staff_email="ngModel" class="form-control" placeholder={{data.staff_email}}>
      </div>
       <div class="form-group">
-          <label for="loginUsername">Email</label>
+          <label for="loginUsername">Personal Email</label>
           <input type="email" name="email" readonly ngModel #email="ngModel" class="form-control" placeholder={{data.email}}>
       </div>
       <div class="form-group">

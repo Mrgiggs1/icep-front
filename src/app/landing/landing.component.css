@@ -13,6 +13,9 @@ nav a:hover {
     border-bottom-right-radius: 2px;
   }
 
+nav{
+  box-shadow: 0 4px 6px -5px hsl(0, 0%, 26%);
+}
 .carousel-caption {
   
   bottom: 0; /*At the bottom. Use top:0 to append it to the top */
@@ -21,4 +24,8 @@ nav a:hover {
   color: #f1f1f1; /* Grey text */
   padding: 20px; /* Some padding */
   
+}
+
+#rules{
+  text-decoration: underline;
 }
