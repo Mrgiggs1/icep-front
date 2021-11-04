@@ -87,7 +87,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of weeklyStud"
+                       <tr *ngFor = "let data of weeklyStud | paginate: { itemsPerPage: 5, currentPage: page, id: 'Weekly' }"
                           
                        style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
@@ -103,6 +103,15 @@
                            <td>{{data.screen_date}}</td>
                        </tr>
                      </table>
+                     <hr>
+                     <!-- <ul class="meal-list">
+                      <li *ngFor="let data of weeklyStud | paginate: { itemsPerPage: 10, currentPage: page }">
+                          {{ data }}
+                      </li>
+                  </ul> -->
+                  <div class="has-text-centered">
+                      <pagination-controls (pageChange)="page = $event" id="Weekly"></pagination-controls>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -121,7 +130,7 @@
                          <th>Surname</th>  
                          <th>Staff</th>
                          <th>Campus</th>
-                         <th>Symptoms</th>
+                         <th>Other Symptoms</th>
                          <th>Temp</th>
                          <th>Fever</th>
                          <th>Breathing <br> problems</th>
@@ -130,7 +139,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of monthlyStud"
+                       <tr *ngFor = "let data of monthlyStud | paginate: { id: 'Monthly', itemsPerPage: 5, currentPage: page2 }"
                           
                        style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
@@ -146,6 +155,10 @@
                            <td>{{data.screen_date}}</td>
                        </tr>
                      </table>
+                     <hr>
+                     <div class="has-text-centered">
+                      <pagination-controls id="Monthly" (pageChange)="page2 = $event"></pagination-controls>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -173,7 +186,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of reportObj"
+                       <tr *ngFor = "let data of reportObj | paginate: { id: 'all', itemsPerPage: 5, currentPage: page3}"
                           
                        style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
@@ -190,6 +203,9 @@
                        </tr>
                      </table>
                      <hr>
+                     <div class="has-text-centered">
+                      <pagination-controls id="all" (pageChange)="page3 = $event"></pagination-controls>
+                    </div>
                   </div>
                 </div>
               </div>

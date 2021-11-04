@@ -15,7 +15,11 @@ export class StaffReportsComponent implements OnInit {
   page = 1;
   count = 0;
   tableSize = 10;
-  tableSizes = [10,20,30];
+  tableSizes = [3,6,9,12];
+
+  dailyStaff: any;
+  weeklyStaff: any;
+  monthlyStaff: any
 
   constructor(public appService: AppService) { }
 
@@ -28,6 +32,27 @@ export class StaffReportsComponent implements OnInit {
         this.reportObj = response;
       }, error => {
         console.log(error , 'GET Info!!!')
+    });
+
+    this.appService.getDailyStaff(this.token).subscribe( 
+      (      response: any) => {
+        this.dailyStaff = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
+    });
+
+    this.appService.getStaffWeekly(this.token).subscribe( 
+      (      response: any) => {
+        this.weeklyStaff = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
+    });
+
+    this.appService.getStaffMonthly(this.token).subscribe( 
+      (      response: any) => {
+        this.monthlyStaff = response;
+      }, (error: any) => {
+        console.log(error , 'GET error!!!')
     });
   }
 

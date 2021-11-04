@@ -10,11 +10,8 @@ import { AppService } from '../app.service';
 export class UserComponent implements OnInit {
   arrayStud: any;
   arrayStaff: any;
-  currentIndex = -1;
-  page = 1;
-  count = 0;
-  tableSize = 10;
-  tableSizes = [3,6,9,12];
+  page: number = 1;
+  page2: number = 2;
   new_data: any;
 
   constructor(public appService: AppService) { }
@@ -37,17 +34,6 @@ export class UserComponent implements OnInit {
       }, error => {
         console.log(error , 'GET Info!!!')
     });
-  }
-
-  handlePageChange(event: number): void{
-    this.page = event;
-    this.fetchPosts();
-  }
-
-  handlePageSizeChange(event: any): void{
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.fetchPosts();
   }
 }
 

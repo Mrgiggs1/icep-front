@@ -47,12 +47,7 @@
                <th>Contact Number</th>
              </tr>
 
-             <tr *ngFor = "let data of arrayStud | paginate :
-                         { id: 'students',
-                           itemsPerPage: tableSize,
-                           currentPage: page,
-                           totalItems: count
-                         }; let i = index" [class.active]="i == currentIndex">
+             <tr *ngFor = "let data of arrayStud | paginate: { id: 'student', itemsPerPage: 2, currentPage: page}">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -63,17 +58,9 @@
              </tr>
            </table>
            <hr>
-           <div class="d-flex justify-content-center">
-             <pagination-controls
-              id="students"
-              previousLabel="Prev"
-              nextLabel="Next"
-              [responsive]="true"
-
-              (pageChange)="handlePageChange($event)">
-                
-             </pagination-controls>
-           </div>
+           <div class="has-text-centered">
+            <pagination-controls id="student" (pageChange)="page = $event"></pagination-controls>
+          </div>
         </div>   
     </div>
 
@@ -97,12 +84,7 @@
               </tr>
             </thead>
             <tbody>
-             <tr *ngFor = "let data of arrayStaff | paginate :
-                         { id: 'staff',
-                           itemsPerPage: tableSize,
-                           currentPage: page,
-                           totalItems: count
-                         }; let i = index" [class.active]="i == currentIndex">
+             <tr *ngFor = "let data of arrayStaff | paginate: { id: 'staff', itemsPerPage: 5, currentPage: page2}">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -114,17 +96,9 @@
              </tr>
             </tbody>
            </table>
-           <div class="d-flex justify-content-center">
-             <pagination-controls
-              id="staff"
-              previousLabel="Prev"
-              nextLabel="Next"
-              [responsive]="true"
-
-              (pageChange)="handlePageChange($event)">
-               
-             </pagination-controls>
-           </div>
+           <div class="has-text-centered">
+            <pagination-controls id="staff" (pageChange)="page2 = $event"></pagination-controls>
+          </div>
         </div>   
     </div>
 

@@ -12,7 +12,9 @@ export class StudentReportsComponent implements OnInit {
   dailyStud: any;
   weeklyStud: any;
   monthlyStud: any
-
+  page: number = 1;
+  page2: number = 2;
+  page3: number = 3;
   token = localStorage.getItem("token");
 
   constructor(public appService: AppService) { }
