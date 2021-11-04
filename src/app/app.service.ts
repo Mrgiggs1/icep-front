@@ -65,6 +65,7 @@ export class AppService {
   deteteUrl =   "http://localhost:3000/screen_report/delete/";
   vaccinesUrl = "http://localhost:3000/landing/vaccines";
 
+  //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
     return this.httpClient.post<any>("http://localhost:3000/screen_report/stud_daily_report", token, { 
        headers: new HttpHeaders({
@@ -79,8 +80,18 @@ export class AppService {
          'Authorization': `Bearer ${token}`
        })
      });
-   }
+   } 
 
+   getStudMonthly(token : any) : Observable<any> {
+    return this.httpClient.post<any>("http://localhost:3000/screen_report/stud_monthly_report", token, { 
+       headers: new HttpHeaders({
+         'Authorization': `Bearer ${token}`
+       })
+     });
+   }
+   //////////////////////////////////////////////////////////////////////////////////////////////////
+
+   
 
   getUser(token : any) : Observable<any> {
    return this.httpClient.post<any>(this.dashboardUrl, token, { 
