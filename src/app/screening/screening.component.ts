@@ -20,7 +20,7 @@ export class ScreeningComponent implements OnInit {
   idNumPattern="[2-9][0-9]{1}|0[0]"+"(0[1-9]|1[0-2])"+"(0[1-9]|[12][0-9]|3[0-1])"+"[1-9]{1}"+"[0-9]{4}"+"[7-9]{1}"+"[0-9]{1}";
   sNumPattern = "^([0-9]{9}$)|(^[0-9]{6}$)";
   tempPattern = "^([0-9\.]{4}$)";
-  namePattern = "[a-zA-Z]*";
+  namePattern = "[a-zA-Z ]*";
 
   userModal = new User();
   
@@ -99,7 +99,8 @@ export class ScreeningComponent implements OnInit {
       travel: screeningFormVis.value.travel,
       fullname: screeningFormVis.value.fullname,
       phone: screeningFormVis.value.phone,
-      appointment: screeningFormVis.value.appointment
+      appointment: screeningFormVis.value.appointment,
+      vaccinated: screeningFormVis.value.vaccinated
 
     }
     
@@ -109,6 +110,7 @@ export class ScreeningComponent implements OnInit {
         this.temp_message = data.temp_message;
         if(!this.temp_message){
           alert("Visitor Screening Data is Successfully Inserted");
+          location.reload();
         }
       }, (error: any) => {
         console.log(error, 'POST error!!!')
