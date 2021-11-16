@@ -21,6 +21,7 @@ export class ScreeningComponent implements OnInit {
   sNumPattern = "^([0-9]{9}$)|(^[0-9]{6}$)";
   tempPattern = "^([0-9\.]{4}$)";
   namePattern = "[a-zA-Z ]*";
+  
 
   userModal = new User();
   

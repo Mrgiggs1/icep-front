@@ -6,4 +6,7 @@ export class User {
     public visitor_id!: string;
     public appointment!: string;
     public email!: string;
+    public fname!: string;
+    public lname!: string;
+    public address!: string;
 }

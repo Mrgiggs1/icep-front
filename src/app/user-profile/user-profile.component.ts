@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppService } from '../app.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,7 +9,7 @@ import { AppService } from '../app.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-
+  userModal = new User();
   adminDetails: any;
   token: any;
   editForm: boolean = false;
@@ -16,6 +17,9 @@ export class UserProfileComponent implements OnInit {
   address: any;
   fname: any;
   lname: any;
+  emailPattern = "[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\\.[a-z]{2,3}";
+  namePattern = "[a-zA-Z ]*";
+  addressPattern = "(?i)^[a-z0-9][a-z0-9\- ]{0,10}[a-z0-9]$";
 
   constructor(public appService: AppService) { }
   
@@ -36,6 +40,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   onSubmit(editForm : NgForm) {
+    console.table(this.userModal);
     let new_data = {
       fname: editForm.value.firstName,
       lname: editForm.value.lastName,
