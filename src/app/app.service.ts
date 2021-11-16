@@ -63,7 +63,16 @@ export class AppService {
   
 
   deteteUrl =   "http://localhost:3000/screen_report/delete/";
-  vaccinesUrl = "http://localhost:3000/landing/vaccines";
+  vaccinesUrl = "http://localhost:3000/landing/vaccines"; 
+  announcementUrl = "http://localhost:3000/announcements";
+
+  Announcements(newAnnouncement : any, token : any) : Observable<any> { 
+    return this.httpClient.post<any>(this.announcementUrl, newAnnouncement, { 
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    });
+  }
 
   //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
@@ -302,7 +311,7 @@ export class AppService {
   }
 
   logOut(){
-    localStorage.clear();
+    localStorage.removeItem('token');
   }
   
   screening(screening : any) : Observable<any> {

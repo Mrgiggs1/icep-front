@@ -101,8 +101,8 @@ export class ScreeningComponent implements OnInit {
       phone: screeningFormVis.value.phone,
       appointment: screeningFormVis.value.appointment,
       vaccinated: screeningFormVis.value.vaccinated
-
     }
+    console.log(newScreening);
     
     this.appService.screeningVis(newScreening).subscribe( 
       (data: any) => {

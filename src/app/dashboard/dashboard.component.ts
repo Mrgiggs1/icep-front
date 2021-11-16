@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { AppService } from '../app.service';
 import { Router } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,6 @@ export class DashboardComponent implements OnInit {
   token: any;
   user: any;
   totUsers: any;
-
   date: Date = new Date(); 
   adminDetails: any;
 
@@ -65,14 +65,26 @@ export class DashboardComponent implements OnInit {
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
-
-    
-
-    
-
     // if (this.user.role == "staff"){
     //   this.router.navigate(['/staff-dashboard'])
     // }
   }
 
+  onSubmit(AnnouncementForm: NgForm){
+    let newAnnouncement = {
+      subject: AnnouncementForm.value.subject,
+      announcement: AnnouncementForm.value.announcement
+    }
+
+    localStorage.setItem('announcement', newAnnouncement.announcement)
+    localStorage.setItem('subject', newAnnouncement.subject)
+    localStorage.setItem('date', new Date().toLocaleString())
+
+    // this.appService.Announcements(newAnnouncement, this.token).subscribe( 
+    //   (data: any) => {
+        
+    //   }, (error: any) => {
+    //     console.log(error, 'Announcements POST error!!!')
+    // });
+  }
 }
