@@ -2,7 +2,23 @@
 
 
   <!--Navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light" id="dashnav">
+  <nav id="dashnav">
+    <ul class="nav">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/user-profile" routerLinkActive="active">Profile</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/user" routerLinkActive="active">Users</a>
+        </li>
+      <li class="nav-item active">
+          <a class="nav-link" routerLink="/screen-report" routerLinkActive="active">Screen Report</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/statistics" routerLinkActive="active">Statistics</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- <nav class="navbar navbar-expand-lg navbar-light" id="dashnav">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,7 +40,7 @@
         
         </ul>
       </div>
-  </nav>
+  </nav> -->
     
     <br><br>
     <div class="card text-center">
@@ -34,7 +50,7 @@
         </div> 
         <div class="card-body" style="overflow: auto;">
           
-          <table id="table-data" style="overflow-x: auto;" class="table">
+          <table id="table-data" class="table">
               
               
             <tr>
