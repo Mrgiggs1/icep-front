@@ -52,7 +52,8 @@ export class ScreeningComponent implements OnInit {
     console.log(screeningForm.value.cough)
     if(screeningForm.value.cough == true && screeningForm.value.breathing == true && screeningForm.value.fever == true)
     {
-      alert("Visit Nearest Testing Station, check landing page");
+      const element: HTMLElement = document.getElementById('symptom') as HTMLElement 
+      element.innerHTML = 'jlsdbkhsdbkhdvsbkhsdbkjsd'
     }
     
     let newScreening = {
