@@ -1,7 +1,7 @@
 [build]
-command = "npm run build"
-publish = "/build"
-base = "/"
+publish = "dist/covid-compliance"
+
+command = "ng build --prod"
 
 [[redirects]]
 from = "/*"
