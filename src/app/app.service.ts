@@ -13,58 +13,58 @@ export class AppService {
   constructor(public httpClient: HttpClient, public router: Router) { }
   user: any;
 
-  allScreened =        "https://covid-compliance.herokuapp.com//screening/allscreens";
-  user_screening =     "https://covid-compliance.herokuapp.com//screening/stud_staff";
-  user_screeningVis =  "https://covid-compliance.herokuapp.com//screening/visitor";
-  userStud =           "https://covid-compliance.herokuapp.com//user/student";
-  userStaff =          "https://covid-compliance.herokuapp.com//user/staff";
-  userLogin =          "https://covid-compliance.herokuapp.com//login";
-  refrashTokenUrl =    "https://covid-compliance.herokuapp.com//login/refrash_token";
+  allScreened =        "https://covid-compliance.herokuapp.com/screening/allscreens";
+  user_screening =     "https://covid-compliance.herokuapp.com/screening/stud_staff";
+  user_screeningVis =  "https://covid-compliance.herokuapp.com/screening/visitor";
+  userStud =           "https://covid-compliance.herokuapp.com/user/student";
+  userStaff =          "https://covid-compliance.herokuapp.com/user/staff";
+  userLogin =          "https://covid-compliance.herokuapp.com/login";
+  refrashTokenUrl =    "https://covid-compliance.herokuapp.com/login/refrash_token";
 
-  statUrl =         "https://covid-compliance.herokuapp.com//statistics/campus";
-  statStudUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/student";
-  statStaffUrl =    "https://covid-compliance.herokuapp.com//statistics/campus/staff";
-  statVisUrl  =     "https://covid-compliance.herokuapp.com//statistics/campus/visitor";
-  statSympUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/symptoms";
+  statUrl =         "https://covid-compliance.herokuapp.com/statistics/campus";
+  statStudUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/student";
+  statStaffUrl =    "https://covid-compliance.herokuapp.com/statistics/campus/staff";
+  statVisUrl  =     "https://covid-compliance.herokuapp.com/statistics/campus/visitor";
+  statSympUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/symptoms";
  
   
 
     //weekly statistics root
-  weelyDataUrl =    "https://covid-compliance.herokuapp.com//statistics/campus/weekly";
-  weekStudUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/student/weekStud";
-  weekStaffUrl =    "https://covid-compliance.herokuapp.com//statistics/campus/staff/weekStaff";
-  weekVisUrl  =     "https://covid-compliance.herokuapp.com//statistics/campus/visitor/weekVis";
-  weekSympUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/symptoms/weekSymp";
+  weelyDataUrl =    "https://covid-compliance.herokuapp.com/statistics/campus/weekly";
+  weekStudUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/student/weekStud";
+  weekStaffUrl =    "https://covid-compliance.herokuapp.com/statistics/campus/staff/weekStaff";
+  weekVisUrl  =     "https://covid-compliance.herokuapp.com/statistics/campus/visitor/weekVis";
+  weekSympUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/symptoms/weekSymp";
   //end stats
 
   //monthly stats root
-  monDataUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/monthly";
-  monStudUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/student/monthStud";
-  monStaffUrl =    "https://covid-compliance.herokuapp.com//statistics/campus/staff/monthStaff";
-  monVisUrl  =     "https://covid-compliance.herokuapp.com//statistics/campus/visitor/monthVis";
-  monSympUrl =     "https://covid-compliance.herokuapp.com//statistics/campus/symptoms/monthSymp";
+  monDataUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/monthly";
+  monStudUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/student/monthStud";
+  monStaffUrl =    "https://covid-compliance.herokuapp.com/statistics/campus/staff/monthStaff";
+  monVisUrl  =     "https://covid-compliance.herokuapp.com/statistics/campus/visitor/monthVis";
+  monSympUrl =     "https://covid-compliance.herokuapp.com/statistics/campus/symptoms/monthSymp";
   //end stat monthly
 
   userProfile =     "https://covid-compliance.herokuapp.com//user/user-profile";
 
-  adminProfileUrl =        "https://covid-compliance.herokuapp.com//user/admin-profile";
-  staffProfileUrl =        "https://covid-compliance.herokuapp.com//user/staff-profile";
-  studentProfileUrl =      "https://covid-compliance.herokuapp.com//user/student-profile";
-  dashboardUrl =           "https://covid-compliance.herokuapp.com//user/dashboard";
-  allusers =               "https://covid-compliance.herokuapp.com//user/allusers";
-  edit_admin =             "https://covid-compliance.herokuapp.com//user/edit_admin";
+  adminProfileUrl =        "https://covid-compliance.herokuapp.com/user/admin-profile";
+  staffProfileUrl =        "https://covid-compliance.herokuapp.com/user/staff-profile";
+  studentProfileUrl =      "https://covid-compliance.herokuapp.com/user/student-profile";
+  dashboardUrl =           "https://covid-compliance.herokuapp.com/user/dashboard";
+  allusers =               "https://covid-compliance.herokuapp.com/user/allusers";
+  edit_admin =             "https://covid-compliance.herokuapp.com/user/edit_admin";
   //screen reports
 
-  reportUrl =         "https://covid-compliance.herokuapp.com//screen_report/stud_staff"
-  getUsertUrl =       "https://covid-compliance.herokuapp.com//screen_report/user"
-  adminReportUrl =    "https://covid-compliance.herokuapp.com//screen_report/admin"
-  reportData =        "https://covid-compliance.herokuapp.com//screen_report/report";
+  reportUrl =         "https://covid-compliance.herokuapp.com/screen_report/stud_staff"
+  getUsertUrl =       "https://covid-compliance.herokuapp.com/screen_report/user"
+  adminReportUrl =    "https://covid-compliance.herokuapp.com/screen_report/admin"
+  reportData =        "https://covid-compliance.herokuapp.com/screen_report/report";
   
   
 
-  deteteUrl =   "https://covid-compliance.herokuapp.com//screen_report/delete/";
-  vaccinesUrl = "https://covid-compliance.herokuapp.com//landing/vaccines"; 
-  announcementUrl = "https://covid-compliance.herokuapp.com//announcements";
+  deteteUrl =   "https://covid-compliance.herokuapp.com/screen_report/delete/";
+  vaccinesUrl = "https://covid-compliance.herokuapp.com/landing/vaccines"; 
+  announcementUrl = "https://covid-compliance.herokuapp.com/announcements";
 
   Announcements(newAnnouncement : any, token : any) : Observable<any> { 
     return this.httpClient.post<any>(this.announcementUrl, newAnnouncement, { 
@@ -76,7 +76,7 @@ export class AppService {
 
   //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/stud_daily_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/stud_daily_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -84,7 +84,7 @@ export class AppService {
    }
 
    getStudWeekly(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/stud_weekly_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/stud_weekly_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -92,7 +92,7 @@ export class AppService {
    } 
 
    getStudMonthly(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/stud_monthly_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/stud_monthly_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -103,7 +103,7 @@ export class AppService {
   
   //this is screen report for staff /////////////////////////////////////////////////////////////
   getStaffDaily(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/staff_daily_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/staff_daily_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -111,7 +111,7 @@ export class AppService {
    }
 
    getStaffWeekly(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/staff_weekly_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/staff_weekly_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -119,7 +119,7 @@ export class AppService {
    } 
 
    getStaffMonthly(token : any) : Observable<any> {
-    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com//screen_report/staff_monthly_report", token, { 
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/staff_monthly_report", token, { 
        headers: new HttpHeaders({
          'Authorization': `Bearer ${token}`
        })
@@ -136,16 +136,16 @@ export class AppService {
   }
 
   getVaccines(camp_id: any) : Observable<any> {
-    return this.httpClient.get("https://covid-compliance.herokuapp.com//landing/" + camp_id);
+    return this.httpClient.get("https://covid-compliance.herokuapp.com/landing/" + camp_id);
   }
 
   // count number of row in screening table 
   getScreenRows(camp_id: any) : Observable<any> {
-    return this.httpClient.get("https://covid-compliance.herokuapp.com//landing/screen_rows" + camp_id);
+    return this.httpClient.get("https://covid-compliance.herokuapp.com/landing/screen_rows" + camp_id);
   }
 
   deleteScreen(index: any) : Observable<any> {
-    return this.httpClient.delete("https://covid-compliance.herokuapp.com//screen_report/delete/" + index);
+    return this.httpClient.delete("https://covid-compliance.herokuapp.com/screen_report/delete/" + index);
   }
 
   adminScreenReport(token : any, report: any) : Observable<any> { 
