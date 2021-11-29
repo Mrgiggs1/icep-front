@@ -77,7 +77,7 @@ export class AppService {
   corsPol() : Observable<any> {
     return this.httpClient.get("https://covid-compliance.herokuapp.com/landing/reqPolicy");
    }
-   
+
 
   //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
