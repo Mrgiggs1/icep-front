@@ -66,14 +66,6 @@ export class AppService {
   vaccinesUrl = "https://covid-compliance.herokuapp.com/landing/vaccines"; 
   announcementUrl = "https://covid-compliance.herokuapp.com/announcements";
 
-  corsPolicy(): void{
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    })
-  }
-
   Announcements(newAnnouncement : any, token : any) : Observable<any> { 
     return this.httpClient.post<any>(this.announcementUrl, newAnnouncement, { 
       headers: new HttpHeaders({
@@ -81,6 +73,10 @@ export class AppService {
       })
     });
   }
+
+  corsPol() : Observable<any> {
+    return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/landing/reqPolicy");
+   }
 
   //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
