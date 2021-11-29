@@ -15,14 +15,6 @@ export class LandingComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.corsPol().subscribe( 
-      response => {
-        console.log(response);
-        
-      }, error => {
-        console.log(error , 'CORS Policy Headers Error ')
-    });
-
     for(let i = 0; i < 8; i++){
       this.appService.getVaccines(this.camp_id[i]).subscribe( 
         response => {

@@ -74,11 +74,6 @@ export class AppService {
     });
   }
 
-  corsPol() : Observable<any> {
-    return this.httpClient.get("https://covid-compliance.herokuapp.com/landing/reqPolicy");
-   }
-
-
   //this is screen report for student /////////////////////////////////////////////////////////////
   getStudDaily(token : any) : Observable<any> {
     return this.httpClient.post<any>("https://covid-compliance.herokuapp.com/screen_report/stud_daily_report", token, { 
