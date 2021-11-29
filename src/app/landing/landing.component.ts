@@ -15,6 +15,7 @@ export class LandingComponent implements OnInit {
   constructor(public appService: AppService) { }
 
   ngOnInit(): void {
+    this.appService.corsPolicy();
     for(let i = 0; i < 8; i++){
       this.appService.getVaccines(this.camp_id[i]).subscribe( 
         response => {
