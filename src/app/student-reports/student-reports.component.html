@@ -44,9 +44,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of dailyStud"
-                          
-                       style ="text-transform: capitalize;">
+                       <tr *ngFor = "let data of dailyStud" style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
@@ -87,9 +85,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of weeklyStud | paginate: { itemsPerPage: 5, currentPage: page, id: 'Weekly' }"
-                          
-                       style ="text-transform: capitalize;">
+                       <tr *ngFor = "let data of weeklyStud" style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
@@ -109,9 +105,9 @@
                           {{ data }}
                       </li>
                   </ul> -->
-                  <div class="has-text-centered">
+                  <!-- <div class="has-text-centered">
                       <pagination-controls (pageChange)="page = $event" id="Weekly"></pagination-controls>
-                  </div>
+                  </div> -->
                   </div>
                 </div>
               </div>
@@ -139,9 +135,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of monthlyStud | paginate: { id: 'Monthly', itemsPerPage: 5, currentPage: page2 }"
-                          
-                       style ="text-transform: capitalize;">
+                       <tr *ngFor = "let data of monthlyStud" style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
@@ -156,9 +150,9 @@
                        </tr>
                      </table>
                      <hr>
-                     <div class="has-text-centered">
+                     <!-- <div class="has-text-centered">
                       <pagination-controls id="Monthly" (pageChange)="page2 = $event"></pagination-controls>
-                  </div>
+                  </div> -->
                   </div>
                 </div>
               </div>
@@ -170,30 +164,34 @@
                 </h2>
                 <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body">
-                    <table class="table table-striped" style="text-align: center" width=100%>
+                    <table class="table table-striped" style="text-align: center" width=100% id="tblreport">
         
                       <tr style ="text-transform: capitalize;">
                          <th>Name</th>
                          <th>Surname</th>  
                          <th>Student#</th>
-                         <th>Campus</th>
-                         <th>Symptoms</th>
+                         <!-- <th>Campus</th>
+                         <th>Symptoms</th> -->
                          <th>Temp</th>
                          <th>Fever</th>
                          <th>Breathing <br> problems</th>
                          <th>Covid <br>Contact</th>
                          <th>Cough<br> Symptoms</th>
-                         <th>Screen</th>
+                         <th>Screen Date</th>
                        </tr>
          
-                       <tr *ngFor = "let data of reportObj | paginate: { id: 'all', itemsPerPage: 5, currentPage: page3}"
-                          
-                       style ="text-transform: capitalize;">
+                       <!-- <tr *ngFor = "let data of reportObj | paginate: { itemsPerPage: 10, currentPage: page3}" style ="text-transform: capitalize;"> -->
+                        <tr *ngFor = "let data of reportObj | paginate :
+                         { id: 'reports',
+                           itemsPerPage: tableSize,
+                           currentPage: page,
+                           totalItems: count
+                         }; let i = index" [class.active]="i == currentIndex">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
-                           <td>{{data.campus}}</td>
-                           <td>{{data.symptoms}}</td>
+                           <!-- <td>{{data.campus}}</td>
+                           <td>{{data.symptoms}}</td> -->
                            <td class="text-danger"><strong>{{data.temp}}</strong></td>
                            <td>{{data.fever}}</td>
                            <td>{{data.breathing}}</td>
@@ -203,8 +201,16 @@
                        </tr>
                      </table>
                      <hr>
-                     <div class="has-text-centered">
-                      <pagination-controls id="all" (pageChange)="page3 = $event"></pagination-controls>
+                     <div class="d-flex justify-content-center">
+                      <pagination-controls
+                       id="reports"
+                       previousLabel="Prev"
+                       nextLabel="Next"
+                       [responsive]="true"
+         
+                       (pageChange)="handlePageChange($event)">
+                         
+                      </pagination-controls>
                     </div>
                   </div>
                 </div>

@@ -105,7 +105,11 @@ export class ScreeningComponent implements OnInit {
       vaccinated: screeningFormVis.value.vaccinated
     }
     console.log(newScreening);
-    
+    //if to check 37 tem
+    if(newScreening.temp >= 37)
+    {
+      alert("Warning!! Temperature is Above 37, Screen Again!! ");
+    }
     this.appService.screeningVis(newScreening).subscribe( 
       (data: any) => {
         console.log(data);

@@ -85,7 +85,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of weeklyStaff | paginate: { id: 'Weekly', itemsPerPage: 10, currentPage: page}" style ="text-transform: capitalize;">
+                       <tr *ngFor = "let data of weeklyStaff" style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
@@ -100,9 +100,9 @@
                        </tr>
                      </table>
                      <hr>
-                     <div class="has-text-centered">
+                     <!-- <div class="has-text-centered">
                       <pagination-controls id="Weekly" (pageChange)="page = $event"></pagination-controls>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -130,7 +130,7 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of monthlyStaff | paginate: { id: 'Monthly', itemsPerPage: 10, currentPage: page2}" style ="text-transform: capitalize;">
+                       <tr *ngFor = "let data of monthlyStaff" style ="text-transform: capitalize;">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
@@ -145,9 +145,9 @@
                        </tr>
                      </table>
                      <hr>
-                     <div class="has-text-centered">
+                     <!-- <div class="has-text-centered">
                       <pagination-controls id="Monthly" (pageChange)="page2 = $event"></pagination-controls>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -166,7 +166,7 @@
                          <th>Surname</th>  
                          <th>Staff</th>
                          <th>Campus</th>
-                         <th>Other Symptoms</th>
+                         <!-- <th>Other Symptoms</th> -->
                          <th>Temp</th>
                          <th>Fever</th>
                          <th>Breathing <br> problems</th>
@@ -175,14 +175,18 @@
                          <th>Screen</th>
                        </tr>
          
-                       <tr *ngFor = "let data of reportObj | paginate: { id: 'all', itemsPerPage: 10, currentPage: page3}"
-                          
-                       style ="text-transform: capitalize;">
+                       <!-- <tr *ngFor = "let data of reportObj" style ="text-transform: capitalize;"> -->
+                        <tr *ngFor = "let data of reportObj | paginate :
+                         { id: 'reports',
+                           itemsPerPage: tableSize,
+                           currentPage: page,
+                           totalItems: count
+                         }; let i = index" [class.active]="i == currentIndex">
                            <td>{{data.fname}}</td>
                            <td>{{data.lname}}</td>
                            <td>{{data.stud_num}}{{data.staff_num}}</td>
                            <td>{{data.campus}}</td>
-                           <td>{{data.symptoms}}</td>
+                           <!-- <td>{{data.symptoms}}</td> -->
                            <td class="text-danger"><strong>{{data.temp}}</strong></td>
                            <td>{{data.fever}}</td>
                            <td>{{data.breathing}}</td>
@@ -192,8 +196,16 @@
                        </tr>
                      </table>
                      <hr>
-                     <div class="has-text-centered">
-                      <pagination-controls id="all" (pageChange)="page3 = $event"></pagination-controls>
+                     <div class="d-flex justify-content-center">
+                      <pagination-controls
+                       id="reports"
+                       previousLabel="Prev"
+                       nextLabel="Next"
+                       [responsive]="true"
+         
+                       (pageChange)="handlePageChange($event)">
+                         
+                      </pagination-controls>
                     </div>
                   </div>
                 </div>

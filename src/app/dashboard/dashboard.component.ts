@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
     localStorage.setItem('announcement', newAnnouncement.announcement)
     localStorage.setItem('subject', newAnnouncement.subject)
     localStorage.setItem('date', new Date().toLocaleString())
-
+    location.reload();
     // this.appService.Announcements(newAnnouncement, this.token).subscribe( 
     //   (data: any) => {
         

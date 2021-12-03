@@ -8,9 +8,14 @@ import { AppService } from '../app.service';
   styleUrls: ['./staff-reports.component.css']
 })
 export class StaffReportsComponent implements OnInit {
+  currentIndex = -1;
+  page = 1;
+  count = 0;
+  tableSize = 5;
+  tableSizes = [3,6,9,12];
   reportObj: any;
   token = localStorage.getItem("token");
-  page: number = 1;
+  // page: number = 1;
   page2: number = 2;
   page3: number = 3;
 
@@ -31,7 +36,7 @@ export class StaffReportsComponent implements OnInit {
         console.log(error , 'GET Info!!!')
     });
 
-    this.appService.getDailyStaff(this.token).subscribe( 
+    this.appService.getStaffDaily(this.token).subscribe( 
       (      response: any) => {
         this.dailyStaff = response;
       }, (error: any) => {
@@ -51,6 +56,26 @@ export class StaffReportsComponent implements OnInit {
       }, (error: any) => {
         console.log(error , 'GET error!!!')
     });
+  }
+
+  fetchPosts(): void{
+    this.appService.getReport(this.token).subscribe( 
+      response => {
+        this.reportObj = response;
+      }, error => {
+        console.log(error , 'GET Info!!!')
+    });
+  }
+
+  handlePageChange(event: number): void{
+    this.page = event;
+    this.fetchPosts();
+  }
+
+  handlePageSizeChange(event: any): void{
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.fetchPosts();
   }
 
 }

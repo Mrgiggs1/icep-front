@@ -62,8 +62,8 @@
                <th>Gender</th>
                <th>Contact Number</th>
              </tr>
-
-             <tr *ngFor = "let data of arrayStud | paginate: { id: 'student', itemsPerPage: 2, currentPage: page}">
+             <!-- <tr *ngFor = "let data of arrayStud | paginate: { id: 'student', itemsPerPage: 2, currentPage: page}"> -->
+             <tr *ngFor = "let data of arrayStud">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -74,9 +74,9 @@
              </tr>
            </table>
            <hr>
-           <div class="has-text-centered">
+           <!-- <div class="has-text-centered">
             <pagination-controls id="student" (pageChange)="page = $event"></pagination-controls>
-          </div>
+          </div> -->
         </div>   
     </div>
 
@@ -100,7 +100,8 @@
               </tr>
             </thead>
             <tbody>
-             <tr *ngFor = "let data of arrayStaff | paginate: { id: 'staff', itemsPerPage: 5, currentPage: page2}">
+              <!-- <tr *ngFor = "let data of arrayStaff | paginate: { id: 'staff', itemsPerPage: 5, currentPage: page2}"></tr> -->
+             <tr *ngFor = "let data of arrayStaff">
                  <td>{{data.id_number}}</td>
                  <td>{{data.email}}</td>
                  <td>{{data.fname}}</td>
@@ -112,9 +113,9 @@
              </tr>
             </tbody>
            </table>
-           <div class="has-text-centered">
+           <!-- <div class="has-text-centered">
             <pagination-controls id="staff" (pageChange)="page2 = $event"></pagination-controls>
-          </div>
+          </div> -->
         </div>   
     </div>
 
