@@ -257,7 +257,7 @@
             <label for="id"> ID Number </label>
             <input type="hidden" ngModel name="id" #id="ngModel" class="form-control" id="id">
             
-                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  [pattern] = "idNumPattern" #visitor_id="ngModel" required id="studentOrStaff" placeholder="ID Number" >
+                 <input type="text" class="form-control" [(ngModel)]="userModal.visitor_id" name="visitor_id"  [pattern] = "idNumPattern" #visitor_id="ngModel" required id="id" placeholder="ID Number" >
                 <span class="text-danger" *ngIf="(visitor_id.touched || screeningFormVis.submitted) && visitor_id.errors?.required">
                  ID number is required
                  </span>
