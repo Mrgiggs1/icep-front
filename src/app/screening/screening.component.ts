@@ -38,6 +38,7 @@ export class ScreeningComponent implements OnInit {
   error_message: any;
   data_message: any;
   temp_message: any;
+  temp_msg: any;
   
   constructor(public appService: AppService, private _router: Router) { }
 
@@ -50,12 +51,12 @@ export class ScreeningComponent implements OnInit {
     //alert('Form Submitted succesfully!!!\n Check the values in browser console.');
     console.table(this.userModal);
 
-    console.log(screeningForm.value.cough)
-    if(screeningForm.value.cough == true && screeningForm.value.breathing == true && screeningForm.value.fever == true)
-    {
-      const element: HTMLElement = document.getElementById('symptom') as HTMLElement 
-      element.innerHTML = 'jlsdbkhsdbkhdvsbkhsdbkjsd'
-    }
+    // console.log(screeningForm.value.cough)
+    // if(screeningForm.value.cough == true && screeningForm.value.breathing == true && screeningForm.value.fever == true)
+    // {
+    //   const element: HTMLElement = document.getElementById('symptom') as HTMLElement 
+    //   element.innerHTML = 'Visit your nearest Testing station';
+    // }
     
     let newScreening = {
       
@@ -76,6 +77,12 @@ export class ScreeningComponent implements OnInit {
     this.appService.screening(newScreening).subscribe( 
       (data: any) => {
         this.data_message = data.stu_message;
+        this.temp_msg = data.temp_msg;
+
+        if (this.temp_msg){
+          alert(this.temp_msg);
+          location.reload();
+        }
         if (this.data_message){
           alert("Successfully screened!")
           location.reload();
